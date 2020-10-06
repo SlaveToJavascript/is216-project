@@ -1,24 +1,13 @@
-# is216-project
+# IS216 Project
 
-## Project setup
-```
-yarn install
-```
+> STUD (Stress to Undergrads Disappear)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+``` bash
 
-### Compiles and minifies for production
-```
-yarn build
-```
+Step by step instructions of:
+a) how to set up your application based on the submitted file(s)
+b) how to run your application
 
-### Lints and fixes files
-```
-yarn lint
-```
+If there are any username/password details, put it in this file.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
