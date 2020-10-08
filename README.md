@@ -1,13 +1,24 @@
-# IS216 Project
+# vuevue
 
-> STUD (Stress to Undergrads Disappear)
-
-``` bash
-
-Step by step instructions of:
-a) how to set up your application based on the submitted file(s)
-b) how to run your application
-
-If there are any username/password details, put it in this file.
-
+## Project setup
 ```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
