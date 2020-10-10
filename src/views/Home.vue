@@ -4,40 +4,41 @@
     <TopNav />
 
     <!-- LEFT NAVIGATION MENU -->
-    <LeftNav/>
+    <LeftNav />
 
     <!-- QUOTES -->
     <QuoteBar />
 
     <!-- MODULES -->
-    <ModulesAccordian mod1="IDP" mod2="BPAS" mod3="WAD2" mod4="Ethics" mod5="MC" />
-
+    <ModulesAccordian
+      mod1="IDP"
+      mod2="BPAS"
+      mod3="WAD2"
+      mod4="Ethics"
+      mod5="MC"
+    />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import TopNav from '@/components/TopNav'
-import QuoteBar from '@/components/QuoteBar'
-import LeftNav from '@/components/LeftNav'
-import ModulesAccordian from '@/components/ModulesAccordian'
+import TopNav from "@/components/TopNav";
+import QuoteBar from "@/components/QuoteBar";
+import LeftNav from "@/components/LeftNav";
+import ModulesAccordian from "@/components/ModulesAccordian";
 
 export default {
   name: "Home",
   components: {
-    TopNav, 
+    TopNav,
     QuoteBar,
     LeftNav,
-    ModulesAccordian,
+    ModulesAccordian
   },
   data() {
-    return {
-      
-    };
+    return {};
   }
 };
 </script>
 
-<style>
-  
-</style>
+<style scoped></style>
