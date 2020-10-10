@@ -26,6 +26,38 @@ export default {
             element: "span",
             class: "glyphicon glyphicon-home"
           }
+        },
+        {
+          href: "/timetable",
+          title: "Timetable",
+          icon: {
+            element: "span",
+            class: "glyphicon glyphicon-calendar"
+          }
+        },
+        {
+          href: "/jobs",
+          title: "Jobs",
+          icon: {
+            element: "span",
+            class: "glyphicon glyphicon-briefcase"
+          }
+        },
+        {
+          href: "/habit",
+          title: "Habit",
+          icon: {
+            element: "span",
+            class: "glyphicon glyphicon-time"
+          }
+        },
+        {
+          href: "/Settings",
+          title: "Settings",
+          icon: {
+            element: "span",
+            class: "glyphicon glyphicon-cog"
+          }
         }
       ],
       width: "200px",
