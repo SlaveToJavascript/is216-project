@@ -1,0 +1,33 @@
+body {
+    font-family: 'Poppins'; 
+    min-height: 100vh;
+}
+
+.navbar {
+    height: 60px;
+}
+
+.dropdown-toggle::after { 
+    display: none !important; 
+}
+
+.input-group-text {
+    background-color: white;
+}
+
+.pill {
+    background-color: #F1F2F6;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.pill:hover {
+    background-color: #F4976C;
+  }
