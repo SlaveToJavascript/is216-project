@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Achievement Page</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="styling.css">
 </head>
 <body>
-    helo
+
+    <!--top nav bar-->
+    <div class = "container-fluid">
+        <div class="navbar navbar-light bg-light navbar-expand-lg" >
+         <a class="navbar-brand" href="#">
+             <img src="./images/logo.jpg" class="d-inline-block align-center" height="15%" width="15%" alt="STUD">
+             STUD
+            </a>
+           <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+           </button>
+ 
+           <div class="collapse navbar-collapse" id="navbarNav">
+             <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Home</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Timetable</a>
+               </li>
+               <li class="nav-item active">
+                 <a class="nav-link" href="#">Achievements <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link disabled" href="#">Jobs</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link disabled" href="#">Settings</a>
+               </li>
+             </ul>
+           </div>
+        </div>
+
+        <!--HELP I want to put the badge images on top of the background image but the googled method doesn't work-->
+        <div class="badge" style="position: relative;">
+            <img src="./images/badges/5_login.png" width="10%">
+            <img src="./images/badges/5_tasks.png" width="10%">
+            <img src="./images/badges/1_sem.png" width="10%">
+            <img src="./images/badges/10_todos.png" width="10%">
+        </div>
+        <img src="./images/wall_day.jpg" class="backgroundImg image-fluid rounded" width=100% alt="Responsive image">
+
+    </div>
+
+    
+
+    
 </body>
 </html>
