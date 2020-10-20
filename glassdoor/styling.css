@@ -31,3 +31,19 @@ body {
 .pill:hover {
     background-color: #F4976C;
   }
+
+
+.building  {
+    margin-top:5px;
+    margin-right:10px;
+}
+
+.location {
+    margin: 5px 5px 0px 5px;
+}
+
+.calendar {
+    margin-top: 5px;
+    margin-right:10px;
+    
+}
