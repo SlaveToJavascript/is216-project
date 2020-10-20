@@ -3,9 +3,16 @@ import App from "./App.vue";
 import router from "./router";
 import VueSidebarMenu from "vue-sidebar-menu";
 import "vue-sidebar-menu/dist/vue-sidebar-menu.css";
+import moment from 'moment'
+
 Vue.use(VueSidebarMenu);
 
 Vue.config.productionTip = false;
+
+Vue.filter('formatDate', function (value) {
+  if (!value) return ''
+  return moment(value.toString()).format('MM/DD/YYYY hh:mm')
+})
 
 new Vue({
   router,

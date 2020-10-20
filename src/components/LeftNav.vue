@@ -60,7 +60,7 @@ export default {
           }
         }
       ],
-      width: "200px",
+      width: "150px",
       hideToggle: true
     };
   }

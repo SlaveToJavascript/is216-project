@@ -1,6 +1,6 @@
 <template>
-  <div class="top-navbar">
-    <b-navbar toggleable="sm" type="light" variant="light">
+  <div id="top-navbar">
+    <b-navbar toggleable="sm" type="light">
       <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
       <h1 class="navbar-header">Good morning, Sean</h1>
       <b-collapse id="nav-text-collapse" is-nav> </b-collapse>
@@ -45,10 +45,15 @@ export default {
 </script>
 
 <style scoped>
+#top-navbar {
+  background-color: #563d7c;
+}
+
 .navbar-header {
-  margin-left: 220px;
+  margin-left: 200px;
   font-size: 30px;
   font-family: "Montserrat", sans-serif;
+  color: white;
 }
 
 .navbar {

@@ -7,8 +7,11 @@
           v-b-toggle.accordion-1
           variant="info"
           style="font-size:15px;"
-          >{{ mod1 }}</b-button
+          id="accordion1"
+          @click="initVideos(1)"
         >
+          {{ mod1 }}
+        </b-button>
       </b-card-header>
       <b-collapse
         id="accordion-1"
@@ -17,11 +20,18 @@
         role="tabpanel"
       >
         <b-card-body>
-          <b-card-text
-            >I start opened because <code>visible</code> is
-            <code>true</code></b-card-text
-          >
-          <b-card-text>{{ text }}</b-card-text>
+          <div class="module-section">
+            <b-card-text>{{ text }}</b-card-text>
+            <!-- Search bar -->
+            <YoutubeSearch v-on:search="search"/>
+            
+            <!-- Videos -->
+            <YoutubeResults
+              v-if="videos.length > 0"
+              v-bind:videos="videos"
+              v-bind:reformattedSearchString="reformattedSearchString"
+            />
+          </div>
         </b-card-body>
       </b-collapse>
     </b-card>
@@ -33,12 +43,22 @@
           v-b-toggle.accordion-2
           variant="info"
           style="font-size:15px;"
+          @click="initVideos(2)"
           >{{ mod2 }}</b-button
         >
       </b-card-header>
       <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
         <b-card-body>
           <b-card-text>{{ text }}</b-card-text>
+          <!-- Search bar -->
+          <YoutubeSearch v-on:search="search"/>
+          
+          <!-- Videos -->
+          <YoutubeResults
+            v-if="videos.length > 0"
+            v-bind:videos="videos"
+            v-bind:reformattedSearchString="reformattedSearchString"
+          />
         </b-card-body>
       </b-collapse>
     </b-card>
@@ -50,12 +70,22 @@
           v-b-toggle.accordion-3
           variant="info"
           style="font-size:15px;"
+          @click="initVideos(3)"
           >{{ mod3 }}</b-button
         >
       </b-card-header>
       <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
         <b-card-body>
           <b-card-text>{{ text }}</b-card-text>
+          <!-- Search bar -->
+          <YoutubeSearch v-on:search="search"/>
+          
+          <!-- Videos -->
+          <YoutubeResults
+            v-if="videos.length > 0"
+            v-bind:videos="videos"
+            v-bind:reformattedSearchString="reformattedSearchString"
+          />
         </b-card-body>
       </b-collapse>
     </b-card>
@@ -67,12 +97,22 @@
           v-b-toggle.accordion-4
           variant="info"
           style="font-size:15px;"
+          @click="initVideos(4)"
           >{{ mod4 }}</b-button
         >
       </b-card-header>
       <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
         <b-card-body>
           <b-card-text>{{ text }}</b-card-text>
+          <!-- Search bar -->
+          <YoutubeSearch v-on:search="search"/>
+          
+          <!-- Videos -->
+          <YoutubeResults
+            v-if="videos.length > 0"
+            v-bind:videos="videos"
+            v-bind:reformattedSearchString="reformattedSearchString"
+          />
         </b-card-body>
       </b-collapse>
     </b-card>
@@ -84,12 +124,22 @@
           v-b-toggle.accordion-5
           variant="info"
           style="font-size:15px;"
+          @click="initVideos(5)"
           >{{ mod5 }}</b-button
         >
       </b-card-header>
       <b-collapse id="accordion-5" accordion="my-accordion" role="tabpanel">
         <b-card-body>
           <b-card-text>{{ text }}</b-card-text>
+          <!-- Search bar -->
+          <YoutubeSearch v-on:search="search"/>
+          
+          <!-- Videos -->
+          <YoutubeResults
+            v-if="videos.length > 0"
+            v-bind:videos="videos"
+            v-bind:reformattedSearchString="reformattedSearchString"
+          />
         </b-card-body>
       </b-collapse>
     </b-card>
@@ -97,6 +147,13 @@
 </template>
 
 <script>
+import Vue from "vue";
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import YoutubeSearch from "@/components/YoutubeSearch";
+import YoutubeResults from "@/components/YoutubeResults";
+Vue.use(VueAxios, axios)
+
 export default {
   name: "ModulesAccordian",
   props: {
@@ -106,25 +163,118 @@ export default {
     mod4: String,
     mod5: String
   },
+  components: {
+    YoutubeResults,
+    YoutubeSearch,
+  },
   data() {
     return {
-      text: `
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                    tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                    wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                    synth nesciunt you probably haven't heard of them accusamus labore VHS.
-                `
+      text: "",
+      videos: [],
+      reformattedSearchString: '',
+      api: {
+        baseUrl: 'https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=',
+        q: '',
+        key: "AIzaSyDM12Srxcym9mLOKj0Zfu4AOmDI9S0VdJU"
+      },
+      searchString: '',
+      accordionRef: "",
     };
+  },
+  mounted() {
+    // let key = "AIzaSyDM12Srxcym9mLOKj0Zfu4AOmDI9S0VdJU"
+    // let q = this.accordionRef
+    // console.log(q)
+    // if(this.$refs.accordion1.visible)
+    //   q = this.$props.mod1;
+    // else if (this.$refs.accordion2.visible)
+    //   q = this.$props.mod2;
+    // else if (this.$refs.accordion3.visible)
+    //   q = this.$props.mod3;
+    // else if (this.$refs.accordion4.visible)
+    //   q = this.$props.mod4;
+    // else
+    //   q = this.$props.mod5;
+    // console.log(q)
+    // let url = "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=" + q + "&key=" + key;
+    // Vue.axios.get(url)
+    // .then((resp) => {
+    //   this.videos = resp.data.items
+    // });
+  },
+  methods: {
+    initVideos: function(id) {
+      let q;
+      if(id==1) {
+        q = this.$props.mod1
+      } else if (id==2) {
+        q = this.$props.mod2
+      } else if (id==3) {
+        q = this.$props.mod3
+      } else if (id==4) {
+        q = this.$props.mod4
+      } else {
+        q = this.$props.mod5
+      }
+      let key = "AIzaSyDM12Srxcym9mLOKj0Zfu4AOmDI9S0VdJU"
+      let url = "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=" + q + "&key=" + key;
+      Vue.axios.get(url)
+      .then((resp) => {
+        this.videos = resp.data.items
+      });
+    },
+    search(searchParams) {
+      this.reformattedSearchString = searchParams.join(' ');
+      this.api.q = searchParams.join('+');
+      const { baseUrl, q, key } = this.api;
+      const apiUrl = `${baseUrl}q=${q}&key=${key}`;
+      this.getData(apiUrl);
+    },
+    getData(apiUrl) {
+      axios.get(apiUrl)
+      .then(res => {
+        this.videos = res.data.items;
+      })
+      .catch(error => console.log(error));
+    },
+    parseSearchString() {
+      // Trim search string
+      const trimmedSearchString = this.searchString.trim();
+
+      if (trimmedSearchString !== '') {
+        // Split search string
+        const searchParams = trimmedSearchString.split(/\s+/);
+        // Emit event
+        this.$emit('search', searchParams);
+        // Reset input field
+        this.searchString = '';
+      }
+    }
   }
 };
 </script>
 
 <style scoped>
-.accordion {
-  margin-left: 500px;
+b-card-body {
+  /* height: 100%;
+  width: 300px;
+  overflow: visible; */
+  overflow-x: scroll;
 }
+
+.card-body {
+  padding: 0px;
+}
+
+.module-section {
+  height: 100%;
+  /* width: 140%; */
+  /* overflow-x: scroll; */
+}
+
+iframe {
+  margin-right: 5px;
+}
+
+
 </style>

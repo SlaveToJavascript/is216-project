@@ -5,18 +5,34 @@
     <div class="top-button-right"></div>
     <div class="bar"></div>
     <h2 class="quote">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorem
-      quos labore tempora nostrum error, sunt ex eius sapiente quia est neque
-      quis quae mollitia dolor unde quod, ipsum inventore?
+      {{list}}
     </h2>
+    <h3 class="author">
+      — {{author}}
+    </h3>
   </div>
 </template>
 
 <script>
+import Vue from "vue";
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
+
 export default {
   name: "QuoteBar",
   data() {
-    return {};
+    return {
+      list: undefined,
+      author: undefined
+    };
+  },
+  mounted() {
+    Vue.axios.get("https://quotes.rest/qod")
+    .then((resp) => {
+      this.list = resp.data.contents.quotes[0].quote
+      this.author = resp.data.contents.quotes[0].author
+    })
   }
 };
 </script>
@@ -24,9 +40,7 @@ export default {
 <style scoped>
 .quotes-bar {
   position: absolute;
-  margin-left: 200px;
   display: block;
-  width: 300px;
   height: 200px;
   background: #ebf3fe;
   z-index: 1;
@@ -37,7 +51,7 @@ export default {
   top: 2%;
   left: 3%;
   border-radius: 50%;
-  width: 3.5%;
+  width: 3%;
   height: 5%;
   background: #ff605c;
 }
@@ -46,7 +60,7 @@ export default {
   top: 2%;
   left: 7%;
   border-radius: 50%;
-  width: 3.5%;
+  width: 3%;
   height: 5%;
   background: #ffbd44;
 }
@@ -55,7 +69,7 @@ export default {
   top: 2%;
   left: 11%;
   border-radius: 50%;
-  width: 3.5%;
+  width: 3%;
   height: 5%;
   background: #00ca4e;
 }
@@ -70,5 +84,11 @@ export default {
 .quote {
   padding: 40px 15px 10px;
   font-family: adobe-garamond-pro, serif;
+}
+
+.author {
+  padding: 10px 20px 10px;
+  font-family: adobe-garamond-pro, serif;
+  text-align: right;
 }
 </style>
