@@ -7,11 +7,11 @@
     <LeftNav />
 
     <div class="row">
-      <div class="col col-4">
+      <div class="col col-md-4">
         <QuoteBar id="quotes" />
         <ToDo id="todo" />
       </div>
-      <div class="col col-8">
+      <div class="col col-md-8">
         <ModulesAccordian
           id="modules"
           mod1="Interaction Design & Prototyping"
@@ -54,7 +54,7 @@ export default {
 }
 
 #todo {
-  margin-top: 200px;
+  /* margin-top: 200px; */
 }
 
 .col {

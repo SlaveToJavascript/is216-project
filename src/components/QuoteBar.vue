@@ -35,21 +35,28 @@ export default {
 
 <style scoped>
 .quotes-bar {
-  position: absolute;
-  display: block;
-  height: auto;
+  height: 230x;
   width: auto;
-  background: #ebf3fe;
+  background-image: url("../assets/images/quotes-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
   z-index: 1;
 }
 
 .quote {
-  padding: 20px 15px 10px;
-  font-size: 65%;
+  padding: 25px 20px 0px;
+  font-size: 120%;
+  text-align: center;
+}
+
+p {
+  font-family: Montserrat;
+  font-style: italic;
 }
 
 .author {
-  padding: 10px 20px 10px;
+  padding: 15px 20px 10px 10px;
   text-align: right;
 }
 </style>
