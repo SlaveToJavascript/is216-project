@@ -8,6 +8,7 @@
           variant="info"
           style="font-size:15px;"
           id="accordion1"
+          @click="initVideos(1)"
         >
           {{ mod1 }}
         </b-button>
