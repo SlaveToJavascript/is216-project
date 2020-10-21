@@ -4,7 +4,7 @@
     <TopNav />
 
     <!-- LEFT NAVIGATION MENU -->
-    <!-- <LeftNav /> -->
+    <LeftNav />
 
     <div class="row">
       <div class="col col-4">
@@ -28,6 +28,7 @@
 <script>
 // @ is an alias to /src
 import TopNav from "@/components/TopNav";
+import LeftNav from "@/components/LeftNav";
 import QuoteBar from "@/components/QuoteBar";
 import ModulesAccordian from "@/components/ModulesAccordian";
 import ToDo from "@/components/ToDo";
@@ -38,6 +39,7 @@ export default {
     TopNav,
     QuoteBar,
     ModulesAccordian,
+    LeftNav,
     ToDo
   },
   data() {
