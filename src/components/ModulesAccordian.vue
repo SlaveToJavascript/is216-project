@@ -8,7 +8,6 @@
           variant="info"
           style="font-size:15px;"
           id="accordion1"
-          @click="initVideos(1)"
         >
           {{ mod1 }}
         </b-button>
@@ -23,7 +22,7 @@
           <div class="module-section">
             <b-card-text>{{ text }}</b-card-text>
             <!-- Search bar -->
-            <YoutubeSearch v-on:search="search"/>
+            <YoutubeSearch @load="initVideos(1)" v-on:search="search"/>
             
             <!-- Videos -->
             <YoutubeResults
@@ -175,37 +174,22 @@ export default {
       api: {
         baseUrl: 'https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=',
         q: '',
-        key: "AIzaSyDM12Srxcym9mLOKj0Zfu4AOmDI9S0VdJU"
+        key: "AIzaSyBj0qgkBGVfTcvGPiIm3lr2tbJpOMVAZng"
       },
       searchString: '',
       accordionRef: "",
     };
   },
   mounted() {
-    // let key = "AIzaSyDM12Srxcym9mLOKj0Zfu4AOmDI9S0VdJU"
-    // let q = this.accordionRef
-    // console.log(q)
-    // if(this.$refs.accordion1.visible)
-    //   q = this.$props.mod1;
-    // else if (this.$refs.accordion2.visible)
-    //   q = this.$props.mod2;
-    // else if (this.$refs.accordion3.visible)
-    //   q = this.$props.mod3;
-    // else if (this.$refs.accordion4.visible)
-    //   q = this.$props.mod4;
-    // else
-    //   q = this.$props.mod5;
-    // console.log(q)
-    // let url = "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=" + q + "&key=" + key;
-    // Vue.axios.get(url)
-    // .then((resp) => {
-    //   this.videos = resp.data.items
-    // });
+
+  },
+  created() {
+    this.initVideos(1)
   },
   methods: {
     initVideos: function(id) {
       let q;
-      if(id==1) {
+      if(id == 1) {
         q = this.$props.mod1
       } else if (id==2) {
         q = this.$props.mod2
@@ -216,7 +200,8 @@ export default {
       } else {
         q = this.$props.mod5
       }
-      let key = "AIzaSyDM12Srxcym9mLOKj0Zfu4AOmDI9S0VdJU"
+      console.log(q)
+      let key = "AIzaSyBj0qgkBGVfTcvGPiIm3lr2tbJpOMVAZng"
       let url = "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=" + q + "&key=" + key;
       Vue.axios.get(url)
       .then((resp) => {
