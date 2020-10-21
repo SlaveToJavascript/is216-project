@@ -1,5 +1,5 @@
 <template>
-    <div id="todoapp">
+    <div id="todoapp" class="text-center">
         <div class="container">
             <div class="row header">
                 <h3 class="h1 col center-align">My To-Dos</h3>
@@ -108,5 +108,10 @@ ul {
     margin-left: 10px;
     font-size: 18px;
     font-family: "Lucida Console", Monaco, monospace;
+}
+
+.input-field {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 </style>

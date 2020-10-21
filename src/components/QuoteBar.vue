@@ -1,11 +1,11 @@
 <template>
   <div class="quotes-bar">
-    <p class="quote">
+    <h3 class="quote">
       {{list}}
-    </p>
-    <p class="author">
+    </h3>
+    <h4 class="author">
       — {{author}}
-    </p>
+    </h4>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
 .quotes-bar {
-  height: 230x;
+  height: auto;
   width: auto;
   background-image: url("../assets/images/quotes-background.jpg");
   background-position: center;
@@ -45,18 +45,17 @@ export default {
 }
 
 .quote {
-  padding: 25px 20px 0px;
-  font-size: 120%;
+  padding: 25px 35px 0px;
   text-align: center;
 }
 
-p {
+h3, h4 {
   font-family: Montserrat;
   font-style: italic;
 }
 
 .author {
-  padding: 15px 20px 10px 10px;
+  padding: 10px 20px 10px 10px;
   text-align: right;
 }
 </style>

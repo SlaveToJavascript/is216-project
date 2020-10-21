@@ -11,7 +11,7 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
           <b-nav-item href="/">Home</b-nav-item>
           <b-nav-item href="/timetable">Timetable</b-nav-item>
           <b-nav-item href="/jobs">Jobs</b-nav-item>
@@ -39,6 +39,10 @@ export default {
   font-family: Montserrat;
 }
 
+.navbar {
+  margin-bottom: 0px;
+}
+
 img {
   height: 48px;
 }
@@ -46,6 +50,10 @@ img {
 .navbar-dark .navbar-nav .nav-link {
   color: black;
   font-size: 20px;
-  margin-right: 20px;
+  margin-right: 30px;
+}
+
+.navbar-toggler {
+  background-color: #686c73;
 }
 </style>

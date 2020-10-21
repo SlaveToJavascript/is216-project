@@ -48,11 +48,7 @@ export default {
 
 <style scoped>
 #quotes {
-  margin-left:10px;
-}
-
-#todo {
-  /* margin-top: 200px; */
+  /* margin-left:10px; */
 }
 
 .col {
@@ -61,6 +57,10 @@ export default {
 
 .home {
   overflow-x: hidden;
+}
+
+#todo {
+  /* margin-left: 10px; */
 }
 
 #modules {
