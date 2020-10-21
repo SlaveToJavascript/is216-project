@@ -1,29 +1,25 @@
 <template>
-  <div>
+  <div class="timetable">
     <TopNav />
-
-    <LeftNav />
-    <b-container class="bv-example-row">
-      <b-row>
-        <b-col>1 of 3</b-col>
-        <b-col>2 of 3</b-col>
-        <b-col>3 of 3</b-col>
-      </b-row>
-    </b-container>
+    <Schedule />
   </div>
 </template>
 
 <script>
+import Schedule from "@/components/Schedule";
 import TopNav from "@/components/TopNav";
-import LeftNav from "@/components/LeftNav";
 
 export default {
   name: "Timetable",
   components: {
-    TopNav,
-    LeftNav
+    Schedule,
+    TopNav
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.timetable {
+  overflow-x: hidden;
+}
+</style>

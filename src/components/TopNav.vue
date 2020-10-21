@@ -1,11 +1,30 @@
 <template>
-  <div id="top-navbar">
-    <b-navbar toggleable="sm" type="light">
-      <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
-      <h1 class="navbar-header">Good morning, Sean</h1>
-      <b-collapse id="nav-text-collapse" is-nav> </b-collapse>
-    </b-navbar>
-  </div>
+  <b-navbar id="navbar">
+    <template slot="brand">
+      <b-navbar-item tag="router-link" :to="{ path: '/' }">
+        <img
+          src="../assets/images/logo.jpg"
+          alt="STUD"
+        >
+      </b-navbar-item>
+    </template>
+    <template slot="start">
+      <b-navbar-item href="/">Home</b-navbar-item>
+      <b-navbar-item href="/timetable">Timetable</b-navbar-item>
+      <b-navbar-item href="/jobs">Jobs</b-navbar-item>
+      <b-navbar-item href="/habit">Habit</b-navbar-item>
+      <b-navbar-item href="/settings">Settings</b-navbar-item>
+    </template>
+
+    <!-- <template slot="end">
+      <b-navbar-item tag="div">
+        <div class="buttons">
+          <a class="button is-primary"><strong>Sign up</strong></a>
+          <a class="button is-light">Log in</a>
+        </div>
+      </b-navbar-item>
+    </template> -->
+  </b-navbar>
 </template>
 
 <script>
@@ -13,50 +32,33 @@ export default {
   name: "TopNav",
   data() {
     return {
-      navbarOptions: {
-        elementId: "main-navbar",
-        isUsingVueRouter: true,
-        mobileBreakpoint: 992,
-        brandImagePath: "./",
-        // brandImage: require("../assets/images/logo.jpg"),
-        // brandImageAltText: "brand-image",
-        // showBrandImageInMobilePopup: true,
-        ariaLabelMainNav: "Main Navigation",
-        tooltipAnimationType: "shift-away",
-        menuOptionsRight: [
-          {
-            type: "button",
-            text: "Signup",
-            path: { name: "signup" },
-            class: "button-red"
-          },
-          {
-            type: "button",
-            text: "Login",
-            path: { name: "login" },
-            iconRight:
-              '<svg id="i-arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M22 6 L30 16 22 26 M30 16 L2 16" /> </svg>'
-          }
-        ]
-      }
+      
     };
   }
 };
 </script>
 
 <style scoped>
-#top-navbar {
-  background-color: #563d7c;
+#navbar {
+  font-family: Montserrat;
+  margin: 0px;
+  padding: 0px;
+  height: 30px;
 }
 
-.navbar-header {
-  margin-left: 200px;
-  font-size: 30px;
-  font-family: "Montserrat", sans-serif;
-  color: white;
+a {
+  font-size: 18px !important;
+  font-weight: bold;
+  padding-top: 0px;
 }
 
-.navbar {
-  margin-bottom: 0px;
+.navbar-item img {
+  max-height: 45px !important;
+  margin-top:10px;
+}
+
+.button {
+  height: 35px;
+  margin: 0px;
 }
 </style>
