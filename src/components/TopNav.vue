@@ -2,21 +2,18 @@
   <div id="navbar">
     <b-navbar toggleable="lg" type="dark" variant="info" class="bg-light">
       <b-navbar-brand href="#">
-        <img
-          src="../assets/images/logo.jpg"
-          alt="STUD"
-        >
+        <img src="../assets/images/logo.jpg" alt="STUD" />
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="/">Home</b-nav-item>
-          <b-nav-item href="/timetable">Timetable</b-nav-item>
-          <b-nav-item href="/jobs">Jobs</b-nav-item>
-          <b-nav-item href="/habit">Habit</b-nav-item>
-          <b-nav-item href="/settings">Settings</b-nav-item>
+          <b-nav-item to="/" href="#">Home</b-nav-item>
+          <b-nav-item to="/timetable" href="#">Timetable</b-nav-item>
+          <b-nav-item to="/jobs" href="#">Jobs</b-nav-item>
+          <b-nav-item to="habit" href="#">Habit</b-nav-item>
+          <b-nav-item to="/settings" href="#">Settings</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -73,7 +70,7 @@ export default {
             class: "glyphicon glyphicon-cog"
           }
         }
-      ],
+      ]
     };
   }
 };
