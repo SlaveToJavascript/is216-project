@@ -1,5 +1,5 @@
 <template>
-  <div class="accordion" role="tablist">
+  <div class="accordion">
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
         <b-button
@@ -116,7 +116,6 @@
         </b-card-body>
       </b-collapse>
     </b-card>
-
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
         <b-button
@@ -175,7 +174,7 @@ export default {
       api: {
         baseUrl: 'https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=',
         q: '',
-        key: "AIzaSyBj0qgkBGVfTcvGPiIm3lr2tbJpOMVAZng"
+        key: "AIzaSyCTTMCziOgGOq4V44X4tK2ntQ51HsbZiV4"
       },
       searchString: '',
       accordionRef: "",
@@ -202,7 +201,7 @@ export default {
         q = this.$props.mod5
       }
       console.log(q)
-      let key = "AIzaSyBj0qgkBGVfTcvGPiIm3lr2tbJpOMVAZng"
+      let key = "AIzaSyCTTMCziOgGOq4V44X4tK2ntQ51HsbZiV4"
       let url = "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=" + q + "&key=" + key;
       Vue.axios.get(url)
       .then((resp) => {
@@ -262,5 +261,8 @@ iframe {
   margin-right: 5px;
 }
 
+section {
+  height: 100px;
+}
 
 </style>

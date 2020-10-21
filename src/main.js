@@ -4,11 +4,7 @@ import router from "./router";
 import VueSidebarMenu from "vue-sidebar-menu";
 import "vue-sidebar-menu/dist/vue-sidebar-menu.css";
 import moment from 'moment'
-import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
 import VCalendar from "v-calendar";
-
-Vue.use(Buefy)
 Vue.use(VueSidebarMenu);
 
 Vue.use(VCalendar);
