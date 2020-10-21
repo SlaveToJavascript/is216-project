@@ -4,8 +4,11 @@ import router from "./router";
 import VueSidebarMenu from "vue-sidebar-menu";
 import "vue-sidebar-menu/dist/vue-sidebar-menu.css";
 import moment from 'moment'
+import VCalendar from "v-calendar";
 
 Vue.use(VueSidebarMenu);
+
+Vue.use(VCalendar);
 
 Vue.config.productionTip = false;
 
