@@ -1,0 +1,275 @@
+<template>
+  <!-- / College Timetable -->
+  <div class="tab">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr class="days">
+        <th></th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+      <tr>
+        <td class="time">9.00</td>
+        <td
+          rowspan="2"
+          class="is210 blue"
+          data-tooltip="Management Communication"
+        >
+          COMM101 <br />
+          [SIS-SR-2.4]
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="time">10.00</td>
+        <td></td>
+        <td
+          class="cs335 blue lab"
+          data-tooltip="Software Engineering &amp; Software Process"
+        >
+          CS335 [Lab]
+        </td>
+        <td
+          class="md352 green"
+          data-tooltip="Multimedia Production &amp; Management"
+        >
+          MD352 [Kairos]
+        </td>
+        <td></td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="time">11.00</td>
+        <td></td>
+        <td
+          class="cs335 blue lab"
+          data-tooltip="Software Engineering &amp; Software Process"
+        >
+          CS335 [Lab]
+        </td>
+        <td
+          class="md352 green"
+          data-tooltip="Multimedia Production &amp; Management"
+        >
+          MD352 [Kairos]
+        </td>
+        <td class="cs240 orange" data-tooltip="Operating Systems">
+          CS240 [CH]
+        </td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="time">12.00</td>
+        <td></td>
+        <td class="md303 navy" data-tooltip="Media &amp; Globalisation">
+          MD303 [CS2]
+        </td>
+        <td
+          class="md313 red"
+          data-tooltip="Special Topic: Multiculturalism &amp; Nationalism"
+        >
+          MD313 [Iontas]
+        </td>
+        <td></td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="time">13.00</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="time">14.00</td>
+        <td></td>
+        <td></td>
+        <td class="cs426 purple" data-tooltip="Computer Graphics">
+          CS426 [CS2]
+        </td>
+        <td class="cs240 orange" data-tooltip="Operating Systems">
+          CS240 [TH1]
+        </td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="time">15.00</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="cs240 orange lab" data-tooltip="Operating Systems">
+          CS240 [Lab]
+        </td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="time">16.00</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="cs240 orange lab" data-tooltip="Operating Systems">
+          CS240 [Lab]
+        </td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="time">17.00</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>-</td>
+      </tr>
+    </table>
+  </div>
+</template>
+
+<style scoped>
+.blue {
+  background: #3498db;
+}
+
+.purple {
+  background: #9b59b6;
+}
+
+.navy {
+  background: #34495e;
+}
+
+.green {
+  background: #2ecc71;
+}
+
+.red {
+  background: #e74c3c;
+}
+
+.orange {
+  background: #f39c12;
+}
+
+.is210,
+.is211,
+.is216,
+.cor3301,
+.comm101 {
+  font-weight: 300;
+  cursor: pointer;
+}
+
+body {
+  background: #e74c3c;
+  padding: 20px;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+table {
+  font-family: "Open Sans", Helvetica;
+  color: #efefef;
+}
+table tr:nth-child(2n) {
+  background: #eff0f1;
+}
+table tr:nth-child(2n + 3) {
+  background: #fff;
+}
+table th,
+table td {
+  padding: 1em;
+  width: 10em;
+}
+
+.days,
+.time {
+  background: #34495e;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  text-align: center;
+}
+
+.time {
+  width: 3em !important;
+}
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+  -moz-transition: ease 0.5s all;
+  -o-transition: ease 0.5s all;
+  -webkit-transition: ease 0.5s all;
+  transition: ease 0.5s all;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background-color: black;
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid black;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  bottom: 90%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+</style>
