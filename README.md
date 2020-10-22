@@ -1,4 +1,4 @@
-# vuevue
+# IS216 Project
 
 ## Project setup
 ```
