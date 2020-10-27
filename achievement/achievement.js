@@ -1,3 +1,8 @@
+/*
+Code taken from: Markus Tran
+Link: "https://codepen.io/Pillowfication/pen/PNEJbY"
+*/
+
 'use strict';
 
 // If set to true, the user must press
