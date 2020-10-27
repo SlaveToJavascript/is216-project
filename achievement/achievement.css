@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    padding: 0;
+    animation: bgcolor infinite 14s;
+}
+
+@keyframes bgcolor{
+    0%{
+        background: #7880b5;
+    }
+    20%{
+        background: #f3d250;
+    }
+    40%{
+        background: #f4976c;
+    }
+    60%{
+        background: #f1f2f6;
+    }
+    80%{
+        background: #6987c9;
+    }
+    100%{
+        background: #a2cc7a;
+    }
+}
+/* .backgroundImg {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -1;
+} */
+
+.container{
+    margin-top: 80px;
+}
+
+.row{
+    margin-bottom: 50px;
+}
+
+.header{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.badge{
+    width: 1%;
+    height: auto;
+}
+
+.locked{
+    filter: grayscale();
+    width: 1%;
+    height: auto;
+}
+
+.image{
+    width: 70px;
+    height: auto;
+}
