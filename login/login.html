@@ -4,8 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+
+    <style>
+
+        #logo {
+            position:fixed; 
+            margin-left:20px;
+            margin-top:20px;
+            top:0; 
+            left:0;  
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            background-image:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23e1764c'/%3E%3Cstop offset='1' stop-color='%23f3d250'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(27,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23ffd263' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23ffd263' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23ffd263' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23ffd263' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh;
+            width: 100%;
+        }
+    
+        h2 {
+            text-align: center;
+            font-family: 'Poppins';
+        }
+
+        .outer-box {
+            position: relative;
+            width: 400px;
+            height: auto;
+            margin: auto;
+            padding: 10px 30px; 
+            background: #F1F2F6;
+            max-width: 360px;
+            padding: 45px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        .checkbox{
+            margin-top: 20px;
+        }
+
+        .button{
+            background: #F4976C;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 30px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .button:hover,
+        .button:focus{
+            background: #F3D250;
+        }
+
+        a{
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            margin-top:  30px;
+        }
+
+        .loginbtn:hover,
+        .loginbtn:focus{
+             background: rgb(230, 106, 127);
+        }
+
+        .email{
+            margin-top: 40px;
+        }
+
+        .password{
+            margin-top: 40px;
+        }
+
+    </style>
 </head>
 <body>
-    hello wlrld
+
+    <div id="logo"> 
+        <img src="STUD_LOGO.png" width='130px' height='60px'> 
+    </div>
+
+    <div class="outer-box">
+
+            <h2>Sign In</h2>
+
+
+            <form name="signin" onSubmit="return formValidation();">
+                <div class="email">
+                    <div class="input-group-prepend">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="material-icons">perm_identity</i>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email Address">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="password">
+                    <div class="input-group-prepend">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="material-icons">lock</i>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Password">
+                        </div>
+                    </div>
+                </div>
+                 
+
+                <button type="login" class="button">Login</button><br>
+
+            </form>
+            
+      </div>
+
+       <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
 </body>
 </html>
