@@ -14,7 +14,9 @@
    <!-- top navbar -->
 
    <div class = "container-fluid">
-       <div class="navbar navbar-light bg-light navbar-expand-lg" >
+      
+    
+  <div class="navbar navbar-light bg-light navbar-expand-lg">
         <a class="navbar-brand" href="#">
             <img src="./images/logo.jpg" class="d-inline-block align-center" height="15%" width="15%" alt="STUD">
             STUD
@@ -45,6 +47,7 @@
   </div>
 
   <!-- searchbar -->
+  <div class="container-fluid searchbar" style="height:100%;">  
     <div class="row">
       <!-- search job description -->
       <div class="col-xl-6 col-lg-12">
@@ -76,141 +79,48 @@
           <!-- press search -->
           <input class="btn btn-primary" id="search" type="submit" value="Search" onclick="showJob()">
   
-                        Home</a>
-                  </li>
-                  <li class="nav-item mt-2 mb-2">
-                    <a class="nav-link" href="#">
-                        <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
-                        Part Time</a>
-                  </li>
-                  <li class="nav-item mt-2 mb-2">
-                    <a class="nav-link" href="#">
-                        <!-- <i class="fa fa-suitcase" aria-hidden="true"></i> -->
-                        Freelance</a>
-                  </li>
-                  <li class="nav-item mt-2 mb-2">
-                    <a class="nav-link" href="#">
-                        <!-- <i class="fa fa-university" aria-hidden="true"></i> -->
-                        Internship</a>
-                  </li>
-                  <li class="nav-item mt-2 mb-2">
-                    <a class="nav-link" href="#">
-                        <!-- <i class="fa fa-graduation-cap" aria-hidden="true"></i> -->
-                        Full Time</a>
-                  </li>
-                </ul>
-              </nav>
-
         </div>
-    
-
- <!-- center -->
-       
-        <div class = "col-9">
-            <div class = "row mt-4">
-                <div class = "col-1.5">
-                      <!-- anywhere location -->
-                    <div class="d-flex">
-                        <div class="dropdown mr-1">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                            Anywhere
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            <a class="dropdown-item" href="#">Anywhere</a>
-                            <a class="dropdown-item" href="#">Singapore</a>
-                            <a class="dropdown-item" href="#">US</a>
-                            <a class="dropdown-item" href="#">Europe</a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class = "col">
-                     <!-- top search center -->
-                     <div class="input-group ml-auto">
-                         <div class = "input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
-                         </div>
-                        <input type="text" class="form-control" placeholder="Search by Title Company or keywords" aria-label="jobSearch" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                        <button class="btn btn-secondary" type="button">Search</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- your skills -->
-
-            <div class="row mt-3">
-                <!-- if selected will be higlihgted and have option to press (X) small pill on button to deselect it-->
-                <button class="button pill" style="background-color: #F4976C">Your skills</button>
-                <button class="button pill">UI Design</button>
-                <button class="button pill">UX Design</button>
-                <button class="button pill">Product Design</button>
-
-            </div>
-
-             <!-- search jobs header -->
-            <div class="row mt-3">
-                <h3>Search Jobs</h3>
-            </div>
-
-            <!-- no of results -->
-            <div class="row">
-                <h5>144 Results</h5>
-                <p style="text-indent: 5px; color: grey">of your preferences</p>
-            </div>
         
-
-                <div class="col-9">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <img class="card-img-top" src="images/apple logo.jpg" alt="Card image cap" style="width:10%;height:10%; float:left">
-                    <h4 style="margin-top: 30px;">Apple Full Stack Intern</h4>
-
-                    <div class ="col" style="text-align: right;">
-                        <h3><span class="badge badge-pill badge-success type">Full time</span></h3>
-                        <i class="fa fa-calendar calendar" aria-hidden="true"></i><p>October 5,2020 - November  4,2020</p>
-                    </div>
-                </div>
-                
-
-                <div class ="row">
-                    <!-- company name -->
-                    <i class="fa fa-building-o building" aria-hidden="true"></i><p>Apple Inc</p>
-                    <!-- country -->
-                    <i class="fa fa-map-marker location" aria-hidden="true"></i><p>Singapore</p>                       
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
-        </div>
 
-   
+    <!-- keywords  -->
+    <!-- <div class="row" id="keyword">
+      <button type="button" class="btn btn-light" id="key1">Developer</button>
+      <button type="button" class="btn btn-light"id="key2">Part Time</button>
+    </div> -->
+  </div>
+
+  <!-- ro results page -->
+  <div class="container-fluid" style="background-color:#F1F2F6;">
+
+    <!-- no results  -->
+    <div class="row">
+      <div class="col" id="noResult">
+      </div>
+    </div>
+
+    <div class="container-fluid" style="background-color:#F3D250; width: 80%;" id="emptyResult">
+    </div>
+
+
+    <!-- results page -->
+    <div class="row">
+      <div class="col-5" id="jobResult">
         
-   </div>
+      </div>
 
+      <div class="col" id="jobDetail">
+      </div>
+
+    </div>
+  
+    
+  </div> 
+  
         
-
-            <!-- search result detail to be hidden-->
-
-            <!-- <div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-            </div> -->
-    
-    
-    
-    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="javascript.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
