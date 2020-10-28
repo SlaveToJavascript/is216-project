@@ -47,3 +47,45 @@ body {
     margin-right:10px;
     
 }
+
+.searchbar {
+    background-color: #6987C9;
+    padding: 10px;
+}
+
+#input1, #input2 {
+    width: 500px;
+}
+
+#input1, #keyword {
+    margin-left: 120px;
+    margin-right: 20px;
+}
+
+#input2 {
+    background-color: white;
+    text-align: left;
+    color: grey;    
+}
+
+#search {
+    margin-left: 10px;
+}
+
+#keyword {
+    margin-top: 10px;
+}
+
+#key1, #key2 {
+    margin-right: 10px;
+}
+
+#noResultImg {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+h5 {
+    margin-top: 10px;
+}
