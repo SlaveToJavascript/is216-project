@@ -3,6 +3,7 @@ Code taken from: Darin
 Link: "https://codepen.io/dsenneff/pen/2d338b0adf97472ebc5d473cf1fa910b"
 */
 
+import gsap from 'gsap';
 
 email = document.signin.email;
 password = document.signin.password;
@@ -232,8 +233,6 @@ TweenMax.set(armL, {x: -93, y: 220, rotation: 105, transformOrigin: "top left"})
 TweenMax.set(armR, {x: -93, y: 220, rotation: -105, transformOrigin: "top right"});
 
 
-
-
 function formValidation (){
     var email = document.signin.email;
     var password = document.signin.password;
@@ -279,6 +278,4 @@ form.addEventListener('submit',function(e) {
     checkEmail(email);
 
 });
-
-
 
