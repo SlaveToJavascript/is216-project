@@ -1,5 +1,5 @@
 <template>
-  <b-navbar>
+  <b-navbar :fixed-top="false">
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         <img src="@/assets/images/logo.jpg" alt="STUD" />
@@ -20,16 +20,16 @@
         Achievement
       </b-navbar-item>
       <b-navbar-dropdown label="Settings">
-        <b-navbar-item href="#">
+        <b-navbar-item tag="router-link" :to="{ path: '/settings' }">
           User Profile
         </b-navbar-item>
-        <b-navbar-item href="#">
+        <b-navbar-item tag="router-link" :to="{ path: '/settings' }">
           Update Timetable
         </b-navbar-item>
-        <b-navbar-item href="#">
+        <b-navbar-item tag="router-link" :to="{ path: '/settings' }">
           Notification
         </b-navbar-item>
-        <b-navbar-item href="#">
+        <b-navbar-item tag="router-link" :to="{ path: '/settings' }">
           Privacy
         </b-navbar-item>
       </b-navbar-dropdown>
@@ -58,6 +58,8 @@ export default {
 <style scoped>
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  height: 7.5vh;
+  padding: 0rem;
 }
 
 .navbar img {
@@ -65,7 +67,6 @@ export default {
   margin-top: 10px;
 }
 
-.navbar-dropdown {
-  margin-right: 20px;
-}
+
+
 </style>

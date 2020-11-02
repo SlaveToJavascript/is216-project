@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style scoped>
+
 #quotes {
   /* margin-left:10px; */
 }

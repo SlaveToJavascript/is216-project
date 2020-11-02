@@ -1,5 +1,5 @@
 <template>
-  <div class="timetable">
+  <div class="app">
     <Navbar />
     <Schedule />
   </div>
@@ -18,8 +18,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.timetable {
-  overflow-x: hidden;
-}
-</style>
+<style scoped></style>
