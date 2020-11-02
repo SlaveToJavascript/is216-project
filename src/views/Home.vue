@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- TOP NAV BAR -->
-    <TopNav />
+    <Navbar />
 
     <!-- LEFT NAVIGATION MENU -->
 
@@ -26,7 +26,7 @@
 
 <script>
 // @ is an alias to /src
-import TopNav from "@/components/TopNav";
+import Navbar from "@/components/Navbar";
 import QuoteBar from "@/components/QuoteBar";
 import ModulesAccordian from "@/components/ModulesAccordian";
 import ToDo from "@/components/ToDo";
@@ -34,7 +34,7 @@ import ToDo from "@/components/ToDo";
 export default {
   name: "Home",
   components: {
-    TopNav,
+    Navbar,
     QuoteBar,
     ModulesAccordian,
     ToDo
@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style scoped>
+
 #quotes {
   /* margin-left:10px; */
 }

@@ -1,18 +1,18 @@
 <template>
   <div>
-    <TopNav />
+    <Navbar />
 
-    Habit Page
+    Achievement Page
   </div>
 </template>
 
 <script>
-import TopNav from "@/components/TopNav";
+import Navbar from "@/components/Navbar";
 
 export default {
   name: "Habit",
   components: {
-    TopNav,
+    Navbar,
   }
 };
 </script>
