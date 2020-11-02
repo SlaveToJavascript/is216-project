@@ -392,7 +392,7 @@ ul {
   letter-spacing: -0.009em;
   display: inline-block;
   vertical-align: top;
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
 }
 @media (max-width: 767px) {
   .container-lecture .section-nav,
@@ -407,7 +407,7 @@ ul {
   }
 }
 .container-lecture .section-nav {
-  width: 40rem;
+  width: 30rem;
   max-height: 90vh;
   overflow-y: scroll;
   border-right: 0.0625rem solid #d7e2eb;
@@ -491,7 +491,7 @@ ul {
 .container-lecture .section-nav .list-lecture .lecture-time .ic-lecture-info {
   margin-right: 0.25rem;
   margin-top: 0.05rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 .container-lecture .section-nav .list-lecture .lecture-time span {
@@ -515,7 +515,7 @@ ul {
   .container-lecture .section-nav .list-lecture .card-lecture {
     margin-top: 0;
     margin-right: 0.5rem;
-    min-width: 35rem;
+    min-width: 25rem;
     width: 100%;
   }
 }
@@ -535,8 +535,7 @@ ul {
 }
 .container-lecture .section-list {
   overflow-y: scroll;
-  width: calc(100% - 40rem);
-  padding-bottom: 7.5rem;
+  width: calc(100% - 30rem);
 }
 @media (min-width: 768px) {
   .container-lecture .section-list {

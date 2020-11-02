@@ -1,18 +1,18 @@
 <template>
   <div>
-    <TopNav />
+    <Navbar />
 
     Settings Page
   </div>
 </template>
 
 <script>
-import TopNav from "@/components/TopNav";
+import Navbar from "@/components/Navbar";
 
 export default {
   name: "Settings",
   components: {
-    TopNav,
+    Navbar
   }
 };
 </script>
