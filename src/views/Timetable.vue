@@ -1,19 +1,19 @@
 <template>
   <div class="timetable">
-    <TopNav />
+    <Navbar />
     <Schedule />
   </div>
 </template>
 
 <script>
 import Schedule from "@/components/Schedule";
-import TopNav from "@/components/TopNav";
+import Navbar from "@/components/Navbar";
 
 export default {
   name: "Timetable",
   components: {
     Schedule,
-    TopNav
+    Navbar
   }
 };
 </script>

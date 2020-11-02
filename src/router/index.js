@@ -24,9 +24,9 @@ const routes = [
     component: () => import("@/views/Jobs.vue")
   },
   {
-    path: "/habit",
-    name: "Habit",
-    component: () => import("@/views/Habit.vue")
+    path: "/achievements",
+    name: "Achievements",
+    component: () => import("@/views/Achievements.vue")
   },
   {
     path: "/settings",
