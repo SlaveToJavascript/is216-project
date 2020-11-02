@@ -47,22 +47,22 @@
   </div>
 
   <!-- searchbar -->
-  <div class="container-fluid searchbar" style="height:100%;">  
+  <div class="container-fluid searchbar" style="height:100%; overflow-y: visible;">  
     <div class="row">
       <!-- search job description -->
       <div class="col-xl-6 col-lg-12">
-        <div class="input-group mr-auto">
+        <div class="input-group d-flex justify-content-end">
           <div class="input-group-prepend ">
             <input type="text" class="form-control" id="input1" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Job, Title, Keyword, Company">
           </div>
         </div>
-      </div>
+      </div>  
 
       <!-- search type -->
       <div class="col">
         <div class = "row">
           <div class="dropdown">
-            <a class="btn btn-outline-primary dropdown" id="input2"href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="btn drop  down" id="input2"href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Type of job
             </a>
           
@@ -96,12 +96,12 @@
   <div class="container-fluid" style="background-color:#F1F2F6;">
 
     <!-- no results  -->
-    <div class="row">
+    <div class="row"> 
       <div class="col" id="noResult">
       </div>
     </div>
 
-    <div class="container-fluid" style="background-color:#F3D250; width: 80%;" id="emptyResult">
+    <div class="container-fluid" style="background-color:#6987C9; width: 80%;" id="emptyResult">
     </div>
 
 
@@ -111,7 +111,7 @@
         
       </div>
 
-      <div class="col" id="jobDetail">
+      <div class="col" id="jobDetail" style="float:left">
       </div>
 
     </div>
@@ -120,8 +120,9 @@
   </div> 
   
         
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="javascript.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <!-- <script src="javascript.js"></script> -->
+     <script src="test.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
