@@ -1,5 +1,5 @@
 <template>
-  <b-navbar :fixed-top="false">
+  <b-navbar :type=is-danger>
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         <img src="@/assets/images/logo.jpg" alt="STUD" />
@@ -60,10 +60,12 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-.navbar img {
-  max-height: 3rem;
-  margin-top: 10px;
+a.navbar-burger.burger {
+  position: absolute !important;
+  right: 15px !important;
+  margin-bottom: 15px !important;
 }
+
 
 .button.is-primary {
   background-color: #7880B5;
