@@ -3,21 +3,26 @@ import App from "./App.vue";
 import router from "./router";
 import VueSidebarMenu from "vue-sidebar-menu";
 import "vue-sidebar-menu/dist/vue-sidebar-menu.css";
-import moment from 'moment'
+import moment from "moment";
 import VCalendar from "v-calendar";
-import { Navbar } from 'buefy'
-import 'buefy/dist/buefy.css'
+import { Navbar } from "buefy";
+import "buefy/dist/buefy.css";
 
-Vue.use(Navbar)
+import { CollapsePlugin, CardPlugin, ButtonPlugin } from "bootstrap-vue";
+Vue.use(CollapsePlugin);
+Vue.use(CardPlugin);
+Vue.use(ButtonPlugin)
+
+Vue.use(Navbar);
 Vue.use(VueSidebarMenu);
 Vue.use(VCalendar);
 
 Vue.config.productionTip = false;
 
-Vue.filter('formatDate', function (value) {
-  if (!value) return ''
-  return moment(value.toString()).format('MM/DD/YYYY hh:mm')
-})
+Vue.filter("formatDate", function(value) {
+  if (!value) return "";
+  return moment(value.toString()).format("MM/DD/YYYY hh:mm");
+});
 
 new Vue({
   router,

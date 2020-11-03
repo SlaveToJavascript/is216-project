@@ -1,0 +1,41 @@
+{
+    "CS440": {
+        "G1": ["Foundations of Cybersecurity", "DING XUHUA", "SIS Seminar Rm 3.4", "0815 - 1130", "MON"],
+        "G2": ["Foundations of Cybersecurity", "DING XUHUA", "SIS Seminar Rm 3.4", "0815 - 1130", "TUE"],
+        "G3": ["Foundations of Cybersecurity", "DING XUHUA", "SIS Seminar Rm 3.4", "1200 - 1515", "WED"]
+    },
+
+    "MKTG103": {
+        "G1": ["Marketing Research", "CHRISTILENE DU PLESSIS", "LKCSB Seminar Rm 3.5", "1200 - 1515", "WED"],
+        "G2": ["Marketing Research", "CHRISTILENE DU PLESSIS", "LKCSB Seminar Rm 3.6", "1530 - 1845", "WED"],
+        "G3": ["Marketing Research", "CHRISTILENE DU PLESSIS", "LKCSB Seminar Rm 3.5", "0815 - 1130", "THU"],
+        "G4": ["Marketing Research", "CHRISTILENE DU PLESSIS", "LKCSB Seminar Rm 3.4", "1530 - 1845", "THU"],
+        "G5": ["Marketing Research", "HULYA KARAMAN", "LKCSB Seminar Rm 3.8", "1200 - 1515", "FRI"],
+        "G6": ["Marketing Research", "HULYA KARAMAN", "LKCSB Seminar Rm 3.8", "1700 - 2215", "THU"],
+        "G7": ["Marketing Research", "HULYA KARAMAN", "LKCSB Seminar Rm 3.7", "1200 - 1515", "THU"]
+    },
+
+    "COR1301":{
+        "G1": ["Leadership and Team Building", "RANI TAN", "LKCSB Class Rm 3.4", "1200 - 1515", "MON"],
+        "G2": ["Leadership and Team Building", "RANI TAN", "LKCSB Class Rm 3.4", "1530 - 1845", "MON"],
+        "G3": ["Leadership and Team Building", "RANI TAN", "LKCSB Class Rm 3.3", "1200 - 1515", "TUE"],
+        "G4": ["Leadership and Team Building", "RANI TAN", "LKCSB Class Rm 3.3", "1530 - 1845", "TUE"],
+        "G5": ["Leadership and Team Building", "THOMAS MENKHOFF", "SMUC Active Learning CR 3-2", "0815 - 1130", "THU"],
+        "G6": ["Leadership and Team Building", "HANOI LOK", "LKCSB Seminar Rm 3.10", "0815-1130", "MON"],
+        "G7": ["Leadership and Team Building", "ROGER LOW", "SOA Seminar Rm 1-3", "1530 - 1845", "WED"]
+    },
+
+    "COR2201":{
+        "G1": ["Technology and World Change", "RAJAH KUMAR", "SOA Seminar Rm 3-3", "0815 - 1130", "THU"],
+        "G2": ["Technology and World Change", "RAJAH KUMAR", "LKCSB Seminar Rm 3.10", "0815 - 1130", "FRI"],
+        "G3": ["Technology and World Change", "NEO KOK BENG", "SOA Seminar Rm 1-2", "0815 - 1130", "WED"],
+        "G4": ["Technology and World Change", "NEO KOK BENG", "SOA Seminar Rm 1-2", "1200 - 1515", "WED"],
+        "G5": ["Technology and World Change", "NEO KOK BENG", "SOA Seminar Rm 1-2", "0815 - 1130", "THU"]
+    },
+
+    "ECON113":{
+        "G1": ["Economics of Globalisation", "BEI HONG", "SOE/SOSS Seminar Rm 3-8", "1200 - 1515", "THU"],
+        "G2": ["Economics of Globalisation", "BEI HONG", "SOE/SOSS Seminar Rm 3-8", "1530 - 1845", "THU"],
+        "G3": ["Economics of Globalisation", "TAN KIM SONG", "SOE/SOSS Seminar Rm 3-10", "0815 - 1130", "MON"]
+    }
+}

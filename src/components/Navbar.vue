@@ -58,8 +58,6 @@ export default {
 <style scoped>
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  height: 7.5vh;
-  padding: 0rem;
 }
 
 .navbar img {
@@ -67,6 +65,8 @@ export default {
   margin-top: 10px;
 }
 
-
+.button.is-primary {
+  background-color: #7880B5;
+}
 
 </style>

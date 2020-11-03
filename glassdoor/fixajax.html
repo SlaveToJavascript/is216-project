@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LETS FIX OUR AJAX</title>
+</head>
+<body>
+    <script>
+        
+        var request = new XMLHttpRequest();
+
+        request.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var response_json = JSON.parse(this.responseText);
+                
+            }
+        }
+
+        var keyword = "developer";
+        var url = `https://api.adzuna.com/v1/api/jobs/gb/search/10?app_id=c30e5323&app_key=3e6cf013fb257fb3aff727eb7df5bc89&what_phrase=${keyword}`;
+        request.open('GET',url,true)
+        request.send()
+
+    </script>
+</body>
+</html>
