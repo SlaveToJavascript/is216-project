@@ -89,7 +89,7 @@ let category = document.getElementById(i).innerText;
 document.getElementById('input2').innerText = category;
 }   
 
-    console.log(salary);
-    console.log(description);
-    console.log(redirectURL);
+function seeThisJob(bringOver) {
+    console.log(bringOver);
+    
 }
