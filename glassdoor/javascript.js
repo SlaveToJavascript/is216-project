@@ -41,10 +41,10 @@ function showJob() {
                     var salary = jobResults[i]['salary_min'];
                     var description = jobResults[i]['description'];
                     var redirectURL = jobResults[i]['redirect_url'];
-                    // var bringOver = {"title": title, "salary": salary, "description": description, "url": redirectURL};
+                    var bringOver = {"title": title, "salary": salary, "description": description, "url": redirectURL};
                
                     str += `
-                    <div class="card pl-1" style="width: 30rem;" onclick=seeThisJob(${title,company_name,salary,description,redirectURL})>
+                    <div class="card pl-1" style="width: 30rem;" onclick="seeThisJob(${bringOver})">
                         <div class="card-body">
                             <h5 class="card-title" >${title}</h5>
                             <h6 class="card-subtitle mb-2">${company_name}</h6>
@@ -89,10 +89,6 @@ let category = document.getElementById(i).innerText;
 document.getElementById('input2').innerText = category;
 }   
 
-function seeThisJob(title,company_name,salary,description,redirectURL) {
-    // console.log(thisJob);
-    console.log(title);
-    console.log(company_name);
     console.log(salary);
     console.log(description);
     console.log(redirectURL);
