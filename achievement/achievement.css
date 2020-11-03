@@ -29,13 +29,14 @@ body{
     margin-top: 80px;
 }
 
-.row{
+.col-1{
     margin-bottom: 50px;
 }
 
 .header{
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .badge{

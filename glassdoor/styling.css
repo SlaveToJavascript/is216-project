@@ -49,10 +49,10 @@ body {
 } */
 
 .searchbar {
-    background-color: #6987C9;
-    padding: 10px;
-}
+    padding: 20px;
+    background-color: #F3D250;
 
+}
 #input1, #input2 {
     width: 500px;
 }
@@ -74,7 +74,7 @@ body {
 }
 
 #search {
-    margin-left: 10px;
+    margin-left: 1%;
 }
 
 #keyword {
@@ -82,7 +82,7 @@ body {
 }
 
 #key1, #key2 {
-    margin-right: 10px;
+    margin-right: 5%;
 }
 
 #noResultImg {
@@ -94,6 +94,7 @@ body {
 
 #noResultText {
     text-align: center;
+    color:#F1F2F6;
 }
 
 h5 {
