@@ -3,72 +3,24 @@
     <div class="container-lecture">
       <section class="section-nav">
         <ul class="list-lecture">
-          <li class="card-lecture">
-            <a class="lecture-title" href="#">Management Communication</a>
-            <h6 class="lecture-time">
-              <i class="material-icons ic-lecture-info">access_time</i>
-              <span>12:00 - 15:15 | (Tue)</span>
-            </h6>
-            <ul class="list-lecture-info">
-              <li>Course Code : COMM101</li>
-              <li>Professor : Lindy Ong</li>
-              <li>Location : LKCSOB SR-3-3</li>
-            </ul>
-          </li>
-
-          <li class="card-lecture">
+          <li class="card-lecture" v-for="module in modules" :key="module.id">
             <a class="lecture-title" href="#"
-              >Biz Process Analysis & Solutioning</a
-            >
+              >{{ module[Object.keys(module)][1] }} ({{
+                module[Object.keys(module)][0]
+              }})
+            </a>
             <h6 class="lecture-time">
               <i class="material-icons ic-lecture-info">access_time</i>
-              <span>08:15 - 11:30 | (Wed)</span>
+              <span
+                >{{ module[Object.keys(module)][4] }} | ({{
+                  module[Object.keys(module)][5]
+                }})</span
+              >
             </h6>
             <ul class="list-lecture-info">
-              <li>Course Code : IS210</li>
-              <li>Professor : Rafael J. Barros</li>
-              <li>Location: SIS-SR 2-4</li>
-            </ul>
-          </li>
-
-          <li class="card-lecture">
-            <a class="lecture-title" href="#">Interaction Design Prototyping</a>
-            <h6 class="lecture-time">
-              <i class="material-icons ic-lecture-info">access_time</i>
-              <span>12:00 - 15:15 | (Wed)</span>
-            </h6>
-            <ul class="list-lecture-info">
-              <li>Course Code : IS211</li>
-              <li>Professor : Benjamin Gan</li>
-              <li>Location: SIS SR-2-3</li>
-            </ul>
-          </li>
-
-          <li class="card-lecture">
-            <a class="lecture-title" href="#"
-              >Ethics and Corporate Responsibility</a
-            >
-            <h6 class="lecture-time">
-              <i class="material-icons ic-lecture-info">access_time</i>
-              <span>08:15 - 11:30 | (Thu)</span>
-            </h6>
-            <ul class="list-lecture-info">
-              <li>Course Code : OHBR002</li>
-              <li>Professor : Amy Seow</li>
-              <li>Location : LKCSOB SR-2-4</li>
-            </ul>
-          </li>
-
-          <li class="card-lecture">
-            <a class="lecture-title" href="#">Web Applcation Development 2</a>
-            <h6 class="lecture-time">
-              <i class="material-icons ic-lecture-info">access_time</i>
-              <span>08:15 - 11:30 | (Fri)</span>
-            </h6>
-            <ul class="list-lecture-info">
-              <li>Course Code : IS216</li>
-              <li>Professor : Kyong Jin Shim</li>
-              <li>Location : SIS-B1-1</li>
+              <li>Course Code : {{ Object.keys(module)[0] }}</li>
+              <li>Professor : {{ module[Object.keys(module)][2] }}</li>
+              <li>Location : {{ module[Object.keys(module)][3] }}</li>
             </ul>
           </li>
         </ul>
@@ -369,9 +321,77 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "Navbar",
+  data() {
+    const modules = [
+      {
+        COMM101: [
+          "G1",
+          "Management Communication",
+          "Lindy Ong",
+          "LKCSOB SR-3-3",
+          "1200 - 15:15",
+          "Tue"
+        ]
+      },
+      {
+        IS210: [
+          "G3",
+          "Biz Process Analysis & Solutioning",
+          "Rafael J. Barros",
+          "SIS SR-2-4",
+          "0815 - 1130",
+          "Wed"
+        ]
+      },
+      {
+        IS211: [
+          "G7",
+          "Interaction Design Prototyping",
+          "Benjamin Gan",
+          "SIS SR-2-3",
+          "1200 - 1515",
+          "Wed"
+        ]
+      },
+      {
+        OHBR002: [
+          "G12",
+          "Ethics and Corporate Responsibility",
+          "Amy Seow",
+          "LKCSOB SR-2-4",
+          "0815 - 1130",
+          "Thu"
+        ]
+      },
+      {
+        IS216: [
+          "G2",
+          "Web Application Development 2",
+          "Kyong Jin Shim",
+          "SIS-B1-1",
+          "0815 - 1130",
+          "Fri"
+        ]
+      }
+    ];
+    return {
+      modules
+    };
+  }
+};
+</script>
+
 <style scoped>
+a {
+  color: #7880B5;
+}
+
 a:hover {
   text-decoration: none;
+  color: #007bff;
 }
 
 ol,
