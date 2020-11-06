@@ -1,0 +1,52 @@
+
+#header {
+    margin-top: 20px;
+}
+#logo {
+    max-width:80%;
+}
+
+#sign-in {
+    margin-top: 10px;
+    text-align: right;
+}
+
+#blank-space {
+    height: 40px;
+}
+
+.containerLeft{    
+    /* align-content: center;
+ */
+    align-items: center;
+}
+
+.form-control {
+    width: 60%;
+    font-size: large;
+    margin-top: 3%;
+}
+
+.dropdown-toggle {
+    margin-top: 3%;
+}
+
+#dropdownSchool{ 
+    margin-left: 3%;  
+}
+
+.btn-circle.btn-sm { 
+    width: 30px; 
+    height: 30px; 
+    padding: 0px 0px; 
+    border-radius: 15px; 
+    font-size: large; 
+    text-align: center; 
+} 
+
+
+
+#bigImg {
+    background-color: #7880B5;
+}
+
