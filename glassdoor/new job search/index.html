@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search Portal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+
+   <!-- top navbar -->
+
+   <div class = "container-fluid">
+      
+    
+  <div class="navbar navbar-light bg-light navbar-expand-lg">
+        <a class="navbar-brand" href="#">
+            <img src="./images/logo.jpg" class="d-inline-block align-center" height="15%" width="15%" alt="STUD">
+            STUD
+          </a>
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Timetable</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Habit Tracker</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Jobs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Settings</a>
+              </li>
+            </ul>
+          </div>
+       </div>
+  </div>
+
+  <!-- searchbar -->
+  <div class="container-fluid searchbar" style="height:100%; overflow-y: visible;">  
+    <div class="row">
+      <!-- search job description -->
+      <div class="col-xl-6 col-lg-12">
+        <div class="input-group d-flex justify-content-end">
+          <div class="input-group-prepend ">
+            <input type="text" class="form-control" id="input1" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Job, Title, Keyword, Company">
+          </div>
+        </div>
+      </div>  
+
+      <!-- search type -->
+      <div class="col">
+        <div class = "row">
+          <div class="dropdown">
+            <a class="btn drop  down" id="input2"href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Type of job
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width: 500px;" id="category">
+              <p class="dropdown-item" id="0" onclick="category('0')">Internship</p>
+              <p class="dropdown-item" id="1" onclick="category('1')">Full Time</p>
+              <p class="dropdown-item" id="2" onclick="category('2')">Part Time</p>
+              <p class="dropdown-item" id="3" onclick="category('3')">Freelance</p>
+              <p class="dropdown-item" id="4" onclick="category('4')">All</p>
+
+            </div>
+          </div>
+
+          <!-- press search -->
+          <input class="btn btn-primary" id="search" type="submit" value="Search" onclick="showJob()">
+  
+        </div>
+        
+      </div>
+    </div>
+
+
+    <!-- keywords  -->
+    <!-- <div class="row" id="keyword">
+      <button type="button" class="btn btn-light" id="key1">Developer</button>
+      <button type="button" class="btn btn-light"id="key2">Part Time</button>
+    </div> -->
+  </div>
+
+  <!-- ro results page -->
+  <div class="container-fluid" style="background-color:#F1F2F6;">
+
+    <!-- no results  -->
+    <div class="row"> 
+      <div class="col" id="numResult">
+      </div>
+    </div>
+
+    <div class="container-fluid" style="background-color:#6987C9; width: 80%;" id="emptyResult">
+    </div>
+
+
+    <!-- results page -->
+    <div class="row">
+      <div class="col-5" id="jobResult">
+        
+      </div>
+
+      <div class="col" id="jobDetail">
+      </div>
+
+    </div>
+  
+    
+  </div> 
+
+        
+    <script src="javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
