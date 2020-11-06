@@ -15,14 +15,8 @@
     height: 40px;
 }
 
-.containerLeft{    
-    /* align-content: center;
- */
-    align-items: center;
-}
-
 .form-control {
-    width: 60%;
+    width: 70%;
     font-size: large;
     margin-top: 3%;
 }
@@ -31,10 +25,13 @@
     margin-top: 3%;
 }
 
-#dropdownSchool{ 
+#dDSchool{ 
     margin-left: 3%;  
 }
 
+#selectModHeader {
+    margin-top: 3%;
+}
 .btn-circle.btn-sm { 
     width: 30px; 
     height: 30px; 
@@ -44,6 +41,9 @@
     text-align: center; 
 } 
 
+#addModule {
+    margin-top:3%;
+}
 
 
 #bigImg {
