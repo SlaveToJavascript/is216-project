@@ -1,0 +1,52 @@
+
+#header {
+    margin-top: 20px;
+}
+#logo {
+    max-width:80%;
+}
+
+#sign-in {
+    margin-top: 10px;
+    text-align: right;
+}
+
+#blank-space {
+    height: 40px;
+}
+
+.form-control {
+    width: 70%;
+    font-size: large;
+    margin-top: 3%;
+}
+
+.dropdown-toggle {
+    margin-top: 3%;
+}
+
+#dDSchool{ 
+    margin-left: 3%;  
+}
+
+#selectModHeader {
+    margin-top: 3%;
+}
+.btn-circle.btn-sm { 
+    width: 30px; 
+    height: 30px; 
+    padding: 0px 0px; 
+    border-radius: 15px; 
+    font-size: large; 
+    text-align: center; 
+} 
+
+#addModule {
+    margin-top:3%;
+}
+
+
+#bigImg {
+    background-color: #7880B5;
+}
+

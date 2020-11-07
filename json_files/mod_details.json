@@ -37,5 +37,36 @@
         "G1": ["Economics of Globalisation", "BEI HONG", "SOE/SOSS Seminar Rm 3-8", "1200 - 1515", "THU"],
         "G2": ["Economics of Globalisation", "BEI HONG", "SOE/SOSS Seminar Rm 3-8", "1530 - 1845", "THU"],
         "G3": ["Economics of Globalisation", "TAN KIM SONG", "SOE/SOSS Seminar Rm 3-10", "0815 - 1130", "MON"]
+    },
+
+    "IS216": {
+        "G1": ["Web Application Development II", "KYONG JIN SHIM", "SIS Seminar Rm B1-1", "0815 - 1130", "FRI"],
+        "G2": ["Web Application Development II", "KYONG JIN SHIM", "SIS Seminar Rm B1-1", "1200 - 1515", "FRI"],
+        "G4": ["Web Application Development II", "KYONG JIN SHIM", "SIS Seminar Rm B1-1", "1530 - 1845", "WED"]
+    },
+
+    "IS210": {
+        "G1": ["Business Process Analysis & Solutioning	", "SWAPNA GOTTIPATI", "SIS Seminar Rm 3-1", "1200 - 1515", "THUR"],
+        "G2": ["Business Process Analysis & Solutioning	", "SWAPNA GOTTIPATI", "SIS Seminar Rm 2-4", "0815 - 1130", "FRI"],
+        "G3": ["Business Process Analysis & Solutioning	", "RAFAEL J. BARROS", "SIS Seminar Rm 2-1", "0815 - 1130", "TUE"]
+    },
+
+    "IS211": {
+        "G1": ["Interaction Design and Prototyping", "BENJAMIN GAN KOK SIEW", "SIS Seminar Rm 3-4", "1200 - 1515", "TUE"],
+        "G2": ["Interaction Design and Prototyping", "BENJAMIN GAN KOK SIEW", "SIS Seminar Rm 3-4", "1515 - 1845", "TUE"],
+        "G4": ["Interaction Design and Prototyping", "BENJAMIN GAN KOK SIEW", "SIS Seminar Rm 3-4", "1200 - 1515", "WED"]
+    }, 
+    "COR-COMM1304": {
+        "G1": ["Management Communication", "SHYAMALA DEENATHAYALAN", "LKCSB Seminar Rm 3-10", "1200 - 1515", "WED"],
+        "G2": ["Management Communication", "SHYAMALA DEENATHAYALAN", "PSR Classroom 1-1", "0815 - 1130", "THU"],
+        "G2": ["Management Communication", "SUMATHI KRISHNA", "LKCSB Seminar Rm 3-5", "0815 - 1130", "FRI"]
+
+    },
+    "COR3304":{
+        "G1": ["Ethics and Corporate Responsibility", "PAUL LIM HENG LEONG", "LKCSB Seminar Rm 3-5", "0815 - 1130", "WED"],
+        "G2": ["Ethics and Corporate Responsibility", "PAUL LIM HENG LEONG", "LKCSB Seminar Rm 3-9", "0815 - 1130", "THU"],
+        "G3": ["Ethics and Corporate Responsibility", "PAUL LIM HENG LEONG", "LKCSB Seminar Rm 3-6", "1515 - 1845", "THU"]
     }
 }
+
+

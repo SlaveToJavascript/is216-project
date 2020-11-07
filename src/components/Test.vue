@@ -65,4 +65,35 @@
               <li>Professor : Kyong Jin Shim</li>
               <li>Location : SIS-B1-1</li>
             </ul>
-          </li> -->
+          </li>
+          
+                  <li
+          class="lecture-time two-hr hr-13"
+          data-event="lecture-02"
+        >
+          <a href="#">
+            <div class="lecture-info">
+              <h6 class="lecture-title ">프로그래밍의 원리</h6>
+              <h6 class="lecture-location">공학1관 102</h6>
+            </div>
+            <div
+              class="lecture-noti"
+              data-toggle="tooltip"
+              data-placement="top"
+              title=""
+              data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트"
+            >
+              <i class="material-icons ic-lecture-noti"
+                >assignment</i
+              >
+              <span class="lecture-noti-title"
+                >과제 제목 텍스트</span
+              >
+            </div>
+          </a>
+        </li>
+          
+          
+           -->
+
+
