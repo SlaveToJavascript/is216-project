@@ -3,7 +3,10 @@
 }
 #logo {
     max-width:80%;
+<<<<<<< HEAD
     max-height: 50%;    
+=======
+>>>>>>> parent of a59fe43... edited registration
 }
 
 #sign-in {
@@ -47,6 +50,7 @@
 
 
 #bigImg {
+<<<<<<< HEAD
     /* background-color: #7880B5; */
     position: absolute;
 }
@@ -83,3 +87,8 @@ body{
         background: #a2cc7a;
     }
 } */
+=======
+    background-color: #7880B5;
+}
+
+>>>>>>> parent of a59fe43... edited registration
