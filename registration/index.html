@@ -15,7 +15,7 @@
 
         <div class= "row">
             
-            <div class="col-lg-4" >
+            <div class="col" >
 
                 <!-- header -->
                 <div class="row" id="header">
@@ -43,18 +43,18 @@
                     </div>
     
                     <div class="row  d-flex justify-content-center" >
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                        <input type="text" class="form-control reg-form" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
                     </div>
     
                     <div class="row  d-flex justify-content-center" >
-                        <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
+                        <input type="text" class="form-control reg-form" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
                     </div>
     
                     <div class="row  d-flex justify-content-center" >
-                        <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
+                        <input type="text" class="form-control reg-form" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
                     </div>
 
-                    <div class="row d-flex justify-content-center" >
+                    <div class="row d-flex justify-content-center" id="dropdown">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownYear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Year">
                             Year
@@ -93,12 +93,15 @@
                     <div class="row d-flex justify-content-center"> 
                         <div id=app >
                             <div class="form-group" v-for="(input,k) in inputs" :key="k">
-                        
-                                <input type="text" class="form-control" v-model="input.name" style="width:150%;" placeholder="Course Number and Course Name"> 
-                        
-                                <button type="button" class="btn btn-primary btn-circle btn-sm" @click="remove(k)" v-show="k || ( !k && inputs.length > 1)">-</button> 
                                 
+                            
+                                <input type="text" class="form-group" v-model="input.name" id="courseText" placeholder="Course Number and Course Name"> 
+                                
+                                <button type="button" class="btn btn-primary btn-circle btn-sm" @click="remove(k)" v-show="k || ( !k && inputs.length > 1)">-</button>
+                            
+                        
                                 <button type="button" class="btn btn-primary btn-circle btn-sm text-center" @click="add(k)" v-show="k == inputs.length-1">+</button> 
+                            
                             
                             </div>
                         
