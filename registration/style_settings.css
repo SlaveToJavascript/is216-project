@@ -3,10 +3,7 @@
 }
 #logo {
     max-width:80%;
-<<<<<<< HEAD
     max-height: 50%;    
-=======
->>>>>>> parent of a59fe43... edited registration
 }
 
 #sign-in {
@@ -18,8 +15,11 @@
     height: 40px;
 }
 
-.form-control {
-    width: 70%;
+#dropdown {
+    margin-top: 3%;
+}
+.reg-form {
+    width: 75%;
     font-size: large;
     margin-top: 3%;
 }
@@ -29,7 +29,7 @@
 }
 
 #dDSchool{ 
-    margin-left: 3%;  
+    margin-left: 3%;
 }
 
 #selectModHeader {
@@ -48,18 +48,13 @@
     margin-top:3%;
 }
 
-
-#bigImg {
-<<<<<<< HEAD
-    /* background-color: #7880B5; */
-    position: absolute;
+.input-bar-item {
+    display: table-cell;
 }
 
-.background_right{
-    background-color: #7880B5;
-    position: relative;
-    height: 100vh;
-}
+/* #courseText {
+    width: 50%;
+} */
 /* 
 body{
     margin: 0;
@@ -87,8 +82,3 @@ body{
         background: #a2cc7a;
     }
 } */
-=======
-    background-color: #7880B5;
-}
-
->>>>>>> parent of a59fe43... edited registration
