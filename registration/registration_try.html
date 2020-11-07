@@ -55,29 +55,32 @@
                     </div>
 
                     <div class="row d-flex justify-content-center" >
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dDYear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Year">
-                        Year
-                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownYear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Year">
+                            Year
+                            </button>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownYear">
-                            <a class="dropdown-item" href="#" onclick="replaceYear('Year 1')">Year 1</a>
-                            <a class="dropdown-item" href="#" onclick="replaceYear('Year 2')">Year 2</a> 
-                            <a class="dropdown-item" href="#" onclick="replaceYear('Year 3')">Year 3</a>
-                            <a class="dropdown-item" href="#" onclick="replaceYear('Year 4')">Year 4</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownYears">
+                                <a class="dropdown-item" href="#" onclick="replaceYear('Year 1')">Year 1</a>
+                                <a class="dropdown-item" href="#" onclick="replaceYear('Year 2')">Year 2</a> 
+                                <a class="dropdown-item" href="#" onclick="replaceYear('Year 3')">Year 3</a>
+                                <a class="dropdown-item" href="#" onclick="replaceYear('Year 4')">Year 4</a>
+                            </div>
                         </div>
 
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dDSchool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        School
-                        </button>
-                        
-                        <!-- this is not displaying! -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownSchool">
-                            <a class="dropdown-item" href="#">SIS</a>
-                            <a class="dropdown-item" href="#">SOSS</a>
-                            <a class="dropdown-item" href="#">SOE</a>
-                            <a class="dropdown-item" href="#">SOA/a>
-                            <a class="dropdown-item" href="#">SOL</a>
-                            <a class="dropdown-item" href="#">LKSB</a>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dDSchool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownSchl">
+                                School
+                            </button>
+                            
+                            <div class="dropdown-menu 2" aria-labelledby="dDSchools">
+                                <a class="dropdown-item" href="#" onclick="replaceSchl('SIS')">SIS</a>
+                                <a class="dropdown-item" href="#" onclick="replaceSchl('SOSS')">SOSS</a>
+                                <a class="dropdown-item" href="#" onclick="replaceSchl('SOE')">SOE</a>
+                                <a class="dropdown-item" href="#" onclick="replaceSchl('SOA')">SOA</a>
+                                <a class="dropdown-item" href="#" onclick="replaceSchl('SOL')">SOL</a>
+                                <a class="dropdown-item" href="#" onclick="replaceSchl('LKSB')">LKSB</a>
+                            </div>
                         </div>
 
                     </div>
