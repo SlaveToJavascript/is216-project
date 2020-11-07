@@ -1,4 +1,3 @@
-
 #header {
     margin-top: 20px;
 }
@@ -47,3 +46,40 @@
 }
 
 
+#bigImg {
+    /* background-color: #7880B5; */
+    position: absolute;
+}
+
+.background_right{
+    background-color: #7880B5;
+    position: relative;
+    height: 100vh;
+}
+/* 
+body{
+    margin: 0;
+    padding: 0;
+    animation: bgcolor infinite 14s;
+}
+
+@keyframes bgcolor{
+    0%{
+        background: #7880b5;
+    }
+    20%{
+        background: #f3d250;
+    }
+    40%{
+        background: #f4976c;
+    }
+    60%{
+        background: #f1f2f6;
+    }
+    80%{
+        background: #6987c9;
+    }
+    100%{
+        background: #a2cc7a;
+    }
+} */
