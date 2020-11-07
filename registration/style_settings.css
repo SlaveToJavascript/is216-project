@@ -4,6 +4,7 @@
 }
 #logo {
     max-width:80%;
+    max-height: 50%;
 }
 
 #sign-in {
@@ -45,8 +46,4 @@
     margin-top:3%;
 }
 
-
-#bigImg {
-    background-color: #7880B5;
-}
 
