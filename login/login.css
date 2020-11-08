@@ -204,7 +204,7 @@ font-family: 'Poppins';
 margin-top: -30%;
 }
 
-.outer-box {
+#outer-box {
 text-align: center;
 position: relative;
 width: 500px;
