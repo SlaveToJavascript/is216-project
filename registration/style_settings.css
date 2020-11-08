@@ -72,19 +72,19 @@ body{
 
 @keyframes bgcolor{
     0%{
-        background: #7880b5;
+        background: #ffdcce;
     }
     20%{
-        background: #a2cc7a;
+        background: #dcee9d;
     }
     60%{
-        background: #f1f2f6;
+        background: #ffe8ff;
     }
     80%{
-        background: #6987c9;
+        background: #cdcdf8;
     }
     100%{
-        background: #a2cc7a;
+        background: #dcf1c8;
     }
 }
 
