@@ -46,9 +46,9 @@
     },
 
     "IS210": {
-        "G1": ["Business Process Analysis & Solutioning	", "SWAPNA GOTTIPATI", "SIS Seminar Rm 3-1", "1200 - 1515", "THUR"],
-        "G2": ["Business Process Analysis & Solutioning	", "SWAPNA GOTTIPATI", "SIS Seminar Rm 2-4", "0815 - 1130", "FRI"],
-        "G3": ["Business Process Analysis & Solutioning	", "RAFAEL J. BARROS", "SIS Seminar Rm 2-1", "0815 - 1130", "TUE"]
+        "G1": ["Business Process Analysis & Solutioning", "SWAPNA GOTTIPATI", "SIS Seminar Rm 3-1", "1200 - 1515", "THUR"],
+        "G2": ["Business Process Analysis & Solutioning", "SWAPNA GOTTIPATI", "SIS Seminar Rm 2-4", "0815 - 1130", "FRI"],
+        "G3": ["Business Process Analysis & Solutioning", "RAFAEL J. BARROS", "SIS Seminar Rm 2-1", "0815 - 1130", "TUE"]
     },
 
     "IS211": {

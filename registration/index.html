@@ -103,9 +103,9 @@
                             
 
                             <!-- need to fix width of the area of the list -->
-                            <div class="row d-flex justify-content-center">
-                                <ul style="list-style-type: none; white-space: nowrap; overflow-x: hidden ; overflow-y: hidden;" >
-                                    <li v-for="(item, index) in items" :key="index">
+                            <div class="row d-flex justify-content-center" style="width: 100%;">
+                                <ul style="list-style-type: none; white-space: nowrap; overflow-x: hidden ; overflow-y: hidden; max-width:auto;" >
+                                    <li v-for="(item, index) in items" :key="index" >
                         
                                         {{ item }}  <button type="button" class="btn btn-outline-dark  btn-circle btn-sm" @click="deletefromList(index)" style="display: inline-block;">-</button>
 

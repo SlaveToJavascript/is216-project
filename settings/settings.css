@@ -30,6 +30,7 @@
 
 #dDSchool{ 
     margin-left: 3%;
+    /* margin-top: 1%; */
 }
 
 #selectModHeader {
@@ -44,9 +45,6 @@
     text-align: center; 
 } 
 
-#addModule {
-    margin-top:3%;
-}
 
 .input-bar-item {
     display: table-cell;
