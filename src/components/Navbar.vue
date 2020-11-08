@@ -58,6 +58,7 @@ export default {
 <style scoped>
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0px;
 }
 
 a.navbar-burger.burger {
