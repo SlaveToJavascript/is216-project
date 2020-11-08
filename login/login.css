@@ -1,16 +1,14 @@
 /*Code taken from Sepion-*/
 /*Link: https://codepen.io/Sepion/pen/ZQJyeq*/
 
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
-
 *{
     margin: 0px;
     padding: 0px;
 }
 
 .area{
-    background: #F4976C;  
-    background: -webkit-linear-gradient(to left, #F3D250, #F4976C);  
+  
+    
     width: 100%;
     height:100vh;
 }
@@ -31,7 +29,7 @@
     width: 20px;
     height: 20px;
     background: #F1F2F6;
-    animation: animate 20s linear infinite;
+    animation: animate 10s linear infinite;
     bottom: -150px;
     
 }
@@ -41,6 +39,7 @@
     width: 80px;
     height: 80px;
     animation-delay: 0s;
+    background-color: #F4976C;
 }
 
 
@@ -49,14 +48,16 @@
     width: 20px;
     height: 20px;
     animation-delay: 2s;
-    animation-duration: 12s;
+    animation-duration: 8s;
+    background-color: #7880B5;
 }
 
 .circles li:nth-child(3){
-    left: 70%;
+    left: 30%;
     width: 20px;
     height: 20px;
-    animation-delay: 4s;
+    animation-delay: 2s;
+    background-color: #6987C9;
 }
 
 .circles li:nth-child(4){
@@ -64,14 +65,17 @@
     width: 60px;
     height: 60px;
     animation-delay: 0s;
-    animation-duration: 18s;
+    animation-duration: 15s;
+    background-color: #F3D250;
 }
 
 .circles li:nth-child(5){
-    left: 65%;
-    width: 20px;
-    height: 20px;
+    left: 10%;
+    width: 80px;
+    height: 80px;
     animation-delay: 0s;
+    animation-duration: 8s;
+    background-color: #F4976C;
 }
 
 .circles li:nth-child(6){
@@ -79,13 +83,16 @@
     width: 110px;
     height: 110px;
     animation-delay: 3s;
+    background-color: #7880B5;
 }
 
 .circles li:nth-child(7){
-    left: 35%;
+    left:  5%;
     width: 150px;
     height: 150px;
-    animation-delay: 7s;
+    animation-delay: 2s;
+    animation-duration: 7s;
+    background-color: #7880B5;
 }
 
 .circles li:nth-child(8){
@@ -94,6 +101,7 @@
     height: 25px;
     animation-delay: 15s;
     animation-duration: 45s;
+    background-color: #6987C9;
 }
 
 .circles li:nth-child(9){
@@ -102,6 +110,7 @@
     height: 15px;
     animation-delay: 2s;
     animation-duration: 35s;
+    background-color: #F4976C;
 }
 
 .circles li:nth-child(10){
@@ -110,14 +119,52 @@
     height: 150px;
     animation-delay: 0s;
     animation-duration: 11s;
+    background-color: #F3D250;
 }
 
 .circles li:nth-child(11){
-    left: 10%;
+    left: 90%;
     width: 90px;
     height: 90px;
-    animation-delay: 0s;
+    animation-delay: 2s;
     animation-duration: 11s;
+    background-color: #6987C9;
+}
+
+.circles li:nth-child(12){
+    left: 70%;
+    width: 10px;
+    height: 10px;
+    animation-delay: 0s;
+    animation-duration: 13s;
+    background-color: #7880B5;
+}
+
+.circles li:nth-child(13){
+    left: 60%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 4s;
+    animation-duration: 10s;
+    background-color: #F3D250;;
+}
+
+.circles li:nth-child(14){
+    left: 80%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 1s;
+    animation-duration: 7s;
+    background-color: #7880B5;;
+}
+
+.circles li:nth-child(15){
+    left: 90%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+    animation-duration: 4s;
+    background-color: #F4976C;;
 }
 
 @keyframes animate {
@@ -134,26 +181,6 @@
         border-radius: 50%;
     }
 
-}
-
-.svgContainer {
-    position: relative; width: 120px; height: 120px; margin: 0 auto 1em;
-    border-radius: 50%; background: none; border: solid 2.5px #3A5E77; overflow: hidden;
-    pointer-events: none;
-}
-  
-.mySVG {
-position: absolute; left: 0; top: 0; width: 100%; height: 100%;
-pointer-events: none;
-}
-
-
-#logo {
-position:fixed; 
-margin-left:20px;
-margin-top:20px;
-top:0; 
-left:0;  
 }
 
 body {
@@ -174,23 +201,22 @@ overflow-y: hidden;
 h2 {
 text-align: center;
 font-family: 'Poppins';
+margin-top: -30%;
 }
 
 .outer-box {
 text-align: center;
 position: relative;
-width: 320px;
-height: auto;
+width: 340px;
 margin: auto;
 padding: 10px 20px; 
 background: #F1F2F6;
 max-width: 360px;
 padding: 45px;
-text-align: center;
-border-radius: 20px;
+border-radius: 18px;
 box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 z-index: 999;
-margin-top: 1%;
+margin-top: 8%;
 }
 
 .form{
@@ -200,12 +226,8 @@ justify-content: center;
 
 }
 
-.checkbox{
-margin-top: 20px;
-}
-
 .button{
-background: #F4976C;
+background: #F3D250;
 outline: none;
 border: none;
 border-radius: 20px;
@@ -213,20 +235,14 @@ padding: 10px 30px;
 font-weight: 600;
 font-size: 15px;
 color: #fff;
-margin-top: 20px;
+margin-top: 30px;
+width:75%;
 }
+
 .button:hover,
 .button:focus{
-background: #F3D250;
-}
+background: #F4976C;
 
-a{
-margin-top: 20px;
-}
-
-p {
-text-align: center;
-margin-top:  30px;
 }
 
 .loginbtn:hover,
@@ -235,11 +251,36 @@ margin-top:  30px;
 }
 
 .email{
-margin-top: 40px;
+margin-top: 30px;
 }
 
 .password{
-margin-top: 40px;
+margin-top: 30px;
+}
+
+.input-group{
+    height:30px;
+}
+
+.form-control{
+    height:30px;
+}
+
+.human{
+    z-index: 999;
+    position: absolute;
+    bottom: 0px;
+    left: -80px;
+}
+
+.person{
+    height:70%;
+    width:70%;
+}
+
+.logo{
+   text-align: center;
+   margin-top: -30%;
 }
 
 
