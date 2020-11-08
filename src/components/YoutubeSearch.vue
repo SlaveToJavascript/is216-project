@@ -6,11 +6,11 @@
         </div>
         <div class="input-group">
             <input
-            v-model="searchString"
-            @keydown.13.prevent="parseSearchString"
-            type="text"
-            class="form-control"
-            v-bind:placeholder="placeholder"
+              v-model="searchString"
+              @keydown.13.prevent="parseSearchString"
+              type="text"
+              class="form-control"
+              v-bind:placeholder="placeholder"
             >
             <div class="input-group-append">
             <b-button @click="parseSearchString" variant="primary">
@@ -33,17 +33,17 @@ export default {
   },
   methods: {
     parseSearchString() {
-        this.placeholder = this.searchString;
-        // Trim search string
-        const trimmedSearchString = this.searchString.trim();
+      this.placeholder = this.searchString;
+      // Trim search string
+      const trimmedSearchString = this.searchString.trim();
 
-        if (trimmedSearchString !== '') {
-            // Split search string
-            const searchParams = trimmedSearchString.split(/\s+/);
-            // Emit event
-            this.$emit('search', searchParams);
-            // Reset input field
-            this.searchString = '';
+      if (trimmedSearchString !== '') {
+        // Split search string
+        const searchParams = trimmedSearchString.split(/\s+/);
+        // Emit event
+        this.$emit('search', searchParams);
+        // Reset input field
+        this.searchString = '';
       }
     }
   }
