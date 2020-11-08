@@ -1,9 +1,11 @@
 function replaceYear(id) {
-    // console.log(id)
-    var x = document.getElementById('dDYear');
-    console.log(x);
+    document.getElementById('dropdownYear').innerHTML = id;
 }
 
+function replaceSchl(schl) {
+
+    document.getElementById('dDSchool').innerHTML = schl;
+}
 
     // str = `
     //     <div class="row">

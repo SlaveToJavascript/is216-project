@@ -13,140 +13,141 @@
     
     <div class="container-fluid">
 
+         <!-- header -->
+         <div class="row" id="header" >
+            <div class="col ">
+                <img src="images/smoolife final.png"  id="logo" style="margin-bottom: 0px;">
+            </div>
+
+            <!-- to redirect to sign in page -->
+            <div class="col" id="sign-in" >
+                <button type="button" class="btn btn-outline-primary" href="#">Sign In</button>
+            </div>                
+
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <img src="images/corgi study.gif" style="width: 10%; height: 10%;">
+        </div>
+
         <div class= "row">
             
-            <div class="col-lg-4" >
-
-                <!-- header -->
-                <div class="row" id="header">
-                    <div class="col">
-                        <img src="images/smoolife final.png"  id="logo">
-                    </div>
-
-                    <!-- to redirect to sign in page -->
-                    <div class="col" id="sign-in">
-                        <button type="button" class="btn btn-primary" href="#">Sign In</button>
-                    </div>                
-
-                </div>
-                
-                <div class="row" id="blank-space">
-
-                </div>
+            <div class="col" >
 
                 <!-- registration details -->
 
-                <div class="container" id="registration">
-                    
-                    <div class="row  d-flex justify-content-center">
-                        <h1>Create an account</h1>
-                    </div>
-    
-                    <div class="row  d-flex justify-content-center" >
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-                    </div>
-    
-                    <div class="row  d-flex justify-content-center" >
-                        <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
-                    </div>
-    
-                    <div class="row  d-flex justify-content-center" >
-                        <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
-                    </div>
-
-                    <div class="row d-flex justify-content-center" >
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dDYear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Year">
-                        Year
-                        </button>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownYear">
-                            <a class="dropdown-item" href="#" onclick="replaceYear('Year 1')">Year 1</a>
-                            <a class="dropdown-item" href="#" onclick="replaceYear('Year 2')">Year 2</a> 
-                            <a class="dropdown-item" href="#" onclick="replaceYear('Year 3')">Year 3</a>
-                            <a class="dropdown-item" href="#" onclick="replaceYear('Year 4')">Year 4</a>
+                
+                <div class="row">
+                    <div class="container" id="registration">
+                        
+                        <div class="row  d-flex justify-content-center">
+                            <h1>Create an account</h1>
+                        </div>
+        
+                        <div class="row  d-flex justify-content-center" >
+                            <input type="text" class="form-control reg-form" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+        
+                        <div class="row  d-flex justify-content-center" >
+                            <input type="text" class="form-control reg-form" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
+                        </div>
+        
+                        <div class="row  d-flex justify-content-center" >
+                            <input type="password" class="form-control reg-form" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
                         </div>
 
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dDSchool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        School
-                        </button>
-                        
-                        <!-- this is not displaying! -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownSchool">
-                            <a class="dropdown-item" href="#">SIS</a>
-                            <a class="dropdown-item" href="#">SOSS</a>
-                            <a class="dropdown-item" href="#">SOE</a>
-                            <a class="dropdown-item" href="#">SOA/a>
-                            <a class="dropdown-item" href="#">SOL</a>
-                            <a class="dropdown-item" href="#">LKSB</a>
-                        </div>
+                        <div class="row d-flex justify-content-center" id="dropdown">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownYear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Year" style="width: 300px;">
+                                Year
+                                </button>
 
-                    </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownYears" style="width: 300px;">
+                                    <a class="dropdown-item" href="#" onclick="replaceYear('Year 1')">Year 1</a>
+                                    <a class="dropdown-item" href="#" onclick="replaceYear('Year 2')">Year 2</a> 
+                                    <a class="dropdown-item" href="#" onclick="replaceYear('Year 3')">Year 3</a>
+                                    <a class="dropdown-item" href="#" onclick="replaceYear('Year 4')">Year 4</a>
+                                </div>
+                            </div>
 
-                    <div class="row d-flex justify-content-center" id="selectModHeader">
-                        <h4>Select your modules: </h4>
-                    </div>
-
-                    <!-- add modules -->
-                    <div class="row d-flex justify-content-center"> 
-                        <div id=app >
-                            <div class="form-group" v-for="(input,k) in inputs" :key="k">
-                        
-                                <input type="text" class="form-control" v-model="input.name" style="width:150%;" placeholder="Course Number and Course Name"> 
-                        
-                                <button type="button" class="btn btn-primary btn-circle btn-sm" @click="remove(k)" v-show="k || ( !k && inputs.length > 1)">-</button> 
+                            <div class="dropdown">
+                                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dDSchool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownSchl" style="width: 300px;">
+                                    School
+                                </button>
                                 
-                                <button type="button" class="btn btn-primary btn-circle btn-sm text-center" @click="add(k)" v-show="k == inputs.length-1">+</button> 
+                                <div class="dropdown-menu 2" aria-labelledby="dDSchools" style="width: 300px;">
+                                    <a class="dropdown-item" href="#" onclick="replaceSchl('SIS')">SIS</a>
+                                    <a class="dropdown-item" href="#" onclick="replaceSchl('SOSS')">SOSS</a>
+                                    <a class="dropdown-item" href="#" onclick="replaceSchl('SOE')">SOE</a>
+                                    <a class="dropdown-item" href="#" onclick="replaceSchl('SOA')">SOA</a>
+                                    <a class="dropdown-item" href="#" onclick="replaceSchl('SOL')">SOL</a>
+                                    <a class="dropdown-item" href="#" onclick="replaceSchl('LKSB')">LKSB</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row d-flex justify-content-center" id="selectModHeader">
+                            <h4>Select your modules: </h4>
+                        </div>
+
+                        <!-- add modules -->
+                        <div id="vueMagic">
+                            <div class="row d-flex justify-content-center">
+                                
+                                <input type="text" class="form-control" placeholder="Course Number and Course Name" aria-label="Recipient's username" aria-describedby="basic-addon2" v-model="newItem" id="modAdd">
+                            
+                                <button type="button" class="btn btn-outline-primary btn-circle btn-sm text-center" v-on:click="addNewItem">+</button>
                             
                             </div>
+                            
+
+                            <!-- need to fix width of the area of the list -->
+                            <div class="row d-flex justify-content-center">
+                                <ul style="list-style-type: none; white-space: nowrap; overflow-x: hidden ; overflow-y: hidden;" >
+                                    <li v-for="(item, index) in items" :key="index">
                         
+                                        {{ item }}  <button type="button" class="btn btn-outline-dark  btn-circle btn-sm" @click="deletefromList(index)" style="display: inline-block;">-</button>
+
+                                    </li>
+                                </ul>
+                            </div> 
+
                         </div>
-                    </div>
+                        
+                        <!-- register button -->
+                        <div class="row d-flex justify-content-center"> 
+                            <button type="button" class="btn btn-outline-primary text-center" href="#">Register!</button> 
+                        </div>
                     
-                    <<div class="row d-flex justify-content-center"> 
-                        <button type="button" class="btn btn-primary text-center" href="#">Register!</button> 
                     </div>
-                   
                 </div>
 
             </div>
-
-            <!-- side image -->
-            <div class="col text-center" id="bigImg" >
-                <!-- <a href="https://stories.freepik.com/education">Illustration by Freepik Stories</a> -->
-                <img src="images/a+.gif">
-            </div>
-        
         </div>
 
             
     </div>
 
     <script>
-      new Vue({
-        el: '#app',
-
-        data () {
-            return {
-            inputs: [{
-                name: ''
-            }]
+      var exe = new Vue({
+            el: "#vueMagic",
+            data: {
+                items: [],
+                newItem: ""
+            },
+            methods: {
+                deletefromList(index) {
+                    this.items.splice(index,1);
+                },
+                addNewItem() {
+                    this.items.push(this.newItem)
+                    this.newItem = ""
+                }
             }
-        },
+        })
 
-        methods: {
-            add () {
-            this.inputs.push({
-                name: ''
-            })
-            console.log(this.inputs)
-            },
 
-            remove (index) {
-            this.inputs.splice(index, 1)
-            },
-
-        }
-    })
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
