@@ -35,6 +35,7 @@
 
 #selectModHeader {
     margin-top: 3%;
+    margin-bottom: 1%;
 }
 .btn-circle.btn-sm { 
     width: 30px; 
@@ -53,3 +54,19 @@
 .form-inline{
     margin-top:30px;
 }
+
+.background{
+    background-image: url("./Admin-cuate.svg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.trans-box{
+    background: rgba(255, 255, 255, 0.78);
+}
+
+#change-button{
+    margin-bottom: 80px;
+}
+
