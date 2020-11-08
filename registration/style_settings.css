@@ -2,7 +2,7 @@
     margin-top: 20px;
 }
 #logo {
-    max-width:80%;
+    max-width:50%;
     max-height: 50%;    
 }
 
@@ -29,12 +29,13 @@
 }
 
 #dDSchool{ 
-    margin-left: 3%;
+    margin-left: 1%;
 }
 
 #selectModHeader {
     margin-top: 3%;
 }
+
 .btn-circle.btn-sm { 
     width: 30px; 
     height: 30px; 
@@ -42,6 +43,8 @@
     border-radius: 15px; 
     font-size: large; 
     text-align: center; 
+    margin-left: 1%;
+    margin-top: 0.5%;
 } 
 
 #addModule {
@@ -52,10 +55,14 @@
     display: table-cell;
 }
 
-/* #courseText {
+#modAdd{ 
+    width: 70%;
+}
+
+#courseText {
     width: 50%;
-} */
-/* 
+} 
+
 body{
     margin: 0;
     padding: 0;
@@ -67,10 +74,7 @@ body{
         background: #7880b5;
     }
     20%{
-        background: #f3d250;
-    }
-    40%{
-        background: #f4976c;
+        background: #a2cc7a;
     }
     60%{
         background: #f1f2f6;
@@ -81,4 +85,9 @@ body{
     100%{
         background: #a2cc7a;
     }
-} */
+}
+
+.btn-primary, .btn-secondary {
+    background-color: #6987C9;
+    border: #6987C9;
+}
