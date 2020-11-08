@@ -11,12 +11,12 @@
         </div>
     
         <div>
-          <b-dropdown variant="primary" id="jobType" text="Type of job" class="ml-3">
-            <b-dropdown-item @click="searchTerm='internship'">Internship</b-dropdown-item>
-            <b-dropdown-item @click="searchTerm='ft'">Full-Time</b-dropdown-item>
-            <b-dropdown-item @click="searchTerm='pt'">Part-Time</b-dropdown-item>
-            <b-dropdown-item @click="searchTerm='fl'">Freelance</b-dropdown-item>
-            <b-dropdown-item @click="searchTerm='all'">All</b-dropdown-item>
+          <b-dropdown variant="primary" id="jobType" :text="placeholder" class="ml-3">
+            <b-dropdown-item @click="searchTerm='all';placeholder='All'">All</b-dropdown-item>
+            <b-dropdown-item @click="searchTerm='internship'; placeholder='Internship'">Internship</b-dropdown-item>
+            <b-dropdown-item @click="searchTerm='ft';placeholder='Full-Time'">Full-Time</b-dropdown-item>
+            <b-dropdown-item @click="searchTerm='pt';placeholder='Part-Time'">Part-Time</b-dropdown-item>
+            <b-dropdown-item @click="searchTerm='fl';placeholder='Freelance'">Freelance</b-dropdown-item>
           </b-dropdown>
         </div>
         <!-- <div class="dropdown">
@@ -77,39 +77,46 @@ export default {
     return {
       searchTerm: "",
       results: [],
+      placeholder: "Type of job"
     }
   },
   methods: {
     search() {
-      var q = document.getElementById('q').value + " " + this.searchTerm;
+      var q = document.getElementById('q').value.replace(/\s+/g, '+')
+      q += "+" + this.searchTerm;
       let key = "AIzaSyBqW71zFVCc8ocJAhViUhZC3rTD8E5eiA4"
       let cx = "f5cccf8e1ce3fceca"
       let url = "https://www.googleapis.com/customsearch/v1?key=" + key + "&cx=" + cx + "&q=" + q
+      console.log(url)
+      var cardWrap = document.getElementById("cardWrap")
+      cardWrap.innerHTML = ""
       Vue.axios.get(url)
       .then((resp) => {
         this.result = resp.data.items
         for (var result of resp.data.items) {
           console.log(result)
           //b-card-title
-          var titleNode = document.createElement("b-card-title");
-          titleNode.appendChild(document.createTextNode(result.htmlTitle))
+          var titleNode = document.createElement("h3");
+          titleNode.appendChild(document.createTextNode(result.title))
           //b-card-text
-          var textNode = document.createElement("b-card-text");
+          var textNode = document.createElement("h4");
           textNode.appendChild(document.createTextNode(result.snippet))
           //apply now
-          var buttonNode = document.createElement("b-button");
-          buttonNode.setAttribute("href", result.formattedUrl)
-          buttonNode.setAttribute("variant", "primary")
+          var buttonNode = document.createElement("button");
+          buttonNode.className = "button button2"
+          buttonNode.setAttribute("onclick", "javascript:window.open('" + result.formattedUrl + "', '_blank');")
+          buttonNode.setAttribute("target", "_blank")
           buttonNode.appendChild(document.createTextNode("Apply here"))
-          // outer wrap
+          // container wrap
           var wrapper = document.createElement("div")
-          wrapper.className = 'ml-4'
+          wrapper.className = 'container'
           wrapper.appendChild(titleNode)
           wrapper.appendChild(textNode)
           wrapper.appendChild(buttonNode)
-          var bCard = document.createElement("b-card")
+          // card wrap
+          var bCard = document.createElement("div")
+          bCard.className = "card"
           bCard.appendChild(wrapper)
-          var cardWrap = document.getElementById("cardWrap")
           cardWrap.appendChild(bCard)
         }
         // console.log(cardWrap)
@@ -144,36 +151,46 @@ body {
 
 }
 .card {
-    background: white;
-    border-radius: 20px;
-    display: inline-block;
-    height: auto;
-    margin: 1rem;
-    position: relative;
-    width: 300px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
+  padding: 20px;
 }
 
 .card:hover {
-    box-shadow: 0 14px 28px #b8cef3, 0 10px 10px #b8cef3;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.card-content{
-    margin-top: 10px;
-    margin-bottom: 10px;
+.container {
+  padding: 30px;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
 }
 
-.modal-header{
-    margin-top: 10px;
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
-.container{
-    margin-top: 20px;
-    margin-bottom: 20px;
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
 }
 
-.b-card {
-  width: 90%;
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
 }
 </style>
