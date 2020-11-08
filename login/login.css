@@ -207,7 +207,7 @@ margin-top: -30%;
 .outer-box {
 text-align: center;
 position: relative;
-width: 340px;
+width: 500px;
 margin: auto;
 padding: 10px 20px; 
 background: #F1F2F6;
@@ -258,13 +258,7 @@ margin-top: 30px;
 margin-top: 30px;
 }
 
-.input-group{
-    height:30px;
-}
 
-.form-control{
-    height:30px;
-}
 
 .human{
     z-index: 999;
