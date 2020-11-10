@@ -1,5 +1,5 @@
 <template>
-  <b-navbar :type=is-danger>
+  <b-navbar :mobile-burger="false">
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         <img src="@/assets/images/logo.jpg" alt="STUD" />
