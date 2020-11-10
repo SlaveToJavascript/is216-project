@@ -12,7 +12,7 @@ import Navbar from "@/components/Navbar";
 export default {
   name: "Habit",
   components: {
-    Navbar,
+    Navbar
   }
 };
 </script>

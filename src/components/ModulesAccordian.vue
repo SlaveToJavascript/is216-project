@@ -23,8 +23,8 @@
           <div class="module-section">
             <b-card-text>{{ text }}</b-card-text>
             <!-- Search bar -->
-            <YoutubeSearch @load="initVideos(1)" v-on:search="search"/>
-            
+            <YoutubeSearch @load="initVideos(1)" v-on:search="search" />
+
             <!-- Videos -->
             <YoutubeResults
               v-if="videos.length > 0"
@@ -51,8 +51,8 @@
         <b-card-body>
           <b-card-text>{{ text }}</b-card-text>
           <!-- Search bar -->
-          <YoutubeSearch v-on:search="search"/>
-          
+          <YoutubeSearch v-on:search="search" />
+
           <!-- Videos -->
           <YoutubeResults
             v-if="videos.length > 0"
@@ -78,8 +78,8 @@
         <b-card-body>
           <b-card-text>{{ text }}</b-card-text>
           <!-- Search bar -->
-          <YoutubeSearch v-on:search="search"/>
-          
+          <YoutubeSearch v-on:search="search" />
+
           <!-- Videos -->
           <YoutubeResults
             v-if="videos.length > 0"
@@ -105,8 +105,8 @@
         <b-card-body>
           <b-card-text>{{ text }}</b-card-text>
           <!-- Search bar -->
-          <YoutubeSearch v-on:search="search"/>
-          
+          <YoutubeSearch v-on:search="search" />
+
           <!-- Videos -->
           <YoutubeResults
             v-if="videos.length > 0"
@@ -131,8 +131,8 @@
         <b-card-body>
           <b-card-text>{{ text }}</b-card-text>
           <!-- Search bar -->
-          <YoutubeSearch v-on:search="search"/>
-          
+          <YoutubeSearch v-on:search="search" />
+
           <!-- Videos -->
           <YoutubeResults
             v-if="videos.length > 0"
@@ -147,11 +147,11 @@
 
 <script>
 import Vue from "vue";
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import axios from "axios";
+import VueAxios from "vue-axios";
 import YoutubeSearch from "@/components/YoutubeSearch";
 import YoutubeResults from "@/components/YoutubeResults";
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios);
 
 export default {
   name: "ModulesAccordian",
@@ -164,75 +164,78 @@ export default {
   },
   components: {
     YoutubeResults,
-    YoutubeSearch,
+    YoutubeSearch
   },
   data() {
     return {
       text: "",
       videos: [],
-      reformattedSearchString: '',
+      reformattedSearchString: "",
       api: {
-        baseUrl: 'https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=',
-        q: '',
+        baseUrl:
+          "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=",
+        q: "",
         key: "AIzaSyCTTMCziOgGOq4V44X4tK2ntQ51HsbZiV4"
       },
-      searchString: '',
-      accordionRef: "",
+      searchString: "",
+      accordionRef: ""
     };
   },
-  mounted() {
-
-  },
+  mounted() {},
   created() {
-    this.initVideos(1)
+    this.initVideos(1);
   },
   methods: {
     initVideos: function(id) {
       let q;
-      if(id == 1) {
-        q = this.$props.mod1
-      } else if (id==2) {
-        q = this.$props.mod2
-      } else if (id==3) {
-        q = this.$props.mod3
-      } else if (id==4) {
-        q = this.$props.mod4
+      if (id == 1) {
+        q = this.$props.mod1;
+      } else if (id == 2) {
+        q = this.$props.mod2;
+      } else if (id == 3) {
+        q = this.$props.mod3;
+      } else if (id == 4) {
+        q = this.$props.mod4;
       } else {
-        q = this.$props.mod5
+        q = this.$props.mod5;
       }
-      console.log(q)
-      let key = "AIzaSyCTTMCziOgGOq4V44X4tK2ntQ51HsbZiV4"
-      let url = "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=" + q + "&key=" + key;
-      Vue.axios.get(url)
-      .then((resp) => {
-        this.videos = resp.data.items
+      console.log(q);
+      let key = "AIzaSyCTTMCziOgGOq4V44X4tK2ntQ51HsbZiV4";
+      let url =
+        "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=6&q=" +
+        q +
+        "&key=" +
+        key;
+      Vue.axios.get(url).then(resp => {
+        this.videos = resp.data.items;
       });
     },
     search(searchParams) {
-      this.reformattedSearchString = searchParams.join(' ');
-      this.api.q = searchParams.join('+');
+      this.reformattedSearchString = searchParams.join(" ");
+      this.api.q = searchParams.join("+");
       const { baseUrl, q, key } = this.api;
       const apiUrl = `${baseUrl}q=${q}&key=${key}`;
       this.getData(apiUrl);
     },
     getData(apiUrl) {
-      axios.get(apiUrl)
-      .then(res => {
-        this.videos = res.data.items;
-      })
-      .catch(error => console.log(error));
+      axios
+        .get(apiUrl)
+        .then(res => {
+          this.videos = res.data.items;
+        })
+        .catch(error => console.log(error));
     },
     parseSearchString() {
       // Trim search string
       const trimmedSearchString = this.searchString.trim();
 
-      if (trimmedSearchString !== '') {
+      if (trimmedSearchString !== "") {
         // Split search string
         const searchParams = trimmedSearchString.split(/\s+/);
         // Emit event
-        this.$emit('search', searchParams);
+        this.$emit("search", searchParams);
         // Reset input field
-        this.searchString = '';
+        this.searchString = "";
       }
     }
   }
@@ -264,5 +267,4 @@ iframe {
 section {
   height: 100px;
 }
-
 </style>

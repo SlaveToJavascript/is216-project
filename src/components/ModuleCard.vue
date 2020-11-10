@@ -1,7 +1,11 @@
 <template>
   <div class="card">
     <div class="card-body text-center">
-      <img src="../../cards/image/1.gif" width="40%" style="margin-top: 10px;" />
+      <img
+        src="../../cards/image/4.gif"
+        width="40%"
+        style="margin-top: 10px;"
+      />
       <div class="card-content">
         <div
           class="card-title text-center"

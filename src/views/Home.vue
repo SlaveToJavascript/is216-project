@@ -1,69 +1,615 @@
 <template>
-  <div class="home">
-    <!-- TOP NAV BAR -->
+  <div>
     <Navbar />
-
-    <!-- LEFT NAVIGATION MENU -->
-
-    <div class="row">
-      <div class="col col-md-4">
-        <QuoteBar id="quotes" />
-        <ToDo id="todo" />
-      </div>
-      <div class="col col-md-8">
-        <ModulesAccordian
-          id="modules"
-          mod1="Interaction Design & Prototyping"
-          mod2="Business Process Analysis & Solutioning"
-          mod3="Web Application Development II"
-          mod4="Ethics & Social Responsibility"
-          mod5="Management Communication"
-        />
-      </div>
-    </div>
+    <b-container fluid>
+      <b-row>
+        <b-col cols="9">
+          <b-row>
+            <b-col>
+              <div class="px-3 pt-4 height17">
+                <b-row>
+                  <b-col>
+                    <div class="textcontainer">
+                      <span class="particletext hearts">Welcome</span>
+                    </div>
+                  </b-col>
+                  <b-col></b-col>
+                </b-row>
+              </div>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <div class="box height45">
+                <b-row>
+                  <b-col class="modCards">
+                    <ModuleCard /><ModuleCard /><ModuleCard /><ModuleCard /><ModuleCard />
+                  </b-col>
+                </b-row>
+              </div>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="6">
+              <div class="box height24"><QuoteBar /></div>
+            </b-col>
+            <b-col cols="6">
+              <div class="box height24">Productivity Ring</div>
+            </b-col>
+          </b-row>
+        </b-col>
+        <b-col cols="3">
+          <div class="box mt-3" id="schedule"><ToDo /></div>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import Navbar from "@/components/Navbar";
-import QuoteBar from "@/components/QuoteBar";
-import ModulesAccordian from "@/components/ModulesAccordian";
 import ToDo from "@/components/ToDo";
+import QuoteBar from "@/components/QuoteBar";
+import ModuleCard from "@/components/ModuleCard";
+
+import $ from "jquery";
 
 export default {
-  name: "Home",
+  name: "Settings",
   components: {
     Navbar,
+    ToDo,
     QuoteBar,
-    ModulesAccordian,
-    ToDo
+    ModuleCard
   },
-  data() {
-    return {};
+  mounted: function() {
+    function initparticles() {
+      bubbles();
+      hearts();
+      lines();
+      confetti();
+      fire();
+      sunbeams();
+    }
+
+    /*The measurements are ... whack (so to say), for more general text usage I would generate different sized particles for the size of text; consider this pen a POC*/
+
+    function bubbles() {
+      $.each($(".particletext.bubbles"), function() {
+        var bubblecount = ($(this).width() / 50) * 10;
+        for (var i = 0; i <= bubblecount; i++) {
+          var size = $.rnd(40, 80) / 10;
+          $(this).append(
+            '<span class="particle" style="top:' +
+              $.rnd(20, 80) +
+              "%; left:" +
+              $.rnd(0, 95) +
+              "%;width:" +
+              size +
+              "px; height:" +
+              size +
+              "px;animation-delay: " +
+              $.rnd(0, 30) / 10 +
+              's;"></span>'
+          );
+        }
+      });
+    }
+
+    function hearts() {
+      $.each($(".particletext.hearts"), function() {
+        var heartcount = ($(this).width() / 50) * 5;
+        for (var i = 0; i <= heartcount; i++) {
+          var size = $.rnd(60, 120) / 10;
+          $(this).append(
+            '<span class="particle" style="top:' +
+              $.rnd(20, 80) +
+              "%; left:" +
+              $.rnd(0, 95) +
+              "%;width:" +
+              size +
+              "px; height:" +
+              size +
+              "px;animation-delay: " +
+              $.rnd(0, 30) / 10 +
+              's;"></span>'
+          );
+        }
+      });
+    }
+
+    function lines() {
+      $.each($(".particletext.lines"), function() {
+        var linecount = ($(this).width() / 50) * 10;
+        for (var i = 0; i <= linecount; i++) {
+          $(this).append(
+            '<span class="particle" style="top:' +
+              $.rnd(-30, 30) +
+              "%; left:" +
+              $.rnd(-10, 110) +
+              "%;width:" +
+              $.rnd(1, 3) +
+              "px; height:" +
+              $.rnd(20, 80) +
+              "%;animation-delay: -" +
+              $.rnd(0, 30) / 10 +
+              's;"></span>'
+          );
+        }
+      });
+    }
+
+    function confetti() {
+      $.each($(".particletext.confetti"), function() {
+        var confetticount = ($(this).width() / 50) * 10;
+        for (var i = 0; i <= confetticount; i++) {
+          $(this).append(
+            '<span class="particle c' +
+              $.rnd(1, 2) +
+              '" style="top:' +
+              $.rnd(10, 50) +
+              "%; left:" +
+              $.rnd(0, 100) +
+              "%;width:" +
+              $.rnd(6, 8) +
+              "px; height:" +
+              $.rnd(3, 4) +
+              "px;animation-delay: " +
+              $.rnd(0, 30) / 10 +
+              's;"></span>'
+          );
+        }
+      });
+    }
+
+    function fire() {
+      $.each($(".particletext.fire"), function() {
+        var firecount = ($(this).width() / 50) * 20;
+        for (var i = 0; i <= firecount; i++) {
+          var size = $.rnd(8, 12);
+          $(this).append(
+            '<span class="particle" style="top:' +
+              $.rnd(40, 70) +
+              "%; left:" +
+              $.rnd(-10, 100) +
+              "%;width:" +
+              size +
+              "px; height:" +
+              size +
+              "px;animation-delay: " +
+              $.rnd(0, 20) / 10 +
+              's;"></span>'
+          );
+        }
+      });
+    }
+
+    function sunbeams() {
+      $.each($(".particletext.sunbeams"), function() {
+        var linecount = ($(this).width() / 50) * 10;
+        for (var i = 0; i <= linecount; i++) {
+          $(this).append(
+            '<span class="particle" style="top:' +
+              $.rnd(-50, 0) +
+              "%; left:" +
+              $.rnd(0, 100) +
+              "%;width:" +
+              $.rnd(1, 3) +
+              "px; height:" +
+              $.rnd(80, 160) +
+              "%;animation-delay: -" +
+              $.rnd(0, 30) / 10 +
+              's;"></span>'
+          );
+        }
+      });
+    }
+
+    $.rnd = function(m, n) {
+      m = parseInt(m);
+      n = parseInt(n);
+      return Math.floor(Math.random() * (n - m + 1)) + m;
+    };
+
+    initparticles();
   }
 };
 </script>
 
-<style scoped>
-
-#quotes {
-  /* margin-left:10px; */
+<style>
+html,
+body {
+  height: 100%;
+  background-color: #f7fafc;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
 }
 
-.col {
-  padding: 0px;
+#schedule {
+  height: 87vh;
+  overflow: scroll;
+  z-index: 999;
 }
 
-.home {
-  overflow-x: hidden;
+.height17 {
+  height: 17vh;
 }
 
-#todo {
-  /* margin-left: 10px; */
+.height45 {
+  height: 45.5vh;
 }
 
-#modules {
-  margin-right: 15px;
+.height24 {
+  height: 24vh;
+}
+
+.box {
+  background: #f9f9f9;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.modCards {
+  overflow-x: auto;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* Welcome particle */
+
+body .textcontainer {
+  padding: 40px 0;
+  text-align: center;
+}
+body .particletext {
+  text-align: center;
+  font-size: 48px;
+  position: relative;
+}
+body .particletext.bubbles > .particle {
+  opacity: 0;
+  position: absolute;
+  background-color: rgba(33, 150, 243, 0.5);
+  -webkit-animation: bubbles 3s ease-in infinite;
+  animation: bubbles 3s ease-in infinite;
+  border-radius: 100%;
+}
+body .particletext.hearts > .particle {
+  opacity: 0;
+  position: absolute;
+  background-color: #cc2a5d;
+  -webkit-animation: hearts 3s ease-in infinite;
+  animation: hearts 3s ease-in infinite;
+}
+body .particletext.hearts > .particle:before,
+body .particletext.hearts > .particle:after {
+  position: absolute;
+  content: "";
+  border-radius: 100px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #cc2a5d;
+}
+body .particletext.hearts > .particle:before {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+body .particletext.hearts > .particle:after {
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+body .particletext.lines > .particle {
+  position: absolute;
+  background-color: rgba(244, 67, 54, 0.5);
+  -webkit-animation: lines 3s linear infinite;
+  animation: lines 3s linear infinite;
+}
+body .particletext.confetti > .particle {
+  opacity: 0;
+  position: absolute;
+  -webkit-animation: confetti 3s ease-in infinite;
+  animation: confetti 3s ease-in infinite;
+}
+body .particletext.confetti > .particle.c1 {
+  background-color: rgba(76, 175, 80, 0.5);
+}
+body .particletext.confetti > .particle.c2 {
+  background-color: rgba(156, 39, 176, 0.5);
+}
+body .particletext.fire > .particle {
+  position: absolute;
+  background-color: rgba(255, 193, 7, 0.5);
+  border-radius: 40px;
+  border-top-right-radius: 0px;
+  -webkit-animation: fires 0.8s linear infinite;
+  animation: fires 0.8s linear infinite;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+body .particletext.fire > .particle:before {
+  position: absolute;
+  content: "";
+  top: 60%;
+  left: 40%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  border-radius: 40px;
+  border-top-right-radius: 0px;
+  background-color: rgba(251, 140, 0, 0.5);
+}
+body .particletext.sunbeams > .particle {
+  position: absolute;
+  background-color: rgba(253, 216, 53, 0.5);
+  -webkit-animation: sunbeams 3s linear infinite;
+  animation: sunbeams 3s linear infinite;
+}
+
+@-webkit-keyframes bubbles {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    -webkit-transform: translate(0, -20%);
+    transform: translate(0, -20%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0, -1000%);
+    transform: translate(0, -1000%);
+  }
+}
+
+@keyframes bubbles {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    -webkit-transform: translate(0, -20%);
+    transform: translate(0, -20%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0, -1000%);
+    transform: translate(0, -1000%);
+  }
+}
+@-webkit-keyframes hearts {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, 0%) rotate(45deg);
+    transform: translate(0, 0%) rotate(45deg);
+  }
+  20% {
+    opacity: 0.8;
+    -webkit-transform: translate(0, -20%) rotate(45deg);
+    transform: translate(0, -20%) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0, -1000%) rotate(45deg);
+    transform: translate(0, -1000%) rotate(45deg);
+  }
+}
+@keyframes hearts {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, 0%) rotate(45deg);
+    transform: translate(0, 0%) rotate(45deg);
+  }
+  20% {
+    opacity: 0.8;
+    -webkit-transform: translate(0, -20%) rotate(45deg);
+    transform: translate(0, -20%) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0, -1000%) rotate(45deg);
+    transform: translate(0, -1000%) rotate(45deg);
+  }
+}
+@-webkit-keyframes lines {
+  0%,
+  50%,
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  25% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  75% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+@keyframes lines {
+  0%,
+  50%,
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  25% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  75% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+@-webkit-keyframes confetti {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0%) rotate(0deg);
+    transform: translateY(0%) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  35% {
+    -webkit-transform: translateY(-800%) rotate(270deg);
+    transform: translateY(-800%) rotate(270deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000%) rotate(1440deg);
+    transform: translateY(2000%) rotate(1440deg);
+  }
+}
+@keyframes confetti {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0%) rotate(0deg);
+    transform: translateY(0%) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  35% {
+    -webkit-transform: translateY(-800%) rotate(270deg);
+    transform: translateY(-800%) rotate(270deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000%) rotate(1440deg);
+    transform: translateY(2000%) rotate(1440deg);
+  }
+}
+@-webkit-keyframes fires {
+  0% {
+    -webkit-transform: rotate(-70deg) translateY(0%);
+    transform: rotate(-70deg) translateY(0%);
+  }
+  25% {
+    -webkit-transform: rotate(-20deg) translateY(-5%);
+    transform: rotate(-20deg) translateY(-5%);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: rotate(-70deg) translateY(-10%);
+    transform: rotate(-70deg) translateY(-10%);
+  }
+  75% {
+    -webkit-transform: rotate(-20deg) translateY(-20%);
+    transform: rotate(-20deg) translateY(-20%);
+  }
+  100% {
+    -webkit-transform: rotate(-70deg) translateY(-40%);
+    transform: rotate(-70deg) translateY(-40%);
+    opacity: 1;
+  }
+}
+@keyframes fires {
+  0% {
+    -webkit-transform: rotate(-70deg) translateY(0%);
+    transform: rotate(-70deg) translateY(0%);
+  }
+  25% {
+    -webkit-transform: rotate(-20deg) translateY(-5%);
+    transform: rotate(-20deg) translateY(-5%);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: rotate(-70deg) translateY(-10%);
+    transform: rotate(-70deg) translateY(-10%);
+  }
+  75% {
+    -webkit-transform: rotate(-20deg) translateY(-20%);
+    transform: rotate(-20deg) translateY(-20%);
+  }
+  100% {
+    -webkit-transform: rotate(-70deg) translateY(-40%);
+    transform: rotate(-70deg) translateY(-40%);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes sunbeams {
+  0% {
+    -webkit-transform: translateY(40%) rotate(0deg);
+    transform: translateY(40%) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translateY(-40%) rotate(180deg);
+    transform: translateY(-40%) rotate(180deg);
+  }
+  100% {
+    -webkit-transform: translateY(40%) rotate(360deg);
+    transform: translateY(40%) rotate(360deg);
+  }
+  0%,
+  14%,
+  17%,
+  43%,
+  53%,
+  71%,
+  80%,
+  94%,
+  100% {
+    opacity: 0;
+  }
+  6%,
+  15%,
+  24%,
+  28%,
+  48%,
+  55%,
+  78%,
+  82%,
+  99% {
+    opacity: 1;
+  }
+}
+@keyframes sunbeams {
+  0% {
+    -webkit-transform: translateY(40%) rotate(0deg);
+    transform: translateY(40%) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translateY(-40%) rotate(180deg);
+    transform: translateY(-40%) rotate(180deg);
+  }
+  100% {
+    -webkit-transform: translateY(40%) rotate(360deg);
+    transform: translateY(40%) rotate(360deg);
+  }
+  0%,
+  14%,
+  17%,
+  43%,
+  53%,
+  71%,
+  80%,
+  94%,
+  100% {
+    opacity: 0;
+  }
+  6%,
+  15%,
+  24%,
+  28%,
+  48%,
+  55%,
+  78%,
+  82%,
+  99% {
+    opacity: 1;
+  }
 }
 </style>

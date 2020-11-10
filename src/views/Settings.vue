@@ -1,107 +1,68 @@
 <template>
-  <div>
+  <div class="home">
+    <!-- TOP NAV BAR -->
     <Navbar />
-    <b-container fluid>
-      <b-row>
-        <b-col cols="9">
-          <b-row>
-            <b-col>
-              <div class="px-3 pt-4 height17">
-                <b-row>
-                  <b-col>
-                    <h3>
-                      Hi Sean! You have <br />
-                      <b>2 lessons</b> and <b>3 meetings</b> today!
-                    </h3>
-                  </b-col>
-                  <b-col> </b-col>
-                </b-row>
-              </div>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <div class="box height29">
-                <b-row>
-                  <b-col class="modCards">
-                    <ModuleCard /><ModuleCard /><ModuleCard /><ModuleCard /><ModuleCard />
-                  </b-col>
-                </b-row>
-              </div>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col cols="6">
-              <div class="box height24"><QuoteBar /></div>
-            </b-col>
-            <b-col cols="6">
-              <div class="box height24">Productivity Ring</div>
-            </b-col>
-          </b-row>
-        </b-col>
-        <b-col cols="3">
-          <div class="box mt-3" id="schedule"><ToDo /></div>
-        </b-col>
-      </b-row>
-    </b-container>
+
+    <!-- LEFT NAVIGATION MENU -->
+
+    <div class="row">
+      <div class="col col-md-4">
+        <QuoteBar id="quotes" />
+        <ToDo id="todo" />
+      </div>
+      <div class="col col-md-8">
+        <ModulesAccordian
+          id="modules"
+          mod1="Interaction Design & Prototyping"
+          mod2="Business Process Analysis & Solutioning"
+          mod3="Web Application Development II"
+          mod4="Ethics & Social Responsibility"
+          mod5="Management Communication"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+// @ is an alias to /src
 import Navbar from "@/components/Navbar";
-import ToDo from "@/components/ToDo";
 import QuoteBar from "@/components/QuoteBar";
-import ModuleCard from "@/components/ModuleCard";
+import ModulesAccordian from "@/components/ModulesAccordian";
+import ToDo from "@/components/ToDo";
 
 export default {
-  name: "Settings",
+  name: "Home",
   components: {
     Navbar,
-    ToDo,
     QuoteBar,
-    ModuleCard
+    ModulesAccordian,
+    ToDo
+  },
+  data() {
+    return {};
   }
 };
 </script>
 
-<style>
-html,
-body {
-  height: 100%;
-  background-color: #f7fafc;
-  overflow: hidden;
-  font-family: "Poppins", sans-serif;
+<style scoped>
+#quotes {
+  /* margin-left:10px; */
 }
 
-#schedule {
-  height: 87vh;
-  overflow: scroll;
-  z-index: 999;
+.col {
+  padding: 0px;
 }
 
-.height17 {
-  height: 17vh;
+.home {
+  overflow-x: hidden;
 }
 
-.height29 {
-  height: 45.5vh;
+#todo {
+  /* margin-left: 10px; */
 }
 
-.height24 {
-  height: 24vh;
-}
-
-.box {
-  background: #f9f9f9;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.modCards {
-  overflow-x: auto;
-  white-space: nowrap;
-  display: inline-block;
+#modules {
+  margin-right: 15px;
 }
 </style>

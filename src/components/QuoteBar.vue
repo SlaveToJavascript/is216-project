@@ -37,8 +37,9 @@ export default {
 }
 
 .quote {
-  padding: 25px 35px 0px;
+  padding: 20px 30px 0px;
   text-align: center;
+  font-size: 1.2vw;
 }
 
 h3,
@@ -50,5 +51,6 @@ h4 {
 .author {
   padding: 10px 20px 10px 10px;
   text-align: right;
+  font-size: 1vw;
 }
 </style>
