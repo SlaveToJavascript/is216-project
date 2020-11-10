@@ -21,21 +21,43 @@
           Class: FRI 0815-1130
         </div>
       </div>
-      <button
-        type="button"
-        class="btn btn-outline-primary"
-        data-toggle="modal"
-        data-target="#exampleModal"
-      >
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-outline-primary" @click="show()">
         Search for Videos
       </button>
+      <modal
+        name="videos"
+        :width="800"
+        :height="500"
+        :draggable="true"
+        :resizable="true"
+      >
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search for Videos Here!"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button" id="goButton">
+            Go!
+          </button>
+        </div>
+      </modal>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ModuleCard"
+  name: "ModuleCard",
+  methods: {
+    show() {
+      this.$modal.show("videos");
+    },
+    hide() {
+      this.$modal.hide("videos");
+    }
+  }
 };
 </script>
 

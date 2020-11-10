@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import moment from "moment";
+import VModal from "vue-js-modal";
 import { Autocomplete, Button, Field, Navbar } from "buefy";
 import "buefy/dist/buefy.css";
 
@@ -10,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 Vue.use(BootstrapVue);
+Vue.use(VModal);
 
 Vue.use(Autocomplete);
 Vue.use(Button);
