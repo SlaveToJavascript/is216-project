@@ -1,22 +1,22 @@
 var badges = { 
   "spring": {
       '0': ['unlocked',"You've logged in for 10 consecutive days! ❤️"],
-      '1': ['unlocked',"You're now fairer than Kim Supreme because you have been stuck at home coding!"],
-      '2': ['unlocked',"You FELL IN LOVE with Justin Bieber!"],
-      '3': ['unlocked',"You survived the ruling of the SUPREME LEADER!"],
+      '1': ['unlocked',"You completed 15 consecutive days of your to-dos!"],
+      '2': ['unlocked',"You completed 10 consecutive days of your to-dos! 🥳"],
+      '3': ['unlocked',"You survived 2 semesters with us!"],
       '4': ['locked',"You logged in for 20 consecutive days!"],
-      '5': ['locked',"You completed 15 consecutive days of your to-dos!"],
+      '5': ['locked',"You're now fairer than Kim Supreme because you have been stuck at home coding!"],
       '6': ['locked',"You learnt how to add a module to your timetable!"],
       '7': ['locked','You logged in for a month consecutively!'],
       '8': ['locked','You managed to search for a job!'],
       '9': ['locked','You completed 30 to-dos!'],
-      '10': ['locked','You survived 2 semesters with us!'],
+      '10': ['locked','You survived the ruling of the SUPREME LEADER!'],
       '11': ['locked','You received 10 badges!'],
       '12': ['locked','You logged in for 2 consecutive months!'],
       '13': ['locked','You completed 50 to-dos!'],
       '14': ['locked',"You didn't die 85 multi-select for IDP!!!"],
       '15': ['locked','You survived 1 semester with us! 🤩'],
-      '16': ['locked','You completed 10 consecutive days of your to-dos! 🥳'],
+      '16': ['locked','You FELL IN LOVE with Justin Bieber! '],
       '17': ['locked',"You completed 5 consecutive days of your to-dos! 👍🏻"],
       '18': ['locked',"Carpel Tunnel from too much coding!!"],
       '19': ['locked',"You've finally purchased a laptop stand!"],
@@ -33,22 +33,22 @@ var badges = {
   },
   "summer": {
       '0': ['unlocked',"You've logged in for 10 consecutive days! ❤️"],
-      '1': ['unlocked',"You're now fairer than Kim Supreme because you have been stuck at home coding!"],
-      '2': ['unlocked',"You FELL IN LOVE with Justin Bieber!"],
-      '3': ['unlocked',"You survived the ruling of the SUPREME LEADER!"],
+      '1': ['unlocked',"You completed 15 consecutive days of your to-dos!"],
+      '2': ['unlocked',"You completed 10 consecutive days of your to-dos! 🥳"],
+      '3': ['unlocked',"You survived 2 semesters with us!"],
       '4': ['locked',"You logged in for 20 consecutive days!"],
-      '5': ['locked',"You completed 15 consecutive days of your to-dos!"],
+      '5': ['locked',"You're now fairer than Kim Supreme because you have been stuck at home coding!"],
       '6': ['locked',"You learnt how to add a module to your timetable!"],
       '7': ['locked','You logged in for a month consecutively!'],
       '8': ['locked','You managed to search for a job!'],
       '9': ['locked','You completed 30 to-dos!'],
-      '10': ['locked','You survived 2 semesters with us!'],
+      '10': ['locked','You survived the ruling of the SUPREME LEADER!'],
       '11': ['locked','You received 10 badges!'],
       '12': ['locked','You logged in for 2 consecutive months!'],
       '13': ['locked','You completed 50 to-dos!'],
       '14': ['locked',"You didn't die 85 multi-select for IDP!!!"],
       '15': ['locked','You survived 1 semester with us! 🤩'],
-      '16': ['locked','You completed 10 consecutive days of your to-dos! 🥳'],
+      '16': ['locked','You FELL IN LOVE with Justin Bieber! '],
       '17': ['locked',"You completed 5 consecutive days of your to-dos! 👍🏻"],
       '18': ['locked',"Carpel Tunnel from too much coding!!"],
       '19': ['locked',"You've finally purchased a laptop stand!"],
@@ -65,22 +65,22 @@ var badges = {
   },
   "autumn": {
       '0': ['unlocked',"You've logged in for 10 consecutive days! ❤️"],
-      '1': ['unlocked',"You're now fairer than Kim Supreme because you have been stuck at home coding!"],
-      '2': ['unlocked',"You FELL IN LOVE with Justin Bieber!"],
-      '3': ['unlocked',"You survived the ruling of the SUPREME LEADER!"],
+      '1': ['unlocked',"You completed 15 consecutive days of your to-dos!"],
+      '2': ['unlocked',"You completed 10 consecutive days of your to-dos! 🥳"],
+      '3': ['unlocked',"You survived 2 semesters with us!"],
       '4': ['locked',"You logged in for 20 consecutive days!"],
-      '5': ['locked',"You completed 15 consecutive days of your to-dos!"],
+      '5': ['locked',"You're now fairer than Kim Supreme because you have been stuck at home coding!"],
       '6': ['locked',"You learnt how to add a module to your timetable!"],
       '7': ['locked','You logged in for a month consecutively!'],
       '8': ['locked','You managed to search for a job!'],
       '9': ['locked','You completed 30 to-dos!'],
-      '10': ['locked','You survived 2 semesters with us!'],
+      '10': ['locked','You survived the ruling of the SUPREME LEADER!'],
       '11': ['locked','You received 10 badges!'],
       '12': ['locked','You logged in for 2 consecutive months!'],
       '13': ['locked','You completed 50 to-dos!'],
       '14': ['locked',"You didn't die 85 multi-select for IDP!!!"],
       '15': ['locked','You survived 1 semester with us! 🤩'],
-      '16': ['locked','You completed 10 consecutive days of your to-dos! 🥳'],
+      '16': ['locked','You FELL IN LOVE with Justin Bieber! '],
       '17': ['locked',"You completed 5 consecutive days of your to-dos! 👍🏻"],
       '18': ['locked',"Carpel Tunnel from too much coding!!"],
       '19': ['locked',"You've finally purchased a laptop stand!"],
@@ -97,22 +97,22 @@ var badges = {
   },
   "winter": {
       '0': ['unlocked',"You've logged in for 10 consecutive days! ❤️"],
-      '1': ['unlocked',"You're now fairer than Kim Supreme because you have been stuck at home coding!"],
-      '2': ['unlocked',"You FELL IN LOVE with Justin Bieber!"],
-      '3': ['unlocked',"You survived the ruling of the SUPREME LEADER!"],
+      '1': ['unlocked',"You completed 15 consecutive days of your to-dos!"],
+      '2': ['unlocked',"You completed 10 consecutive days of your to-dos! 🥳"],
+      '3': ['unlocked',"You survived 2 semesters with us!"],
       '4': ['locked',"You logged in for 20 consecutive days!"],
-      '5': ['locked',"You completed 15 consecutive days of your to-dos!"],
+      '5': ['locked',"You're now fairer than Kim Supreme because you have been stuck at home coding!"],
       '6': ['locked',"You learnt how to add a module to your timetable!"],
       '7': ['locked','You logged in for a month consecutively!'],
       '8': ['locked','You managed to search for a job!'],
       '9': ['locked','You completed 30 to-dos!'],
-      '10': ['locked','You survived 2 semesters with us!'],
+      '10': ['locked','You survived the ruling of the SUPREME LEADER!'],
       '11': ['locked','You received 10 badges!'],
       '12': ['locked','You logged in for 2 consecutive months!'],
       '13': ['locked','You completed 50 to-dos!'],
       '14': ['locked',"You didn't die 85 multi-select for IDP!!!"],
       '15': ['locked','You survived 1 semester with us! 🤩'],
-      '16': ['locked','You completed 10 consecutive days of your to-dos! 🥳'],
+      '16': ['locked','You FELL IN LOVE with Justin Bieber! '],
       '17': ['locked',"You completed 5 consecutive days of your to-dos! 👍🏻"],
       '18': ['locked',"Carpel Tunnel from too much coding!!"],
       '19': ['locked',"You've finally purchased a laptop stand!"],
@@ -129,6 +129,29 @@ var badges = {
   }
 };
 
+function smoolife_award(){
+  if (badges[id][i][0] == "unlocked"){
+    img_link = `
+    <div class="col-1">
+        <div class="${badges[id][i][0]}">
+        <img src="./images/${id}/${list[i]}.png" class="image" data-toggle="tooltip" data-placement="bottom" title="${badges[id][i][1]}">
+        </div>
+    </div>
+    `
+    str += img_link
+}
+else if (badges[id][i][0] == "locked"){
+    img_link = `
+    <div class="col-1">
+        <div class="${badges[id][i][0]}">
+        <img src="./images/${id}/${list[i]}.png" class="image" data-toggle="tooltip" data-placement="bottom" title="Achievement Locked!🔒">
+        </div>
+    </div>
+    `
+    str += img_link
+    console.log(str)
+}
+}
 function get_season(id){
   str = '';
   list = Object.keys(badges[id])
