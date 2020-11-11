@@ -118,10 +118,10 @@ export default {
         for (var result of resp.data.items) {
           console.log(result);
           //b-card-title
-          var titleNode = document.createElement("h3");
+          var titleNode = document.createElement("h4");
           titleNode.appendChild(document.createTextNode(result.title));
           //b-card-text
-          var textNode = document.createElement("h4");
+          var textNode = document.createElement("h5");
           textNode.appendChild(document.createTextNode(result.snippet));
           //apply now
           var buttonNode = document.createElement("button");
@@ -142,6 +142,7 @@ export default {
           var bCard = document.createElement("div");
           bCard.className = "card";
           bCard.appendChild(wrapper);
+          bCard.setAttribute("style", "margin-bottom: 20px; padding: 20px; background: #f9f9f9; box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px;")
           cardWrap.appendChild(bCard);
         }
         // console.log(cardWrap)

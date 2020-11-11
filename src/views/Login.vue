@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <link rel="stylesheet" href="style_settings.css">
-    <script src="settings.js"></script>
-    <title>Notification settings</title>
-</head>
-<body>
-    
-    <div class="container-fluid">
-
+<template>
+    <div id="login">
         <!-- header -->
         <div class="row" id="header" >
             <div class="col ">
-                <img src="images/smoolife final.png"  id="logo" style="margin-bottom: 0px;">
+                <img src="../assets/images/smoolife.png"  id="logo" style="margin-bottom: 0px;">
             </div>
 
             <!-- to redirect to sign in page -->
@@ -26,16 +13,12 @@
         </div>
 
         <div class="row d-flex justify-content-center">
-            <img src="images/corgi study.gif" style="width: 10%; height: 10%;">
+            <img src="../assets/images/corgi_study.gif" style="width: 10%; height: 10%;">
         </div>
 
         <div class= "row">
-            
             <div class="col" >
-
                 <!-- registration details -->
-
-                
                 <div class="row">
                     <div class="container" id="registration">
                         
@@ -62,15 +45,15 @@
                                 </button>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownYears" style="width: 300px;">
-                                    <a class="dropdown-item" href="#" onclick="replaceYear('Year 1')">Year 1</a>
-                                    <a class="dropdown-item" href="#" onclick="replaceYear('Year 2')">Year 2</a> 
-                                    <a class="dropdown-item" href="#" onclick="replaceYear('Year 3')">Year 3</a>
-                                    <a class="dropdown-item" href="#" onclick="replaceYear('Year 4')">Year 4</a>
+                                    <a class="dropdown-item" href="#" @click="replaceYear('Year 1')">Year 1</a>
+                                    <a class="dropdown-item" href="#" @click="replaceYear('Year 2')">Year 2</a> 
+                                    <a class="dropdown-item" href="#" @click="replaceYear('Year 3')">Year 3</a>
+                                    <a class="dropdown-item" href="#" @click="replaceYear('Year 4')">Year 4</a>
                                 </div>
                             </div>
 
                             <div class="dropdown">
-                                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dDSchool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownSchl" style="width: 300px;">
+                                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dDSchool" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px;">
                                     School
                                 </button>
                                 
@@ -106,7 +89,7 @@
                                 <ul style="list-style-type: none; white-space: nowrap; max-width:auto;" >
                                     <li v-for="(item, index) in items" :key="index" >
                         
-                                        {{ item }}  <button type="button" class="btn btn-outline-dark  btn-circle btn-sm" @click="deletefromList(index)" style="display: inline-block;">-</button>
+                                        {{ item }}  <button type="button" class="btn btn-outline-dark  btn-circle btn-sm" @click="deleteFromList(index)" style="display: inline-block;">-</button>
 
                                     </li>
                                 </ul>
@@ -121,35 +104,136 @@
                     
                     </div>
                 </div>
-
             </div>
         </div>
-
-            
     </div>
+</template>
 
-    <script>
-      var exe = new Vue({
-            el: "#vueMagic",
-            data: {
-                items: [],
-                newItem: ""
-            },
-            methods: {
-                deletefromList(index) {
-                    this.items.splice(index,1);
-                },
-                addNewItem() {
-                    this.items.push(this.newItem)
-                    this.newItem = ""
-                }
-            }
-        })
+<script>
+export default {
+    name: "Login",
+    data() {
+        return {
+            items: [],
+            newItem: ""
+        }
+    },
+    methods: {
+        deleteFromList(index) {
+            this.items.splice(index,1);
+        },
+        addNewItem() {
+            this.items.push(this.newItem)
+            this.newItem = ""
+        },
+        replaceYear(id) {
+            document.getElementById('dropdownYear').innerHTML = id;
+        },
+        replaceSchl(schl) {
+            document.getElementById('dDSchool').innerHTML = schl;
+        }
+    }
+}
+</script>
 
+<style scoped>
+#header {
+    /* margin-top: 20px; */
+    /* padding: 0; */
+}
+#logo {
+    max-width:50%;
+    max-height: 50%;
+    margin-left: 20px;
+    margin-top: 20px !important;
+}
 
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-</body>
-</html>
+#sign-in {
+    margin-top: 20px;
+    margin-right: 20px;
+    text-align: right;
+}
+
+#blank-space {
+    height: 40px;
+}
+
+#dropdown {
+    margin-top: 3%;
+}
+.reg-form {
+    width: 75%;
+    font-size: large;
+    margin-top: 3%;
+}
+
+.dropdown-toggle {
+    margin-top: 3%;
+}
+
+#dDSchool{ 
+    margin-left: 1%;
+}
+
+#selectModHeader {
+    margin-top: 3%;
+}
+
+.btn-circle.btn-sm { 
+    width: 30px; 
+    height: 30px; 
+    padding: 0px 0px; 
+    border-radius: 15px; 
+    font-size: large; 
+    text-align: center; 
+    margin-left: 1%;
+    margin-top: 0.5%;
+} 
+
+#addModule {
+    margin-top:3%;
+}
+
+.input-bar-item {
+    display: table-cell;
+}
+
+#modAdd{ 
+    width: 70%;
+}
+
+#courseText {
+    width: 50%;
+} 
+
+#login{
+    animation: bgcolor infinite 14s;
+}
+
+@keyframes bgcolor{
+    0%{
+        background: #ffdcce;
+    }
+    20%{
+        background: #dcee9d;
+    }
+    60%{
+        background: #ffe8ff;
+    }
+    80%{
+        background: #cdcdf8;
+    }
+    100%{
+        background: #dcf1c8;
+    }
+}
+
+.btn-primary, .btn-secondary {
+    background-color: #6987C9;
+    border: #6987C9;
+}
+
+#registration{
+    margin-bottom: 100px;
+}
+</style>
