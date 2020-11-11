@@ -1,8 +1,8 @@
 <template>
   <div>
     <iframe
-      width="230"
-      height="130"
+      width="420"
+      height="150"
       :src="'https://www.youtube.com/embed/' + video.id.videoId"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -11,7 +11,7 @@
     </iframe>
     <div class="card-body">
       <h5 class="card-title">{{ video.snippet.title }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">
+      <h6 class="card-subtitle text-muted">
         {{ video.snippet.channelTitle }} |
         {{ video.snippet.publishedAt | formatDate }}
       </h6>

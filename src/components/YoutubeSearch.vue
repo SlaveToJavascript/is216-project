@@ -13,7 +13,7 @@
           v-bind:placeholder="placeholder"
         />
         <div class="input-group-append">
-          <b-button @click="parseSearchString" variant="primary">
+          <b-button @click="parseSearchString" type="is-primary">
             Confirm
           </b-button>
         </div>

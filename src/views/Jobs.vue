@@ -18,7 +18,7 @@
 
         <div>
           <b-dropdown
-            variant="primary"
+            variant="outline-dark"
             id="jobType"
             :text="placeholder"
             class="ml-3"
@@ -54,24 +54,24 @@
           </b-dropdown>
         </div>
         <div id="searchJob">
-          <b-button variant="success" @click="search()">Search</b-button>
+          <b-button type="is-danger" @click="search()">Search</b-button>
         </div>
       </div>
     </div>
 
-    <b-container>
+    <div class="container">
       <div id="cardWrap">
-        <b-card :key="result.title" v-for="result in results">
+        <div class="card box" :key="result.title" v-for="result in results">
           <div class="ml-4">
-            <b-card-title>{{ result.title }}</b-card-title>
-            <b-card-text>{{ result.snippet }}</b-card-text>
-            <b-button :href="result.formattedUrl" variant="primary"
-              >Apply now</b-button
-            >
+            <div class="card-title">{{ result.title }}</div>
+            <div class="card-body">{{ result.snippet }}</div>
+            <button :href="result.formattedUrl" variant="outline-danger">
+              Apply now
+            </button>
           </div>
-        </b-card>
+        </div>
       </div>
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -80,16 +80,13 @@ import Navbar from "@/components/Navbar";
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-
 Vue.use(VueAxios, axios);
-
 export default {
   name: "Jobs",
   components: {
     Navbar
   },
-  mounted() {
-  },
+  mounted() {},
   data() {
     return {
       searchTerm: "",
@@ -143,7 +140,10 @@ export default {
           var bCard = document.createElement("div");
           bCard.className = "card";
           bCard.appendChild(wrapper);
-          bCard.setAttribute("style", "margin-bottom: 20px; padding: 20px; background-color: #f9f9f9; box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px;")
+          bCard.setAttribute(
+            "style",
+            "margin-bottom: 20px; padding: 20px; background-color: #f9f9f9; box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px;"
+          );
           cardWrap.appendChild(bCard);
         }
         // console.log(cardWrap)
@@ -158,18 +158,15 @@ body {
   background: white;
   text-align: center;
 }
-
 #searchBar {
   background-color: #f2cbbc;
   padding: 1%;
 }
-
 #keyword,
 #category {
   width: 500px;
   margin-left: 1%;
 }
-
 #searchJob {
   margin-left: 1%;
 }
@@ -181,19 +178,16 @@ body {
   margin-top: 20px !important;
   padding: 20px;
 }
-
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
 .container {
   padding: 30px;
   margin-bottom: 10px !important;
   margin-top: 10px !important;
 }
-
-.button {
-  background-color: #4caf50; /* Green */
+/* .button {
+  background-color: #42b489; 
   border: none;
   color: white;
   text-align: center;
@@ -201,19 +195,16 @@ body {
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
-}
-
+} */
 .button2 {
   background-color: white;
   color: black;
   border: 2px solid #008cba;
 }
-
 .button2:hover {
   background-color: #008cba;
   color: white;
 }
-
 /* .box {
   background: #f9f9f9;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);

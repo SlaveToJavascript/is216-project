@@ -6,6 +6,9 @@ import VModal from "vue-js-modal";
 import { Autocomplete, Button, Field, Navbar } from "buefy";
 import "buefy/dist/buefy.css";
 
+import VueEllipseProgress from "vue-ellipse-progress";
+Vue.use(VueEllipseProgress);
+
 import { BootstrapVue } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
