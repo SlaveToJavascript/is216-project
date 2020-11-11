@@ -25,13 +25,6 @@
           >
             <b-dropdown-item
               @click="
-                searchTerm = 'all';
-                placeholder = 'All';
-              "
-              >All</b-dropdown-item
-            >
-            <b-dropdown-item
-              @click="
                 searchTerm = 'internship';
                 placeholder = 'Internship';
               "
@@ -60,20 +53,6 @@
             >
           </b-dropdown>
         </div>
-        <!-- <div class="dropdown">
-          <a class="btn drop-down form-control" href="#" role="button" id="dropdownMenuType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Type of job
-          </a>
-        
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuType" style="width: 500px;">
-            <p class="dropdown-item" id="0" onclick="category('0')">Internship</p>
-            <p class="dropdown-item" id="1" onclick="category('1')">Full Time</p>
-            <p class="dropdown-item" id="2" onclick="category('2')">Part Time</p>
-            <p class="dropdown-item" id="3" onclick="category('3')">Freelance</p>
-            <p class="dropdown-item" id="4" onclick="category('4')">All</p>
-          </div>
-        </div> -->
-
         <div id="searchJob">
           <b-button type="is-danger" @click="search()">Search</b-button>
         </div>
@@ -110,9 +89,6 @@ export default {
     Navbar
   },
   mounted() {
-    // $('#myModal').on('shown.bs.modal', function () {
-    //   $('#myInput').trigger('focus')
-    // })
   },
   data() {
     return {
@@ -170,10 +146,6 @@ export default {
         }
         // console.log(cardWrap)
       });
-
-      // for (var result of this.results) {
-      //   console.log(result)
-      // }
     }
   }
 };
@@ -223,12 +195,9 @@ body {
   background-color: #42b489; 
   border: none;
   color: white;
-  padding: 16px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
 } */
