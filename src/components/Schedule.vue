@@ -70,34 +70,31 @@
                     <h2 class="day">Tue</h2>
                   </div>
                   <ul>
-
-                      <li
-                        class="lecture-time two-hr hr-13"
-                        data-event="lecture-02"
-                      >
-                        <a href="#">
-                          <div class="lecture-info">
-                            <h6 class="lecture-title ">Mangement Communication</h6>
-                            <h6 class="lecture-location">LKCSOB SR-3-3</h6>
-                          </div>
-                          <div
-                            class="lecture-noti"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            title=""
-                            data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트"
+                    <li
+                      class="lecture-time two-hr hr-13"
+                      data-event="lecture-02"
+                    >
+                      <a href="#">
+                        <div class="lecture-info">
+                          <h6 class="lecture-title ">
+                            Mangement Communication
+                          </h6>
+                          <h6 class="lecture-location">LKCSOB SR-3-3</h6>
+                        </div>
+                        <div
+                          class="lecture-noti"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title=""
+                          data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트"
+                        >
+                          <i class="material-icons ic-lecture-noti"
+                            >assignment</i
                           >
-                            <i class="material-icons ic-lecture-noti"
-                              >assignment</i
-                            >
-                            <span class="lecture-noti-title"
-                              >lorem ipsum</span
-                            >
-                          </div>
-                        </a>
-                      </li>
-
-
+                          <span class="lecture-noti-title">lorem ipsum</span>
+                        </div>
+                      </a>
+                    </li>
                   </ul>
                 </li>
 
@@ -198,7 +195,7 @@ export default {
 
 <style scoped>
 a {
-  color: #7880B5;
+  color: #7880b5;
 }
 
 a:hover {

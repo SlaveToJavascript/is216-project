@@ -1,19 +1,17 @@
 <template>
   <div class="quotes-bar">
     <h3 class="quote">
-      {{list}}
+      {{ list }}
     </h3>
-    <h4 class="author">
-      — {{author}}
-    </h4>
+    <h4 class="author">— {{ author }}</h4>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-Vue.use(VueAxios, axios)
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 
 export default {
   name: "QuoteBar",
@@ -24,11 +22,10 @@ export default {
     };
   },
   mounted() {
-    Vue.axios.get("https://quotes.rest/qod")
-    .then((resp) => {
-      this.list = resp.data.contents.quotes[0].quote
-      this.author = resp.data.contents.quotes[0].author
-    })
+    Vue.axios.get("https://quotes.rest/qod").then(resp => {
+      this.list = resp.data.contents.quotes[0].quote;
+      this.author = resp.data.contents.quotes[0].author;
+    });
   }
 };
 </script>
@@ -37,19 +34,16 @@ export default {
 .quotes-bar {
   height: auto;
   width: auto;
-  background-image: url("../assets/images/quotes-background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  z-index: 1;
 }
 
 .quote {
-  padding: 25px 35px 0px;
+  padding: 20px 30px 0px;
   text-align: center;
+  font-size: 1.2vw;
 }
 
-h3, h4 {
+h3,
+h4 {
   font-family: Montserrat;
   font-style: italic;
 }
@@ -57,5 +51,6 @@ h3, h4 {
 .author {
   padding: 10px 20px 10px 10px;
   text-align: right;
+  font-size: 1vw;
 }
 </style>

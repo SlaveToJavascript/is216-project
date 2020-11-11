@@ -8,10 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.17.3",
     "buefy": "^0.9.4",
     "core-js": "^3.6.5",
+    "gsap": "^3.5.1",
+    "jquery": "^3.5.1",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
@@ -21,6 +23,7 @@
     "vue": "^2.6.12",
     "vue-axios": "^3.1.1",
     "vue-icon": "^2.1.2",
+    "vue-js-modal": "^2.0.0-rc.6",
     "vue-navigation-bar": "^4.0.2",
     "vue-router": "^3.2.0",
     "vue-script-component": "^0.1.7",
