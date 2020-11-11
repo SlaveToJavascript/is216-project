@@ -1,7 +1,12 @@
 <template>
   <div class="container mb-3">
     <div class="card-columns">
-      <div class="card" v-bind:key="video.id.videoId" v-for="video in videos">
+      <div
+        class="card mx-1"
+        style="width: 40rem; overflow: auto;"
+        v-bind:key="video.id.videoId"
+        v-for="video in videos"
+      >
         <VideoGridItem v-bind:video="video" />
       </div>
     </div>
