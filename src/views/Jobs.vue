@@ -118,10 +118,10 @@ export default {
         for (var result of resp.data.items) {
           console.log(result);
           //b-card-title
-          var titleNode = document.createElement("h4");
+          var titleNode = document.createElement("h5");
           titleNode.appendChild(document.createTextNode(result.title));
           //b-card-text
-          var textNode = document.createElement("h5");
+          var textNode = document.createElement("h6");
           textNode.appendChild(document.createTextNode(result.snippet));
           //apply now
           var buttonNode = document.createElement("button");
@@ -131,6 +131,7 @@ export default {
             "javascript:window.open('" + result.formattedUrl + "', '_blank');"
           );
           buttonNode.setAttribute("target", "_blank");
+          buttonNode.setAttribute("style", "background-color: #f9f9f9;");
           buttonNode.appendChild(document.createTextNode("Apply here"));
           // container wrap
           var wrapper = document.createElement("div");
@@ -142,7 +143,7 @@ export default {
           var bCard = document.createElement("div");
           bCard.className = "card";
           bCard.appendChild(wrapper);
-          bCard.setAttribute("style", "margin-bottom: 20px; padding: 20px; background: #f9f9f9; box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px;")
+          bCard.setAttribute("style", "margin-bottom: 20px; padding: 20px; background-color: #f9f9f9; box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px;")
           cardWrap.appendChild(bCard);
         }
         // console.log(cardWrap)
@@ -214,11 +215,11 @@ body {
   color: white;
 }
 
-.box {
+/* .box {
   background: #f9f9f9;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin-bottom: 20px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-}
+} */
 </style>
