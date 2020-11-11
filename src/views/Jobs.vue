@@ -17,8 +17,8 @@
         </div>
 
         <div>
-          <b-dropdown 
-            variant="outline-dark"
+          <b-dropdown
+            variant="primary"
             id="jobType"
             :text="placeholder"
             class="ml-3"
@@ -54,24 +54,24 @@
           </b-dropdown>
         </div>
         <div id="searchJob">
-          <b-button type="is-danger" @click="search()">Search</b-button>
+          <b-button variant="success" @click="search()">Search</b-button>
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <b-container>
       <div id="cardWrap">
-        <div class="card box" :key="result.title" v-for="result in results">
+        <b-card :key="result.title" v-for="result in results">
           <div class="ml-4">
-            <div class="card-title">{{ result.title }}</div>
-            <div class="card-body">{{ result.snippet }}</div>
-            <button :href="result.formattedUrl" variant="outline-danger"
-              >Apply now</button
+            <b-card-title>{{ result.title }}</b-card-title>
+            <b-card-text>{{ result.snippet }}</b-card-text>
+            <b-button :href="result.formattedUrl" variant="primary"
+              >Apply now</b-button
             >
           </div>
-        </div>
+        </b-card>
       </div>
-    </div>
+    </b-container>
   </div>
 </template>
 
@@ -173,7 +173,6 @@ body {
 #searchJob {
   margin-left: 1%;
 }
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -193,8 +192,8 @@ body {
   margin-top: 10px !important;
 }
 
-/* .button {
-  background-color: #42b489; 
+.button {
+  background-color: #4caf50; /* Green */
   border: none;
   color: white;
   text-align: center;
@@ -202,7 +201,7 @@ body {
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
-} */
+}
 
 .button2 {
   background-color: white;
@@ -214,6 +213,7 @@ body {
   background-color: #008cba;
   color: white;
 }
+<<<<<<< HEAD
 
 /* .box {
   background: #f9f9f9;
@@ -222,4 +222,6 @@ body {
   margin-bottom: 20px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 } */
+=======
+>>>>>>> parent of a9e05a3... Merge branch 'main' of https://github.com/cindyzhengxx/is216-project into main
 </style>

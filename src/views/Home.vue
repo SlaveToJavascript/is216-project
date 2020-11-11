@@ -9,8 +9,8 @@
               <div class="px-3 pt-4 height17">
                 <b-row>
                   <b-col>
-                    <span class="particletext bubbles"
-                      >Hi {{ name }}! 🎉🎉<br />Welcome back!</span
+                    <span class="particletext confetti"
+                      >Hi {{ name }}! Welcome back!</span
                     >
                   </b-col>
                   <b-col></b-col>
@@ -34,9 +34,7 @@
               <div class="box height24"><QuoteBar /></div>
             </b-col>
             <b-col cols="6">
-              <div class="box height24">
-                <Progress />
-              </div>
+              <div class="box height24">Productivity Ring</div>
             </b-col>
           </b-row>
         </b-col>
@@ -53,24 +51,22 @@ import Navbar from "@/components/Navbar";
 import ToDo from "@/components/ToDo";
 import QuoteBar from "@/components/QuoteBar";
 import ModuleCard from "@/components/ModuleCard";
-import Progress from "@/components/Progress";
 
 import $ from "jquery";
 
 require("@/assets/styles/particles.css");
 
 export default {
-  name: "Home",
+  name: "Settings",
   components: {
     Navbar,
     ToDo,
     QuoteBar,
-    ModuleCard,
-    Progress
+    ModuleCard
   },
   data() {
     return {
-      name: "Sean"
+      name: "Placeholder"
     };
   },
   mounted: function() {
