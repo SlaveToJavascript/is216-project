@@ -2,29 +2,27 @@
   <div class="container mb-3">
     <div class="card-columns">
       <div class="card" v-bind:key="video.id.videoId" v-for="video in videos">
-        <VideoGridItem v-bind:video="video"/>
+        <VideoGridItem v-bind:video="video" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VideoGridItem from './VideoGridItem';
+import VideoGridItem from "./VideoGridItem";
 
 export default {
-  name: 'YoutubeResults',
+  name: "YoutubeResults",
   components: {
     VideoGridItem
   },
   data() {
     return {
-      title: 'Search Results',
+      title: "Search Results"
     };
   },
-  methods: {
-    
-  },
-  props: ['videos', 'reformattedSearchString']
+  methods: {},
+  props: ["videos", "reformattedSearchString"]
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
-  <b-navbar :type=is-danger>
+  <b-navbar :mobile-burger="false">
     <template slot="brand">
-      <b-navbar-item tag="router-link" :to="{ path: '/' }">
+      <b-navbar-item>
         <img src="@/assets/images/logo.jpg" alt="STUD" />
       </b-navbar-item>
     </template>
@@ -19,30 +19,26 @@
       <b-navbar-item tag="router-link" :to="{ path: '/achievements' }">
         Achievement
       </b-navbar-item>
-      <b-navbar-dropdown label="Settings">
-        <b-navbar-item tag="router-link" :to="{ path: '/settings' }">
-          User Profile
-        </b-navbar-item>
-        <b-navbar-item tag="router-link" :to="{ path: '/settings' }">
-          Update Timetable
-        </b-navbar-item>
-        <b-navbar-item tag="router-link" :to="{ path: '/settings' }">
-          Notification
-        </b-navbar-item>
-        <b-navbar-item tag="router-link" :to="{ path: '/settings' }">
-          Privacy
-        </b-navbar-item>
-      </b-navbar-dropdown>
     </template>
     <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+          <b-button
+            class="mb-1"
+            type="is-primary"
+            tag="router-link"
+            to="/settings"
+          >
+            Settings
+          </b-button>
+          <b-button
+            class="mb-1"
+            type="is-primary is-light"
+            tag="router-link"
+            to="/settings"
+          >
+            Log Out
+          </b-button>
         </div>
       </b-navbar-item>
     </template>
@@ -59,17 +55,6 @@ export default {
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   margin-bottom: 0px;
+  display: block;
 }
-
-a.navbar-burger.burger {
-  position: absolute !important;
-  right: 15px !important;
-  margin-bottom: 15px !important;
-}
-
-
-.button.is-primary {
-  background-color: #7880B5;
-}
-
 </style>
