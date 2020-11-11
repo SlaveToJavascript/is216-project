@@ -17,8 +17,8 @@
         </div>
 
         <div>
-          <b-dropdown
-            variant="primary"
+          <b-dropdown 
+            variant="outline-dark"
             id="jobType"
             :text="placeholder"
             class="ml-3"
@@ -75,24 +75,24 @@
         </div> -->
 
         <div id="searchJob">
-          <b-button variant="success" @click="search()">Search</b-button>
+          <b-button type="is-danger" @click="search()">Search</b-button>
         </div>
       </div>
     </div>
 
-    <b-container>
+    <div class="container">
       <div id="cardWrap">
-        <b-card :key="result.title" v-for="result in results">
+        <div class="card box" :key="result.title" v-for="result in results">
           <div class="ml-4">
-            <b-card-title>{{ result.title }}</b-card-title>
-            <b-card-text>{{ result.snippet }}</b-card-text>
-            <b-button :href="result.formattedUrl" variant="primary"
-              >Apply now</b-button
+            <div class="card-title">{{ result.title }}</div>
+            <div class="card-body">{{ result.snippet }}</div>
+            <button :href="result.formattedUrl" variant="outline-danger"
+              >Apply now</button
             >
           </div>
-        </b-card>
+        </div>
       </div>
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -199,6 +199,7 @@ body {
 #searchJob {
   margin-left: 1%;
 }
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -218,8 +219,8 @@ body {
   margin-top: 10px !important;
 }
 
-.button {
-  background-color: #4caf50; /* Green */
+/* .button {
+  background-color: #42b489; 
   border: none;
   color: white;
   padding: 16px 32px;
@@ -230,7 +231,7 @@ body {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-}
+} */
 
 .button2 {
   background-color: white;
@@ -241,5 +242,13 @@ body {
 .button2:hover {
   background-color: #008cba;
   color: white;
+}
+
+.box {
+  background: #f9f9f9;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 </style>
