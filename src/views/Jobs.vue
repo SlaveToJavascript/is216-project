@@ -213,7 +213,6 @@ body {
   background-color: #008cba;
   color: white;
 }
-<<<<<<< HEAD
 
 /* .box {
   background: #f9f9f9;
@@ -222,6 +221,4 @@ body {
   margin-bottom: 20px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 } */
-=======
->>>>>>> parent of a9e05a3... Merge branch 'main' of https://github.com/cindyzhengxx/is216-project into main
 </style>
