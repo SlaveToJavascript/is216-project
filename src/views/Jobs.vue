@@ -23,13 +23,7 @@
             :text="placeholder"
             class="ml-3"
           >
-            <b-dropdown-item
-              @click="
-                searchTerm = 'internship';
-                placeholder = 'Internship';
-              "
-              >Internship</b-dropdown-item
-            >
+          
             <b-dropdown-item
               @click="
                 searchTerm = 'ft';
@@ -44,13 +38,20 @@
               "
               >Part-Time</b-dropdown-item
             >
-            <b-dropdown-item
+             <b-dropdown-item
+              @click="
+                searchTerm = 'internship';
+                placeholder = 'Internship';
+              "
+              >Internship</b-dropdown-item
+            >
+            <!-- <b-dropdown-item
               @click="
                 searchTerm = 'fl';
                 placeholder = 'Freelance';
               "
               >Freelance</b-dropdown-item
-            >
+            > -->
           </b-dropdown>
         </div>
         <div id="searchJob">
