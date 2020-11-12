@@ -98,7 +98,7 @@ export default {
     search() {
       var q = document.getElementById("q").value.replace(/\s+/g, "+");
       q += "+" + this.searchTerm;
-      let key = "AIzaSyBqW71zFVCc8ocJAhViUhZC3rTD8E5eiA4";
+      let key = "AIzaSyBOgzNtXX2fAoV5euB-4urR_L2pJTPan7o";
       let cx = "f5cccf8e1ce3fceca";
       let url =
         "https://www.googleapis.com/customsearch/v1?key=" +
