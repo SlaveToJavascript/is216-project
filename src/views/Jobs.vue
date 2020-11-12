@@ -55,7 +55,7 @@
           </b-dropdown>
         </div>
         <div id="searchJob">
-          <b-button type="is-danger" @click="search()">Search</b-button>
+          <b-button type="is-info is-light" @click="search()">Search</b-button>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@
           <div class="ml-4">
             <div class="card-title">{{ result.title }}</div>
             <div class="card-body">{{ result.snippet }}</div>
-            <button :href="result.formattedUrl" variant="outline-danger">
+            <button :href="result.formattedUrl" variant="outline-dark">
               Apply now
             </button>
           </div>
@@ -92,7 +92,7 @@ export default {
     return {
       searchTerm: "",
       results: [],
-      placeholder: "Type of job"
+      placeholder: "Job Type"
     };
   },
   methods: {
@@ -144,7 +144,7 @@ export default {
           bCard.appendChild(wrapper);
           bCard.setAttribute(
             "style",
-            "margin-bottom: 20px; padding: 20px; background-color: #f1dcd3; box-shadow: 0 0 1px rgba(255, 186, 186, 0.2), 0 2px 4px rgba(255, 186, 186, 0.2); border-radius: 5px;"
+            "margin-bottom: 20px; padding: 20px; background-color: #c5e4ee; box-shadow: 0 0 1px rgba(255, 186, 186, 0.2), 0 2px 4px rgba(255, 186, 186, 0.2); border-radius: 5px; width: 40%;"
           );
           cardWrap.appendChild(bCard);
         }
@@ -161,7 +161,7 @@ body {
   text-align: center;
 }
 #searchBar {
-  background-color: #f2cbbc;
+  background-color:#b0d7e4;
   padding: 1%;
 }
 #keyword,
