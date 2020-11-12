@@ -64,100 +64,7 @@
               />
             </div>
 
-            <div class="row d-flex justify-content-center" id="dropdown">
-              <div class="dropdown">
-                <button
-                  class="btn btn-outline-primary dropdown-toggle"
-                  type="button"
-                  id="dropdownYear"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  placeholder="Year"
-                  style="width: 300px;"
-                >
-                  Year
-                </button>
-
-                <div
-                  class="dropdown-menu"
-                  aria-labelledby="dropdownYears"
-                  style="width: 300px;"
-                >
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    @click="replaceYear('Year 1')"
-                    >Year 1</a
-                  >
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    @click="replaceYear('Year 2')"
-                    >Year 2</a
-                  >
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    @click="replaceYear('Year 3')"
-                    >Year 3</a
-                  >
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    @click="replaceYear('Year 4')"
-                    >Year 4</a
-                  >
-                </div>
-              </div>
-
-              <div class="dropdown">
-                <button
-                  class="btn btn-outline-primary dropdown-toggle"
-                  type="button"
-                  id="dDSchool"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  style="width: 300px;"
-                >
-                  School
-                </button>
-
-                <div
-                  class="dropdown-menu 2"
-                  aria-labelledby="dDSchools"
-                  style="width: 300px;"
-                >
-                  <a class="dropdown-item" href="#" onclick="replaceSchl('SIS')"
-                    >SIS</a
-                  >
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    onclick="replaceSchl('SOSS')"
-                    >SOSS</a
-                  >
-                  <a class="dropdown-item" href="#" onclick="replaceSchl('SOE')"
-                    >SOE</a
-                  >
-                  <a class="dropdown-item" href="#" onclick="replaceSchl('SOA')"
-                    >SOA</a
-                  >
-                  <a class="dropdown-item" href="#" onclick="replaceSchl('SOL')"
-                    >SOL</a
-                  >
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    onclick="replaceSchl('LKSB')"
-                    >LKSB</a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="row d-flex justify-content-center" id="selectModHeader">
+            <div class="row d-flex justify-content-left" style="margin-left:10em; margin-bottom: 0.5em" id="selectModHeader">
               <h4>Select your modules:</h4>
             </div>
 
@@ -165,8 +72,7 @@
             <div id="vueMagic">
               <div class="row d-flex justify-content-center">
                 <section>
-                  <p class="content"><b>Selected:</b> {{ selected }}</p>
-                  <b-field label="Course Number and Course Name">
+                  <b-field>
                     <b-autocomplete
                       rounded
                       v-model="newItem"
@@ -192,8 +98,8 @@
 
               <!-- need to fix width of the area of the list -->
               <div
-                class="row d-flex justify-content-center"
-                style="width: 100%;"
+                class="row"
+                style="width: 100%; margin-left: 10em"
               >
                 <ul
                   style="list-style-type: none; white-space: nowrap; max-width:auto;"
@@ -638,5 +544,10 @@ export default {
 
 #registration {
   margin-bottom: 100px;
+}
+
+.autocomplete{
+  width: 54vw;
+  margin-bottom: 20px;
 }
 </style>
