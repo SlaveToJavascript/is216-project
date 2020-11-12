@@ -144,7 +144,7 @@ export default {
           bCard.appendChild(wrapper);
           bCard.setAttribute(
             "style",
-            "margin-bottom: 20px; padding: 20px; background-color: #c5e4ee; box-shadow: 0 0 1px rgba(255, 186, 186, 0.2), 0 2px 4px rgba(255, 186, 186, 0.2); border-radius: 5px; width: 40%;"
+            "margin-bottom: 20px; padding: 20px; background-color: #c5e4ee; box-shadow: 0 0 1px rgba(255, 186, 186, 0.2), 0 2px 4px rgba(255, 186, 186, 0.2); border-radius: 5px;"
           );
           cardWrap.appendChild(bCard);
         }
