@@ -23,34 +23,35 @@
             :text="placeholder"
             class="ml-3"
           >
+          
             <b-dropdown-item
               @click="
-                searchTerm = 'internship';
-                placeholder = 'Internship';
-              "
-              >Internship</b-dropdown-item
-            >
-            <b-dropdown-item
-              @click="
-                searchTerm = 'ft';
+                searchTerm = 'full-time';
                 placeholder = 'Full-Time';
               "
               >Full-Time</b-dropdown-item
             >
             <b-dropdown-item
               @click="
-                searchTerm = 'pt';
+                searchTerm = 'part-time';
                 placeholder = 'Part-Time';
               "
               >Part-Time</b-dropdown-item
             >
-            <b-dropdown-item
+             <b-dropdown-item
+              @click="
+                searchTerm = 'internship';
+                placeholder = 'Internship';
+              "
+              >Internship</b-dropdown-item
+            >
+            <!-- <b-dropdown-item
               @click="
                 searchTerm = 'fl';
                 placeholder = 'Freelance';
               "
               >Freelance</b-dropdown-item
-            >
+            > -->
           </b-dropdown>
         </div>
         <div id="searchJob">
@@ -97,8 +98,9 @@ export default {
   methods: {
     search() {
       var q = document.getElementById("q").value.replace(/\s+/g, "+");
-      q += "+" + this.searchTerm;
-      let key = "AIzaSyBqW71zFVCc8ocJAhViUhZC3rTD8E5eiA4";
+      q += "+" + this.searchTerm  + "+" + "Singapore";
+      console.log(q)
+      let key = "AIzaSyBOgzNtXX2fAoV5euB-4urR_L2pJTPan7o";
       let cx = "f5cccf8e1ce3fceca";
       let url =
         "https://www.googleapis.com/customsearch/v1?key=" +

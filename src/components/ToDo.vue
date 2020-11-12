@@ -3,6 +3,7 @@
     <div class="container">
       <div class="row header">
         <h3 class="h1 col center-align">My To-Dos</h3>
+        {{ todos.length }}
       </div>
       <div class="row">
         <form @submit.prevent="submitTodo" class="col">
