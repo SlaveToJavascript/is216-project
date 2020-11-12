@@ -128,7 +128,7 @@ export default {
             "javascript:window.open('" + result.formattedUrl + "', '_blank');"
           );
           buttonNode.setAttribute("target", "_blank");
-          buttonNode.setAttribute("style", "background-color: #f9f9f9;");
+          buttonNode.setAttribute("style", "background-color: transparent; margin-top: 5px; border: 1px black solid");
           buttonNode.appendChild(document.createTextNode("Apply here"));
           // container wrap
           var wrapper = document.createElement("div");
@@ -142,7 +142,7 @@ export default {
           bCard.appendChild(wrapper);
           bCard.setAttribute(
             "style",
-            "margin-bottom: 20px; padding: 20px; background-color: #f9f9f9; box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px;"
+            "margin-bottom: 20px; padding: 20px; background-color: #f1dcd3; box-shadow: 0 0 1px rgba(255, 186, 186, 0.2), 0 2px 4px rgba(255, 186, 186, 0.2); border-radius: 5px;"
           );
           cardWrap.appendChild(bCard);
         }
