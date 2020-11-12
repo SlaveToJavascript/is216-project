@@ -13,7 +13,9 @@
                       >Hi {{ name }}! 🎉🎉 <br />Welcome back!</span
                     >
                   </b-col>
-                  <b-col></b-col>
+                  <b-col>
+                    <Bear />
+                  </b-col>
                 </b-row>
               </div>
             </b-col>
@@ -23,7 +25,8 @@
               <div class="box height45">
                 <b-row>
                   <b-col class="modCards">
-                    <ModuleCard />
+                    <ModuleCard /> <ModuleCard /> <ModuleCard /> <ModuleCard />
+                    <ModuleCard /> <ModuleCard />
                   </b-col>
                 </b-row>
               </div>
@@ -39,7 +42,7 @@
           </b-row>
         </b-col>
         <b-col cols="3">
-          <div class="box mt-3" id="schedule"><ToDo /></div>
+          <div class="box mt-3" id="schedule"></div>
         </b-col>
       </b-row>
     </b-container>
@@ -48,10 +51,10 @@
 
 <script>
 import Navbar from "@/components/Navbar";
-import ToDo from "@/components/ToDo";
 import QuoteBar from "@/components/QuoteBar";
 import ModuleCard from "@/components/ModuleCard";
 import Progress from "@/components/Progress";
+import Bear from "@/components/Bear";
 
 import $ from "jquery";
 
@@ -61,10 +64,10 @@ export default {
   name: "Home",
   components: {
     Navbar,
-    ToDo,
     QuoteBar,
     ModuleCard,
-    Progress
+    Progress,
+    Bear
   },
   data() {
     return {

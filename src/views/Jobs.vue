@@ -23,7 +23,6 @@
             :text="placeholder"
             class="ml-3"
           >
-          
             <b-dropdown-item
               @click="
                 searchTerm = 'full-time';
@@ -38,7 +37,7 @@
               "
               >Part-Time</b-dropdown-item
             >
-             <b-dropdown-item
+            <b-dropdown-item
               @click="
                 searchTerm = 'internship';
                 placeholder = 'Internship';
@@ -98,8 +97,8 @@ export default {
   methods: {
     search() {
       var q = document.getElementById("q").value.replace(/\s+/g, "+");
-      q += "+" + this.searchTerm  + "+" + "Singapore";
-      console.log(q)
+      q += "+" + this.searchTerm + "+" + "Singapore";
+      console.log(q);
       let key = "AIzaSyBOgzNtXX2fAoV5euB-4urR_L2pJTPan7o";
       let cx = "f5cccf8e1ce3fceca";
       let url =
@@ -130,7 +129,10 @@ export default {
             "javascript:window.open('" + result.formattedUrl + "', '_blank');"
           );
           buttonNode.setAttribute("target", "_blank");
-          buttonNode.setAttribute("style", "background-color: transparent; margin-top: 5px; border: 1px black solid");
+          buttonNode.setAttribute(
+            "style",
+            "background-color: transparent; margin-top: 5px; border: 1px black solid"
+          );
           buttonNode.appendChild(document.createTextNode("Apply here"));
           // container wrap
           var wrapper = document.createElement("div");

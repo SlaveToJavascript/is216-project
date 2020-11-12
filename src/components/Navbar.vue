@@ -14,7 +14,7 @@
         Jobs
       </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ path: '/achievements' }">
-        Module Planning
+        To-Do
       </b-navbar-item>
     </template>
     <template slot="end">

@@ -3,7 +3,6 @@
     <div class="container">
       <div class="row header">
         <h3 class="h1 col center-align">My To-Dos</h3>
-        {{ todos.length }}
       </div>
       <div class="row">
         <form @submit.prevent="submitTodo" class="col">
@@ -103,7 +102,6 @@ ul {
 .todo-item {
   margin-left: 10px;
   font-size: 18px;
-  font-family: "Lucida Console", Monaco, monospace;
 }
 
 .input-field {
