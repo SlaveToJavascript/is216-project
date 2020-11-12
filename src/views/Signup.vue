@@ -12,13 +12,8 @@
 
       <!-- to redirect to sign in page -->
       <div class="col" id="sign-in">
-        <button
-          onclick="location.href='/login';"
-          type="button"
-          class="btn btn-outline-primary"
-          href="#"
-        >
-          Sign In
+        <button type="button" class="btn btn-outline-primary">
+          <b-link :to="{ path: 'Login' }">Sign in</b-link>
         </button>
       </div>
     </div>
