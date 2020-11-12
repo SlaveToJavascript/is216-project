@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body text-center">
       <img
-        src="../../cards/image/4.gif"
+        src="../../cards/image/8.gif"
         width="40%"
         style="margin-top: 10px;"
       />

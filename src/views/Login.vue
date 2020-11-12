@@ -1,6 +1,10 @@
 <template>
   <div id="login">
-    hi
+    <ul>
+      <li v-for="mod in mods" :key="mod.id">
+        {{ mods }}
+      </li>
+    </ul>
   </div>
 </template>
 

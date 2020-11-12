@@ -41,7 +41,7 @@ export default {
     (() => {
       gsap.to("#bear", {
         left: 0,
-        duration: 2
+        duration: 4
       });
     })();
   }
