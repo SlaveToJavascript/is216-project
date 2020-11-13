@@ -421,12 +421,6 @@ export default {
     addNewItem() {
       this.items.push(this.newItem);
       this.newItem = "";
-    },
-    replaceYear(id) {
-      document.getElementById("dropdownYear").innerHTML = id;
-    },
-    replaceSchl(schl) {
-      document.getElementById("dDSchool").innerHTML = schl;
     }
   },
   computed: {
@@ -550,4 +544,5 @@ export default {
   width: 54vw;
   margin-bottom: 20px;
 }
+
 </style>

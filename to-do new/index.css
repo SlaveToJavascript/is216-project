@@ -90,6 +90,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -130,9 +131,7 @@ table {
 
 @import "reset.less";
 
-//////////////////
-
-/// NAVBAR
+/* NAVBAR */
 
 header {
   display: flex;
@@ -155,7 +154,7 @@ header {
   }
   #search {
     margin-left: 32px;
-    font-family: "Lato";
+    font-family: "Poppins";
     font-size: 16px;
     border: none;
     ::placeholder {
@@ -173,7 +172,7 @@ header {
     }
     h1 {
       margin-top: 22px;
-      font-family: "Lato";
+      font-family: "Poppins";
       font-style: normal;
       font-weight: bold;
       font-size: 24px;
@@ -220,7 +219,7 @@ body {
     box-shadow: 0px 4px 20px rgba(71, 134, 255, 0.5);
     #letter {
       font-size: 36px;
-      font-family: "Lato", Arial, Helvetica, sans-serif;
+      font-family: "Poppins";
       color: white;
       font-weight: 900;
       margin: 5px 0px 0px 16px;
@@ -230,14 +229,14 @@ body {
     margin-left: 24px;
   }
   .infos-title {
-    font-family: "Lato";
+    font-family: "Poppins";
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
     color: #1b2437;
   }
   .infos-company {
-    font-family: "Lato";
+    font-family: "Poppins";
     font-style: italic;
     font-size: 16px;
     line-height: 19px;
@@ -258,7 +257,7 @@ body {
     width: 240px;
     border-radius: 0px;
     margin-right: 8px;
-    font-family: "Lato";
+    font-family: "Poppins";
     font-size: 16px;
     line-height: 19px;
     border: none;
@@ -293,22 +292,23 @@ body {
 /// COLUMNS
 
 #columns {
-  margin-top: 40px;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  margin-top: 60px;
+  /* display: flex; */
+  flex-wrap: wrap;
+  /* overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  overflow: auto;
+  overflow: auto; */
 }
 
 .column {
   flex: 0 0 auto;
-  width: 340px;
-  height: 520px;
+  width: 100px;
+  height: 100px;
   background: #ffffff;
   box-sizing: border-box;
   border-radius: 1px;
-  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 40px;
   background-color: white;
   &:nth-child(1) {
     margin-left: 0px;
@@ -321,7 +321,7 @@ body {
 
 .column-title {
   margin: 24px 0px 0px 24px;
-  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 600;
   font-size: 24px;
 }
@@ -342,7 +342,7 @@ body {
   width: 288px;
   .task-content {
     margin: 16px 16px 0 16px;
-    font-family: "Lato";
+    font-family: "Poppins";
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
@@ -359,7 +359,7 @@ body {
     position: absolute;
     bottom: 8px;
     right: 8px;
-    font-family: "Lato";
+    font-family: "Poppins";
     color: #54585a;
     &:hover {
       color: rgb(196, 45, 28);
@@ -530,7 +530,7 @@ header {
 }
 #navbar #search {
   margin-left: 32px;
-  font-family: "Lato";
+  font-family: "Poppins";
   font-size: 16px;
   border: none;
 }
@@ -549,7 +549,7 @@ header {
 }
 #navbar #app-title h1 {
   margin-top: 22px;
-  font-family: "Lato";
+  font-family: "Poppins";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -572,7 +572,7 @@ body {
   margin-left: 100px;
 }
 #board {
-  margin-top: 60px;
+  margin-top: 40px;
   display: flex;
 }
 #infos {
@@ -587,7 +587,7 @@ body {
 }
 #infos .square #letter {
   font-size: 36px;
-  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   color: white;
   font-weight: 900;
   margin: 5px 0px 0px 16px;
@@ -596,14 +596,14 @@ body {
   margin-left: 24px;
 }
 #infos .infos-title {
-  font-family: "Lato";
+  font-family: "Poppins";
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   color: #1b2437;
 }
 #infos .infos-company {
-  font-family: "Lato";
+  font-family: "Poppins";
   font-style: italic;
   font-size: 16px;
   line-height: 19px;
@@ -621,7 +621,7 @@ body {
   width: 240px;
   border-radius: 0px;
   margin-right: 8px;
-  font-family: "Lato";
+  font-family: "Poppins";
   font-size: 16px;
   line-height: 19px;
   border: none;
@@ -654,20 +654,22 @@ body {
 #columns {
   margin-top: 40px;
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  /* overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  overflow: auto;
+  overflow: auto; */
 }
 .column {
   flex: 0 0 auto;
-  width: 340px;
-  height: 520px;
+  width: 280px;
+  height: 500px;
   background: #ffffff;
   box-sizing: border-box;
   border-radius: 1px;
-  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 40px;
   background-color: white;
+  overflow: scroll;
 }
 .column:nth-child(1) {
   margin-left: 0px;
@@ -678,7 +680,7 @@ body {
 }
 .column-title {
   margin: 24px 0px 0px 24px;
-  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 600;
   font-size: 24px;
 }
@@ -692,18 +694,19 @@ body {
   box-sizing: border-box;
   border-radius: 2px;
   min-height: 80px;
-  width: 288px;
+  width: 80%;
 }
 .task:nth-child(1) {
   margin-top: 32px;
 }
 .task .task-content {
-  margin: 16px 16px 0 16px;
-  font-family: "Lato";
+  margin: 2px;
+  font-family: "Poppins";
   font-weight: 400;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 24px;
   color: #54585a;
+  overflow-wrap: break-word;
 }
 .task:hover {
   background: #ffffff;
@@ -716,7 +719,7 @@ body {
   position: absolute;
   bottom: 8px;
   right: 8px;
-  font-family: "Lato";
+  font-family: "Poppins";
   color: #54585a;
 }
 .task .trash:hover {

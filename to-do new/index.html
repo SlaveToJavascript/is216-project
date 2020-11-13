@@ -8,10 +8,10 @@
         <link rel="stylesheet" href="index.css">
         <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
         <script src="index.js" defer></script>
-        <title>Lambda Todo AH</title>
+        <title>Todo Page</title>
     </head>
     <body>
-        <header>
+        <!-- <header>
             <nav></nav>
             <div id="navbar">
                 <div class="burger">
@@ -20,25 +20,49 @@
                     <div class="line"></div>
                 </div>
                 <input id="search" placeholder="Search..." autocomplete="off">
-                <div id="app-title">
+                <div id="app-title"> -->
                     <!-- <div id="check">✅</div> -->
-                    <div><h1>Lambda Todo AH</h1></div>
+                    <!-- <div><h1>Lambda Todo AH</h1></div>
                 </div>
                 <div id="user"><img src="src/user.png"></div>
             </div>
-        </header>
+        </header> -->
         <main id="app">
             <section id="board">
                 <div id="infos">
-                    <div class="square"><p id="letter">L</p></div>
+                    <div class="square"><p id="letter">S</p></div>
                     <div id="infos-content">
-                        <div class="infos-title">After Hours</div>
-                        <div class="infos-company">Lambda</div>
+                        <!-- <div class="infos-title">Tuesday</div>
+                        <div class="infos-company">2:29 PM</div> -->
+                        <!-- <p>Date: <span id="date"></span></p>
+                        <script>
+                            var dt = new Date();
+                            document.getElementById("date").innerHTML = dt.toLocaleDateString();
+                        </script>
+                        <br>
+                        <p>Time: <span id="time"></span></p>
+                        <script>
+                            var dt = new Date();
+                            document.getElementById("time").innerHTML = dt.toLocaleTimeString();
+                        </script> -->
+                        <!-- <script>
+
+                            var today = new Date();
+                            
+                            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                            
+                            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                            
+                            var dateTime = date+' '+time;
+
+                            document.getElementById("date").innerHTML = dateTime
+                            
+                        </script> -->
                     </div>
                 </div>
                 <div id="add-task-form">
-                    <input id="task-value" placeholder="Add task">
-                    <button id="add-task">+</button>
+                    <input id="task-value" placeholder="Add Module">
+                    <button id="add-task" @click.prevent=“submitM”>+</button>
                 </div>
             </section>
             <section id="columns">
@@ -46,22 +70,76 @@
                     <h3 class="column-title">Backlog</h3>
                   
                 </div> -->
-                <div class="column dropzone">
-                    <h3 class="column-title">Todo</h3>
-                    <ul class="tasks" id="tasks-added">
-                        <!-- <li class="task fill" draggable="true">
-                            <div class="task-content">Create repository template with HTML & CSS</div>
-                            <div class="trash">X</div>
-                        </li> -->
-                    </ul>
-                </div>
-                <div class="column dropzone">
-                    <h3 class="column-title">Review</h3>
-                </div>
-                <div class="column dropzone">
-                    <h3 class="column-title">Done</h3>
-                </div>
+                    <div class="column dropzone">
+                        <h3 class="column-title">Y1 S1</h3>
+                        <ul class="tasks" id="tasks-added">
+                            <!-- <li class="task fill" draggable="true">
+                                <div class="task-content">Create repository template with HTML & CSS</div>
+                                <div class="trash">X</div>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div class="column dropzone">
+                        <h3 class="column-title">Y1 S2</h3>
+                    </div>
+                    <div class="column dropzone">
+                        <h3 class="column-title">Y2 S1</h3>
+                    </div>
+                    <div class="column dropzone">
+                        <h3 class="column-title">Y2 S2</h3>
+                    </div>
+                    <div class="column dropzone">
+                        <h3 class="column-title">Y3 S1</h3>
+                    </div>
+                    <div class="column dropzone">
+                        <h3 class="column-title">Y3 S2</h3>
+                    </div>
+                    <div class="column dropzone">
+                        <h3 class="column-title">Y4 S1</h3>
+                    </div>
+                    <div class="column dropzone">
+                        <h3 class="column-title">Y4 S2</h3>
+                    </div>
+
             </section>
         </main>
     </body>
 </html>
+
+<script>
+export default {
+  name: "addM",
+  data() {
+    return {
+      addMs: [],
+      newM: ""
+    };
+  },
+  watch: {
+    addMs: {
+      handler() {
+        localStorage.addMs = JSON.stringify(this.addMs);
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    if (localStorage.addMs) {
+      this.addMs = JSON.parse(localStorage.addMs);
+    }
+  },
+  methods: {
+    submitM() {
+      this.addMs.push({
+        title: this.newM,
+        done: false
+      });
+      this.newM = "";
+    },
+    deleteM(addM) {
+      const todoIndex = this.addMs.indexOf(addM);
+      this.addMs.splice(addMIndex, 1);
+    }
+  }
+};
+</script>
