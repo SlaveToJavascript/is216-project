@@ -40,6 +40,7 @@
                 class="form-control reg-form"
                 placeholder="Username"
                 aria-label="Username"
+                id="Username"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -50,6 +51,7 @@
                 class="form-control reg-form"
                 placeholder="Email"
                 aria-label="Email"
+                id="Email"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -60,6 +62,7 @@
                 class="form-control reg-form"
                 placeholder="Password"
                 aria-label="Password"
+                id="Password"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -125,7 +128,7 @@
                 type="button"
                 class="btn btn-outline-primary text-center"
                 href="#"
-              >
+              > 
                 Register!
               </button>
             </div>
@@ -412,6 +415,7 @@ export default {
       ],
       newItem: "",
       selected: null
+      
     };
   },
   methods: {
