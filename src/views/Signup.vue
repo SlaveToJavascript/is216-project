@@ -40,7 +40,7 @@
                 class="form-control reg-form"
                 placeholder="Username"
                 aria-label="Username"
-                id="Username"
+                v-model="username"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -51,7 +51,7 @@
                 class="form-control reg-form"
                 placeholder="Email"
                 aria-label="Email"
-                id="Email"
+                v-model="email"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -62,7 +62,7 @@
                 class="form-control reg-form"
                 placeholder="Password"
                 aria-label="Password"
-                id="Password"
+                v-model="password"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -128,6 +128,7 @@
                 type="button"
                 class="btn btn-outline-primary text-center"
                 href="#"
+                @click="savedata()"
               > 
                 Register!
               </button>
@@ -140,6 +141,7 @@
 </template>
 
 <script>
+const fs = require("fs");
 export default {
   name: "Signup",
   data() {
@@ -412,10 +414,14 @@ export default {
         "COR2603 Singapore: Imagining The Next Fifty Years",
         "FTW100 Finishing Touch Workshops (Year One)",
         "HUMN017 A Cultural Introduction to India: From Indus Valley to Infosys"
-      ],
+],
       newItem: "",
-      selected: null
-      
+      selected: null,
+      details: [],
+      username: "",
+      email: "",
+      password: ""
+    
     };
   },
   methods: {
@@ -425,6 +431,17 @@ export default {
     addNewItem() {
       this.items.push(this.newItem);
       this.newItem = "";
+    },
+    save() {
+      this.details = [{
+        "Username": this.username,
+        "Email": this.email,
+        "Password": this.password,
+        "Modules": this.items
+      }]
+      let data = JSON.stringify(details);
+      fs.writeFileSync("../../json_files/login_details.json", data); 
+
     }
   },
   computed: {
