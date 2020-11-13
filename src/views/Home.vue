@@ -13,9 +13,7 @@
                       >Hi {{ name }}! 🎉🎉 <br />Welcome back!</span
                     >
                   </b-col>
-                  <b-col>
-                    <Bear />
-                  </b-col>
+                  <b-col> </b-col>
                 </b-row>
               </div>
             </b-col>
@@ -24,10 +22,7 @@
             <b-col>
               <div class="box height45">
                 <b-row>
-                  <b-col class="modCards">
-                    <ModuleCard /> <ModuleCard /> <ModuleCard /> <ModuleCard />
-                    <ModuleCard /> <ModuleCard />
-                  </b-col>
+                  <b-col class="modCards"> </b-col>
                 </b-row>
               </div>
             </b-col>
@@ -42,7 +37,9 @@
           </b-row>
         </b-col>
         <b-col cols="3">
-          <div class="box mt-3" id="schedule"></div>
+          <div class="box mt-3" id="schedule">
+            <ModuleCard />
+          </div>
         </b-col>
       </b-row>
     </b-container>
@@ -54,7 +51,6 @@ import Navbar from "@/components/Navbar";
 import QuoteBar from "@/components/QuoteBar";
 import ModuleCard from "@/components/ModuleCard";
 import Progress from "@/components/Progress";
-import Bear from "@/components/Bear";
 
 import $ from "jquery";
 
@@ -66,8 +62,7 @@ export default {
     Navbar,
     QuoteBar,
     ModuleCard,
-    Progress,
-    Bear
+    Progress
   },
   data() {
     return {
@@ -237,7 +232,7 @@ body {
 
 #schedule {
   height: 87vh;
-  overflow: scroll;
+  overflow-y: auto;
   z-index: 999;
 }
 

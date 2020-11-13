@@ -24,7 +24,6 @@
     <vue-ellipse-progress
       :is="component"
       :progress="tasksDonePercent"
-      :determinate="determinate"
       color="#7579ff"
       empty-color="#324c7e"
       :size="170"
