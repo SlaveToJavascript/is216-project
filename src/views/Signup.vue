@@ -440,7 +440,7 @@ export default {
         "Password": this.password,
         "Modules": this.items
       }]
-      let data = JSON.stringify(details);
+      let data = JSON.stringify(this.details);
       fs.writeFileSync("../../json_files/login_details.json", data); 
 
     }
