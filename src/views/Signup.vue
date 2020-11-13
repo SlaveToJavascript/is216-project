@@ -67,7 +67,11 @@
               />
             </div>
 
-            <div class="row d-flex justify-content-left" style="margin-left:10em; margin-bottom: 0.5em" id="selectModHeader">
+            <div
+              class="row d-flex justify-content-left"
+              style="margin-left:10em; margin-bottom: 0.5em"
+              id="selectModHeader"
+            >
               <h4>Select your modules:</h4>
             </div>
 
@@ -100,10 +104,7 @@
               </div>
 
               <!-- need to fix width of the area of the list -->
-              <div
-                class="row"
-                style="width: 100%; margin-left: 10em"
-              >
+              <div class="row" style="width: 100%; margin-left: 10em">
                 <ul
                   style="list-style-type: none; white-space: nowrap; max-width:auto;"
                 >
@@ -128,7 +129,7 @@
                 type="button"
                 class="btn btn-outline-primary text-center"
                 href="#"
-              > 
+              >
                 Register!
               </button>
             </div>
@@ -415,7 +416,6 @@ export default {
       ],
       newItem: "",
       selected: null
-      
     };
   },
   methods: {
@@ -544,9 +544,8 @@ export default {
   margin-bottom: 100px;
 }
 
-.autocomplete{
+.autocomplete {
   width: 54vw;
   margin-bottom: 20px;
 }
-
 </style>

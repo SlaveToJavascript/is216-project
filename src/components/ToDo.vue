@@ -70,7 +70,7 @@ export default {
       this.todos.splice(todoIndex, 1);
     }
   }
-};  
+};
 </script>
 
 <style scoped>

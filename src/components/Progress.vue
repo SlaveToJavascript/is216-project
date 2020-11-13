@@ -46,7 +46,7 @@
 export default {
   name: "Progress",
   data: () => ({
-    tasksDone: 10
+    tasksDone: 8
   }),
   computed: {
     tasksDonePercent() {

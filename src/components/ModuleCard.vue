@@ -1,9 +1,10 @@
 <template>
   <div class="d-flex align-items-center flex-column">
+    <h4 class="mb-4">Module Videos 🎥</h4>
     <div class="card">
       <div class="card-body text-center">
         <img
-          src="../../cards/image/8.gif"
+          src="../../cards/image/1.gif"
           width="40%"
           style="margin-top: 10px;"
         />
@@ -13,8 +14,9 @@
             style="font-size:medium; font-weight: bold;"
           >
             IS216
-            <br />
-            Web Application Development
+          </div>
+          <div class="card-text mb-3" style="font-size: small;">
+            Web Application Development II
           </div>
         </div>
         <!-- Button trigger modal -->
@@ -44,7 +46,7 @@
     <div class="card">
       <div class="card-body text-center">
         <img
-          src="../../cards/image/8.gif"
+          src="../../cards/image/2.gif"
           width="40%"
           style="margin-top: 10px;"
         />
@@ -54,8 +56,9 @@
             style="font-size:medium; font-weight: bold;"
           >
             IS216
-            <br />
-            Web Application Development
+          </div>
+          <div class="card-text mb-3" style="font-size: small;">
+            Web Application Development II
           </div>
         </div>
         <!-- Button trigger modal -->
@@ -85,7 +88,7 @@
     <div class="card">
       <div class="card-body text-center">
         <img
-          src="../../cards/image/8.gif"
+          src="../../cards/image/3.gif"
           width="40%"
           style="margin-top: 10px;"
         />
@@ -95,8 +98,93 @@
             style="font-size:medium; font-weight: bold;"
           >
             IS216
-            <br />
-            Web Application Development
+          </div>
+          <div class="card-text mb-3" style="font-size: small;">
+            Web Application Development II
+          </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary" @click="show()">
+          Search for Videos
+        </button>
+        <modal
+          name="videos"
+          :width="1400"
+          :height="800"
+          :draggable="true"
+          :resizable="true"
+        >
+          <div class="mt-2">
+            <YoutubeSearch @load="initVideos(1)" v-on:search="search" />
+
+            <!-- Videos -->
+            <YoutubeResults
+              v-if="videos.length > 0"
+              v-bind:videos="videos"
+              v-bind:reformattedSearchString="reformattedSearchString"
+            />
+          </div>
+        </modal>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body text-center">
+        <img
+          src="../../cards/image/4.gif"
+          width="40%"
+          style="margin-top: 10px;"
+        />
+        <div class="card-content">
+          <div
+            class="card-title text-center"
+            style="font-size:medium; font-weight: bold;"
+          >
+            IS216
+          </div>
+          <div class="card-text mb-3" style="font-size: small;">
+            Web Application Development II
+          </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary" @click="show()">
+          Search for Videos
+        </button>
+        <modal
+          name="videos"
+          :width="1400"
+          :height="800"
+          :draggable="true"
+          :resizable="true"
+        >
+          <div class="mt-2">
+            <YoutubeSearch @load="initVideos(1)" v-on:search="search" />
+
+            <!-- Videos -->
+            <YoutubeResults
+              v-if="videos.length > 0"
+              v-bind:videos="videos"
+              v-bind:reformattedSearchString="reformattedSearchString"
+            />
+          </div>
+        </modal>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body text-center">
+        <img
+          src="../../cards/image/5.gif"
+          width="40%"
+          style="margin-top: 10px;"
+        />
+        <div class="card-content">
+          <div
+            class="card-title text-center"
+            style="font-size:medium; font-weight: bold;"
+          >
+            IS216
+          </div>
+          <div class="card-text mb-3" style="font-size: small;">
+            Web Application Development II
           </div>
         </div>
         <!-- Button trigger modal -->

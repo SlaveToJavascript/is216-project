@@ -9,7 +9,7 @@
               <div class="px-3 pt-4 height17">
                 <b-row>
                   <b-col>
-                    <span class="particletext bubbles"
+                    <span class="particletext"
                       >Hi {{ name }}! 🎉🎉 <br />Welcome back!</span
                     >
                   </b-col>

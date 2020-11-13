@@ -97,8 +97,8 @@ export default {
   methods: {
     search() {
       var q = document.getElementById("q").value.replace(/\s+/g, "+");
-      q += "+" + this.searchTerm  + "+" + "Singapore";
-      console.log(q)
+      q += "+" + this.searchTerm + "+" + "Singapore";
+      console.log(q);
       let key = "AIzaSyBOgzNtXX2fAoV5euB-4urR_L2pJTPan7o";
       let cx = "f5cccf8e1ce3fceca";
       let url =
@@ -163,7 +163,7 @@ body {
   text-align: center;
 }
 #searchBar {
-  background-color:#b0d7e4;
+  background-color: #b0d7e4;
   padding: 1%;
 }
 #keyword,
