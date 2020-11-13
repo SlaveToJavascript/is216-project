@@ -61,8 +61,12 @@
                     </div>
                 </div>
                 <div id="add-task-form">
-                    <input id="task-value" placeholder="Add Module">
-                    <button id="add-task" @click.prevent=“submitM”>+</button>
+                    <input id="task-value" placeholder="Add Module" v-model="newMod">
+                    <button id="add-task" @click="addMod()" >+</button>
+                    <!-- <button id="add-task" @click="save()" >Save</button> -->
+                    <!-- onload="myFunction()" -->
+                
+
                 </div>
             </section>
             <section id="columns">
@@ -107,39 +111,35 @@
 </html>
 
 <script>
-export default {
-  name: "addM",
-  data() {
-    return {
-      addMs: [],
-      newM: ""
-    };
-  },
-  watch: {
-    addMs: {
-      handler() {
-        localStorage.addMs = JSON.stringify(this.addMs);
-      },
-      deep: true
-    }
-  },
-  mounted() {
-    if (localStorage.addMs) {
-      this.addMs = JSON.parse(localStorage.addMs);
-    }
-  },
-  methods: {
-    submitM() {
-      this.addMs.push({
-        title: this.newM,
-        done: false
-      });
-      this.newM = "";
+var x = new Vue ({
+    el: "add-task-form",
+    data: {
+        mods: [],
+        newMod: "",
+        myLocalData: localStorage.getItem('myMods')
     },
-    deleteM(addM) {
-      const todoIndex = this.addMs.indexOf(addM);
-      this.addMs.splice(addMIndex, 1);
+    methods: {
+        addMod: function() {
+            this.mods.push(this.newMod)
+            // console.log(this.mods)
+            save()
+        },
+        save: function () {	
+        // localStorage.setItem('myMods', this.mods);
+        // localStorage.setItem("mods", JSON.stringify(mods))
+        localStorage.mods = JSON.stringify(this.mods);
+
+        // this.mods = JSON.parse(localStorage.mods);
+        },
+        on_load_method: function() {
+            if (localStorage.mods) {
+                this.mods = JSON.parse(localStorage.mods);
+            }
+        },
+        created: function(){
+            this.on_load_method()
+      }
     }
-  }
-};
+
+})
 </script>
