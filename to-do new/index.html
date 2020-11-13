@@ -60,10 +60,17 @@
                         </script> -->
                     </div>
                 </div>
-                <div id="add-task-form">
-                    <input id="task-value" placeholder="Add Module">
+                <!-- <div id="add-task-form">
+                    <input id="task-value" v-model="newM" placeholder="Add Module">
                     <button id="add-task" @click.prevent=“submitM”>+</button>
-                </div>
+                </div> -->
+                <form @submit.prevent="submitM" class="col">
+                    <div class="input-field">
+                      <input type="text" v-model="newM" placeholder="Add Module">
+                    </div>
+                    <button class="btn" @click.prevent="submitM">+</button>
+                </form>
+
             </section>
             <section id="columns">
                 <!-- <div class="column dropzone">
@@ -137,7 +144,7 @@ export default {
       this.newM = "";
     },
     deleteM(addM) {
-      const todoIndex = this.addMs.indexOf(addM);
+      const addMIndex = this.addMs.indexOf(addM);
       this.addMs.splice(addMIndex, 1);
     }
   }
