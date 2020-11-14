@@ -475,9 +475,11 @@ export default {
     }
   }
 };
+// require("@/assets/styles/login.css");
 </script>
 
 <style scoped>
+
 #header {
   /* margin-top: 20px; */
   /* padding: 0; */
@@ -548,7 +550,7 @@ export default {
 }
 
 #signup {
-  animation: bgcolor infinite 14s;
+  /* animation: bgcolor infinite 14s; */
 }
 
 @keyframes bgcolor {
