@@ -61,11 +61,10 @@
                     </div>
                 </div>
                 <!-- original -->
-                <div id="add-task-form">
-                    <input id="task-value" placeholder="Add Module">
-                    <button id="add-task">+</button>
-                </div>
-
+                <form @keydown.enter.prevent="" id="add-task-form">
+                    <input id="task-value" v-model="( active: new_todo )" v-model: "new_todo" v-on:keyup.enter="addItem" placeholder="Add Module">
+                    <button id="add-task" v-bind:class="{ active: new_todo}" @click="addItem">+</button>
+                </form>
 
                 <!-- trying -->
                 <!-- <div id="add-task-form">
@@ -89,7 +88,7 @@
                   
                 </div> -->
                     <div class="column dropzone">
-                        <h3 class="column-title">Y1 S1</h3>
+                        <h3 v-model="y1s1" class="column-title">Y1 S1</h3>
                         <ul class="tasks" id="tasks-added">
                             <!-- <li class="task fill" draggable="true">
                                 <div class="task-content">Create repository template with HTML & CSS</div>
@@ -97,25 +96,25 @@
                             </li> -->
                         </ul>
                     </div>
-                    <div class="column dropzone">
+                    <div v-model="y1s2" class="column dropzone">
                         <h3 class="column-title">Y1 S2</h3>
                     </div>
-                    <div class="column dropzone">
+                    <div v-model="y2s1" class="column dropzone">
                         <h3 class="column-title">Y2 S1</h3>
                     </div>
-                    <div class="column dropzone">
+                    <div v-model="y2s2" class="column dropzone">
                         <h3 class="column-title">Y2 S2</h3>
                     </div>
-                    <div class="column dropzone">
+                    <div v-model="y3s1" class="column dropzone">
                         <h3 class="column-title">Y3 S1</h3>
                     </div>
-                    <div class="column dropzone">
+                    <div v-model="y3s2" class="column dropzone">
                         <h3 class="column-title">Y3 S2</h3>
                     </div>
-                    <div class="column dropzone">
+                    <div v-model="y4s1" class="column dropzone">
                         <h3 class="column-title">Y4 S1</h3>
                     </div>
-                    <div class="column dropzone">
+                    <div v-model="y4s2" class="column dropzone">
                         <h3 class="column-title">Y4 S2</h3>
                     </div>
 
@@ -123,6 +122,7 @@
         </main>
     </body>
 </html>
+
 
 <!-- <script>
 export default {
@@ -161,3 +161,128 @@ export default {
   }
 };
 </script> -->
+<script>
+    
+    // localStorage.clear()
+
+    // localStorage.y1s1 = JSON.stringify('hey');
+    // console.log(localStorage)
+
+    // new Vue ({
+    //     el: "#addM",
+    //     data: {
+    //         y1s1: [],
+    //         y1s2: [],
+    //         y2s1: [],
+    //         y2s1: [],
+    //         y3s1: [],
+    //         y3s2: [],
+    //         y4s1: [],
+    //         y4s2: [],
+    //         newM: ""
+    //     },
+    //     methods: {
+    //         submitM: function(){
+    //             localStorage.y1s1 = JSON.stringify(newM)
+    //         }
+    //     }
+    // })
+
+    // console.log(localStorage)
+    // export default {
+    //     name: "addM",
+    //     data() {
+    //         
+    //             y1s1: [],
+    //             y1s2: [],
+    //             y2s1: [],
+    //             y2s1: [],
+    //             y3s1: [],
+    //             y3s2: [],
+    //             y4s1: [],
+    //             y4s2: [],
+    //             newM: ""
+    //         
+    //     },
+    //     watch: {
+    //         addM: {
+    //         handler() {
+    //             localStorage.addM = JSON.stringify(this.addM);
+    //         },
+    //         deep: true
+    //         }
+    //     },
+    //     mounted() {
+    //         if (localStorage.addM) {
+    //         this.addM = JSON.parse(localStorage.addM);
+    //         }
+    //     },
+    //     methods: {
+    //         submitM() {
+    //         this.addM.push({
+    //             title: this.newM,
+    //             done: false
+    //         });
+    //         this.newM = "";
+    //         },
+    //         // deleteM(todo) {
+    //         // const todoIndex = this.todos.indexOf(todo);
+    //         // this.todos.splice(todoIndex, 1);
+    //         // }
+    //     }
+    // };
+
+    var module = new Vue ({
+        el: "#Home",
+        components: {
+            Navbar,
+            QuoteBar,
+            ModuleCard,
+            Important,
+            Meeting
+        },
+        data() {
+            return {
+            name: "Guest",
+            todoList: [],
+            new_todo: "",
+            showComplete: false,
+            tasksDone: 0
+            };
+        },
+        watch: {
+            todoList: {
+            handler: function(updatedList) {
+                localStorage.setItem("todo_list", JSON.stringify(updatedList));
+            },
+            deep: true
+            }
+        },
+        methods: {
+        // get all todos when loading the page
+        getTodos() {
+        if (localStorage.getItem("todo_list")) {
+            this.todoList = JSON.parse(localStorage.getItem("todo_list"));
+        }
+        },
+        // add a new item
+        addItem() {
+        // validation check
+        if (this.new_todo) {
+            this.todoList.unshift({
+            id: this.todoList.length,
+            title: this.new_todo,
+            done: false
+            });
+        }
+        // reset new_todo
+        this.new_todo = "";
+        // save the new item in localstorage
+        return true;
+        },
+        deleteItem(item) {
+        this.todoList.splice(this.todoList.indexOf(item), 1);
+        }
+    }
+})
+</script>

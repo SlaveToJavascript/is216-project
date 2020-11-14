@@ -89,3 +89,5 @@ for(const dropzone of dropzones) {
     dropzone.addEventListener('dragleave', dragLeave);
     dropzone.addEventListener('drop', dragDrop);
 }
+
+
