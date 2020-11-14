@@ -108,7 +108,7 @@ export default {
         cx +
         "&q=" +
         q;
-      console.log(url);
+      // console.log(url);
       var cardWrap = document.getElementById("cardWrap");
       cardWrap.innerHTML = "";
       Vue.axios.get(url).then(resp => {
@@ -216,4 +216,5 @@ body {
   margin-bottom: 20px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 } */
+
 </style>
