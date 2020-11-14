@@ -83,58 +83,110 @@
               <div class="box height45">
                 <b-col class="modCards">
                   <!-- Start todo -->
-                  <div class="column">
-                    <p class="column-title">To-do</p>
-                    <div class="cards">
-                      <div class="card">
-                        <p>Read chapters for next class</p>
-                      </div>
-                    </div>
-                    <div class="add-container">
-                      <textarea
-                        type="text"
-                        placeholder="Type task here ..."
-                      ></textarea>
-                      <button class="add-card ui-button ui-corner-all">
-                        Add Card
-                      </button>
-                    </div>
-                  </div>
+                  <div id="app">
+                    <section class="todo-wrapper">
+                      <h1 class="todo-title">
+                        {{ today.day }}<br />{{ today.date }}
+                      </h1>
+                      <form @keydown.enter.prevent="">
+                        <input
+                          type="text"
+                          class="input-todo"
+                          v-bind:class="{ active: new_todo }"
+                          placeholder="Book consultation with Prof"
+                          v-model="new_todo"
+                          v-on:keyup.enter="addItem"
+                        />
+                        <div
+                          class="btnn btnn-add"
+                          v-bind:class="{ active: new_todo }"
+                          @click="addItem"
+                        >
+                          +
+                        </div>
+                      </form>
 
-                  <div class="column">
-                    <p class="column-title">Project Meetings</p>
-                    <div class="cards">
-                      <div class="card">
-                        <p>WAD2 Meeting 11/11 1500 hrs</p>
+                      <div v-if="pending.length > 0">
+                        <p class="status busy">
+                          You have {{ pending.length }} pending item<span
+                            v-if="pending.length > 1"
+                            >s</span
+                          >
+                        </p>
+                        <transition-group
+                          name="todo-item"
+                          tag="ul"
+                          class="todo-list"
+                        >
+                          <li v-for="item in pending" v-bind:key="item.title">
+                            <input
+                              class="todo-checkbox"
+                              v-bind:id="'item_' + item.id"
+                              v-model="item.done"
+                              type="checkbox"
+                            />
+                            <label v-bind:for="'item_' + item.id"></label>
+                            <span class="todo-text">{{ item.title }}</span>
+                            <span
+                              class="delete"
+                              @click="deleteItem(item)"
+                            ></span>
+                          </li>
+                        </transition-group>
                       </div>
-                    </div>
-                    <div class="add-container">
-                      <textarea
-                        type="text"
-                        placeholder="Type task here ..."
-                      ></textarea>
-                      <button class="add-card ui-button ui-corner-all">
-                        Add Card
-                      </button>
-                    </div>
-                  </div>
 
-                  <div class="column">
-                    <p class="column-title">Important Dates</p>
-                    <div class="cards">
-                      <div class="card">
-                        <p>WAD2 Finals 29th November</p>
+                      <transition name="slide-fade">
+                        <p class="status free" v-if="!pending.length">
+                          <img
+                            src="https://nourabusoud.github.io/vue-todo-list/images/beer_celebration.svg"
+                            alt="celebration"
+                          />Time to chill! You have no todos.
+                        </p>
+                      </transition>
+
+                      <div v-if="completed.length > 0 && showComplete">
+                        <p class="status">
+                          Completed tasks: {{ completedPercentage }}
+                        </p>
+                        <transition-group
+                          name="todo-item"
+                          tag="ul"
+                          class="todo-list archived"
+                        >
+                          <li v-for="item in completed" v-bind:key="item.title">
+                            <input
+                              class="todo-checkbox"
+                              v-bind:id="'item_' + item.id"
+                              v-model="item.done"
+                              type="checkbox"
+                            />
+                            <label v-bind:for="'item_' + item.id"></label>
+                            <span class="todo-text">{{ item.title }}</span>
+                            <span
+                              class="delete"
+                              @click="deleteItem(item)"
+                            ></span>
+                          </li>
+                        </transition-group>
                       </div>
-                    </div>
-                    <div class="add-container">
-                      <textarea
-                        type="text"
-                        placeholder="Type task here ..."
-                      ></textarea>
-                      <button class="add-card ui-button ui-corner-all">
-                        Add Card
-                      </button>
-                    </div>
+                      <div class="control-buttons">
+                        <div
+                          class="btn-secondary"
+                          v-if="completed.length > 0"
+                          @click="toggleShowComplete"
+                        >
+                          <span v-if="!showComplete">Show</span
+                          ><span v-else>Hide</span> Complete
+                        </div>
+                        <div
+                          class="btnn btnn-secondary"
+                          v-if="todoList.length > 0"
+                          @click="clearAll"
+                        >
+                          Clear All
+                        </div>
+                      </div>
+                    </section>
                   </div>
                   <!-- End todo -->
                 </b-col>
@@ -160,6 +212,7 @@ import ModuleCard from "@/components/ModuleCard";
 import $ from "jquery";
 
 require("@/assets/styles/particles.css");
+require("@/assets/styles/todo.css");
 
 export default {
   name: "Home",
@@ -171,30 +224,50 @@ export default {
   data() {
     return {
       name: "Guest",
-      newTodo: "",
-      todos: [],
+      todoList: [],
+      new_todo: "",
+      showComplete: false,
       tasksDone: 10
     };
   },
   watch: {
-    todos: {
-      handler() {
-        localStorage.todos = JSON.stringify(this.todos);
+    todoList: {
+      handler: function(updatedList) {
+        localStorage.setItem("todo_list", JSON.stringify(updatedList));
       },
       deep: true
     }
   },
   methods: {
-    submitTodo() {
-      this.todos.push({
-        title: this.newTodo,
-        done: false
-      });
-      this.newTodo = "";
+    // get all todos when loading the page
+    getTodos() {
+      if (localStorage.getItem("todo_list")) {
+        this.todoList = JSON.parse(localStorage.getItem("todo_list"));
+      }
     },
-    deleteTodo(todo) {
-      const todoIndex = this.todos.indexOf(todo);
-      this.todos.splice(todoIndex, 1);
+    // add a new item
+    addItem() {
+      // validation check
+      if (this.new_todo) {
+        this.todoList.unshift({
+          id: this.todoList.length,
+          title: this.new_todo,
+          done: false
+        });
+      }
+      // reset new_todo
+      this.new_todo = "";
+      // save the new item in localstorage
+      return true;
+    },
+    deleteItem(item) {
+      this.todoList.splice(this.todoList.indexOf(item), 1);
+    },
+    toggleShowComplete() {
+      this.showComplete = !this.showComplete;
+    },
+    clearAll() {
+      this.todoList = [];
     }
   },
   computed: {
@@ -203,9 +276,63 @@ export default {
     },
     component() {
       return "vue-ellipse-progress";
+    },
+    pending: function() {
+      return this.todoList.filter(function(item) {
+        return !item.done;
+      });
+    },
+    completed: function() {
+      return this.todoList.filter(function(item) {
+        return item.done;
+      });
+    },
+    completedPercentage: function() {
+      return (
+        Math.floor((this.completed.length / this.todoList.length) * 100) + "%"
+      );
+    },
+    today: function() {
+      var weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ];
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0!
+      var yyyy = today.getFullYear();
+
+      if (dd < 10) {
+        dd = "0" + dd;
+      }
+
+      if (mm < 10) {
+        mm = "0" + mm;
+      }
+
+      today = {
+        day: weekday[today.getDay()],
+        date: dd + "/" + mm + "/" + yyyy
+      };
+
+      return today;
     }
   },
   mounted() {
+    this.getTodos();
+
+    if (localStorage.getItem("reloaded")) {
+      localStorage.removeItem("reloaded");
+    } else {
+      localStorage.setItem("reloaded", "1");
+      location.reload();
+    }
+
     if (localStorage.todos) {
       this.todos = JSON.parse(localStorage.todos);
     }
@@ -253,7 +380,7 @@ export default {
 
     function hearts() {
       $.each($(".particletext.hearts"), function() {
-        var heartcount = ($(this).width() / 200) * 5;
+        var heartcount = ($(this).width() / 400) * 5;
         for (var i = 0; i <= heartcount; i++) {
           var size = $.rnd(60, 120) / 10;
           $(this).append(
@@ -349,8 +476,8 @@ body {
 }
 
 .modCards {
-  overflow-y: visible;
-  display: inline-block;
+  overflow-y: auto;
+  height: 100%;
 }
 
 .message {
