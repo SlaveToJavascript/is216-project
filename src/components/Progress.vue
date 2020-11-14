@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-between align-items-center">
+  <div class="scroll d-flex flex-column justify-content-between align-items-center">
     <div v-if="tasksDonePercent == 100">
       <h4>Your productivity at a glance</h4>
       <div class="particletext confetti">
@@ -70,4 +70,10 @@ export default {
   text-align: left;
   background: transparent;
 }
+
+.scroll {
+  height: 15vh;
+  overflow-y: auto;
+}
+
 </style>

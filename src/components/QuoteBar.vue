@@ -32,8 +32,9 @@ export default {
 
 <style scoped>
 .quotes-bar {
-  height: auto;
+  height: 15vh;
   width: auto;
+  overflow-y: auto;
 }
 
 .quote {

@@ -5,125 +5,135 @@
       <b-row>
         <b-col cols="9">
           <b-row>
-            <b-col>
-              <div class="px-3 pt-4 height17">
-                <b-row>
-                  <b-col>
-                    <span class="particletext"
-                      >Hi {{ name }}! 🎉🎉 <br />Welcome back!</span
-                    >
-                  </b-col>
-                  <b-col></b-col>
-                </b-row>
-              </div>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <div class="box height45">
-                <b-row>
-                  <b-col class="modCards">
-                    <div id="todoapp" class="text-center">
-                      <div class="container">
-                        <div class="row header">
-                          <h3 class="h1 col center-align">My To-Dos</h3>
-                        </div>
-                        <div class="row">
-                          <form @submit.prevent="submitTodo" class="col">
-                            <div class="input-field">
-                              <b-form-input v-model="newTodo"></b-form-input>
-                            </div>
-                            <button class="btn add">Add</button>
-                          </form>
-                        </div>
-                        <div class="row">
-                          <ul class="collection col">
-                            <li
-                              class="collection-item"
-                              v-for="todo in todos"
-                              :key="todo.id"
-                            >
-                              <label>
-                                <input
-                                  type="checkbox"
-                                  :checked="todo.done"
-                                  @change="todo.done = !todo.done"
-                                />
-                                <span class="todo-item">{{ todo.title }}</span>
-                                <span>
-                                  <a @click.prevent="deleteTodo(todo)">
-                                    <i class="glyphicon glyphicon-remove"></i>
-                                  </a>
-                                </span>
-                              </label>
-                            </li>
-                          </ul>
-                        </div>
+            <b-row class="mt-3">
+              <b-col cols="6">
+                <div class="box height24">
+                  <h5 class="particletext hearts" style="font-size: 1.5em">Welcome {{ name }} 🙂</h5>
+                  <QuoteBar /></div>
+              </b-col>
+              <b-col cols="6">
+                <div class="box height24">
+                  <div
+                    class="d-flex justify-content-xl-between">
+                    <div v-if="tasksDonePercent >= 100">
+                      <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
+                      <div class="particletext confetti">
+                        <img
+                          src="../../glassdoor/new_job_search/pusheen/4.gif"
+                          style="width: 5rem;"
+                        />
+                        Well done! 🎉🎉 <br />
                       </div>
                     </div>
-                  </b-col>
-                </b-row>
-              </div>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col cols="6">
-              <div class="box height24"><QuoteBar /></div>
-            </b-col>
-            <b-col cols="6">
-              <div class="box height24">
-                <div class="d-flex justify-content-between align-items-center">
-                  <div v-if="tasksDonePercent >= 100">
-                    <h4>Your productivity at a glance ⭐️</h4>
-                    <div class="particletext confetti">
-                      <img
-                        src="../../glassdoor/new_job_search/pusheen/4.gif"
-                        style="width: 5rem;"
-                      />
-                      Well done! 🎉🎉 <br />
+                    <div
+                      v-else-if="
+                        tasksDonePercent >= 80 && tasksDonePercent <= 99
+                      "
+                    >
+                      <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
+                      <div class="message">Almost there! 🌟</div>
+                    </div>
+                    <div
+                      v-else-if="
+                        tasksDonePercent >= 50 && tasksDonePercent <= 79
+                      "
+                    >
+                      <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
+                      <div class="message">Keep it going! 🤩</div>
+                    </div>
+                    <div
+                      v-else-if="
+                        tasksDonePercent >= 1 && tasksDonePercent <= 49
+                      "
+                    >
+                      <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
+                      <div class="message">Getting Started! 💪🏻 💪🏻</div>
+                    </div>
+                    <div v-else-if="tasksDonePercent == 0">
+                      <h4>Your productivity at a glance ⭐️</h4>
+                      <div class="message">You okay? 🤡 🤡</div>
+                    </div>
+                    <vue-ellipse-progress
+                      :is="component"
+                      :progress="tasksDonePercent"
+                      color="#7579ff"
+                      empty-color="#324c7e"
+                      :size="170"
+                      :thickness="5"
+                      :empty-thickness="3"
+                      lineMode="in 4"
+                      :legend-value="tasksDone"
+                      animation="bounce 700 1000"
+                      fontSize="1.5rem"
+                      font-color="black"
+                      dot="7 black"
+                    >
+                      <span slot="legend-value"> / 10</span>
+                      <span slot="legend-caption">TASKS DONE</span>
+                    </vue-ellipse-progress>
+                  </div>
+                </div>
+              </b-col>
+            </b-row>
+            <b-col>
+              <div class="box height45">
+                <b-col class="modCards">
+                  <!-- Start todo -->
+                  <div class="column">
+                    <p class="column-title">To-do</p>
+                    <div class="cards">
+                      <div class="card">
+                        <p>Read chapters for next class</p>
+                      </div>
+                    </div>
+                    <div class="add-container">
+                      <textarea
+                        type="text"
+                        placeholder="Type task here ..."
+                      ></textarea>
+                      <button class="add-card ui-button ui-corner-all">
+                        Add Card
+                      </button>
                     </div>
                   </div>
-                  <div
-                    v-else-if="tasksDonePercent >= 80 && tasksDonePercent <= 99"
-                  >
-                    <h4>Your productivity at a glance ⭐️</h4>
-                    <div class="message">Almost there! 🌟</div>
+
+                  <div class="column">
+                    <p class="column-title">Project Meetings</p>
+                    <div class="cards">
+                      <div class="card">
+                        <p>WAD2 Meeting 11/11 1500 hrs</p>
+                      </div>
+                    </div>
+                    <div class="add-container">
+                      <textarea
+                        type="text"
+                        placeholder="Type task here ..."
+                      ></textarea>
+                      <button class="add-card ui-button ui-corner-all">
+                        Add Card
+                      </button>
+                    </div>
                   </div>
-                  <div
-                    v-else-if="tasksDonePercent >= 50 && tasksDonePercent <= 79"
-                  >
-                    <h4>Your productivity at a glance ⭐️</h4>
-                    <div class="message">Keep it going! 🤩</div>
+
+                  <div class="column">
+                    <p class="column-title">Important Dates</p>
+                    <div class="cards">
+                      <div class="card">
+                        <p>WAD2 Finals 29th November</p>
+                      </div>
+                    </div>
+                    <div class="add-container">
+                      <textarea
+                        type="text"
+                        placeholder="Type task here ..."
+                      ></textarea>
+                      <button class="add-card ui-button ui-corner-all">
+                        Add Card
+                      </button>
+                    </div>
                   </div>
-                  <div
-                    v-else-if="tasksDonePercent >= 1 && tasksDonePercent <= 49"
-                  >
-                    <h4>Your productivity at a glance ⭐️</h4>
-                    <div class="message">Getting Started! 💪🏻 💪🏻</div>
-                  </div>
-                  <div v-else-if="tasksDonePercent == 0">
-                    <h4>Your productivity at a glance ⭐️</h4>
-                    <div class="message">You okay? 🤡 🤡</div>
-                  </div>
-                  <vue-ellipse-progress
-                    :is="component"
-                    :progress="tasksDonePercent"
-                    color="#7579ff"
-                    empty-color="#324c7e"
-                    :size="170"
-                    :thickness="5"
-                    :empty-thickness="3"
-                    lineMode="in 4"
-                    :legend-value="tasksDone"
-                    animation="bounce 700 1000"
-                    fontSize="1.5rem"
-                    font-color="black"
-                    dot="7 black"
-                  >
-                    <span slot="legend-value"> / 10</span>
-                    <span slot="legend-caption">TASKS DONE</span>
-                  </vue-ellipse-progress>
-                </div>
+                  <!-- End todo -->
+                </b-col>
               </div>
             </b-col>
           </b-row>
@@ -159,7 +169,7 @@ export default {
       name: "Sean",
       newTodo: "",
       todos: [],
-      tasksDone: 0
+      tasksDone: 10
     };
   },
   watch: {
@@ -177,7 +187,6 @@ export default {
         done: false
       });
       this.newTodo = "";
-      this.tasksDone++;
     },
     deleteTodo(todo) {
       const todoIndex = this.todos.indexOf(todo);
@@ -196,6 +205,17 @@ export default {
     if (localStorage.todos) {
       this.todos = JSON.parse(localStorage.todos);
     }
+
+    $(".add-card").click(function() {
+      var textarea = $(this).prev();
+      var column = $(this)
+        .closest(".column")
+        .find(".cards");
+
+      column.append("<div class='card'><p>" + textarea.val() + "</p></div>");
+
+      textarea.val("");
+    });
 
     function initparticles() {
       bubbles();
@@ -227,7 +247,7 @@ export default {
 
     function hearts() {
       $.each($(".particletext.hearts"), function() {
-        var heartcount = ($(this).width() / 50) * 5;
+        var heartcount = ($(this).width() / 200) * 5;
         for (var i = 0; i <= heartcount; i++) {
           var size = $.rnd(60, 120) / 10;
           $(this).append(
@@ -306,7 +326,7 @@ body {
 }
 
 .height45 {
-  height: 45.5vh;
+  height: 60.5vh;
 }
 
 .height24 {
@@ -314,17 +334,16 @@ body {
 }
 
 .box {
-  background: #f9f9f9;
+  background-color: white;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 15px;
   margin-bottom: 20px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   overflow: visible;
 }
 
 .modCards {
-  overflow-y: auto;
-  white-space: nowrap;
+  overflow-y: visible;
   display: inline-block;
 }
 
@@ -359,5 +378,59 @@ ul {
 .input-field {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.container {
+  padding: 1%;
+}
+
+p {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.column {
+  background: #f5f5f5;
+  margin-right: 2%;
+  padding: 1%;
+  border-radius: 3px;
+  width: 32%;
+  float: left;
+  height: auto;
+  border-radius: 10px;
+}
+.column:last-of-type {
+  margin-right: 0;
+}
+.column .column-title {
+  font-weight: bold;
+  margin: 5px 0 20px;
+}
+.column .card {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 250ms;
+  transition: -webkit-transform 250ms;
+  transition: transform 250ms;
+  transition: transform 250ms, -webkit-transform 250ms;
+}
+.column .card.selected {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+  z-index: 1;
+}
+.column textarea {
+  border: none;
+  resize: vertical;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+.column textarea:focus {
+  outline: none;
 }
 </style>
