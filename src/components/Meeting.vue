@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <section class="todo-wrapper">
-      <h1 class="todo-title">{{ today.day }}<br />{{ today.date }}</h1>
+      <h1 class="todo-title">
+        Project Meetings
+      </h1>
       <form @keydown.enter.prevent="">
         <input
           type="text"
           class="input-todo"
           v-bind:class="{ active: new_todo }"
-          placeholder="Book consultation with Prof"
+          placeholder="Meeting Dates"
           v-model="new_todo"
           v-on:keyup.enter="addItem"
         />
@@ -47,7 +49,7 @@
           <img
             src="https://nourabusoud.github.io/vue-todo-list/images/beer_celebration.svg"
             alt="celebration"
-          />Time to chill! You have no todos.
+          />Nobody wants to meet you? 😔
         </p>
       </transition>
 
@@ -90,7 +92,7 @@
 
 <script>
 export default {
-  name: "NewToDo",
+  name: "Meeting",
   data() {
     return {
       todoList: [],
@@ -151,7 +153,7 @@ export default {
       today = {
         day: weekday[today.getDay()],
         date: dd + "/" + mm + "/" + yyyy
-      }
+      };
 
       return today;
     }

@@ -1,6 +1,5 @@
 <template>
-
-  <div id="signup" style="width: 100%;">
+  <div id="signup" style=" height: 100%; overflow: auto; width: 100%;">
     <!-- header -->
     <div class="area" style="height:100%; width: 100%">
       <ul class="circles" le="height:100%; width: 100%">
@@ -20,7 +19,7 @@
         <li></li>
         <li></li>
       </ul>
-   </div>
+    </div>
 
     <div class="row" id="header">
       <div class="col ">
@@ -159,9 +158,6 @@
         </div>
       </div>
     </div>
-
-
-
   </div>
 </template>
 
@@ -501,14 +497,12 @@ export default {
     }
   }
 };
-// import("@/assets/styles/login.css");  
+// import("@/assets/styles/login.css");
 require("@/assets/styles/login.css");
 // @import "assets/styles/login.css"
-
 </script>
 
 <style>
-
 #header {
   /* margin-top: 20px; */
   /* padding: 0; */
@@ -615,11 +609,8 @@ require("@/assets/styles/login.css");
   margin-bottom: 20px;
 }
 
-#modStyle{
-  margin-left: auto;  
+#modStyle {
+  margin-left: auto;
   /* margin-right: auto; */
-
 }
-
-
 </style>

@@ -7,7 +7,7 @@
           <b-row>
             <b-row class="mt-3">
               <b-col cols="6">
-                <div class="box height24">
+                <div class="box height24 ml-3">
                   <h5 class="particletext hearts" style="font-size: 1.5em">
                     <span id="username">Welcome {{ name }} 🙂</span>
                   </h5>
@@ -15,7 +15,7 @@
                 </div>
               </b-col>
               <b-col cols="6">
-                <div class="box height24">
+                <div class="box height24 mr-3">
                   <div class="scroll d-xl-flex justify-content-xl-between">
                     <div v-if="tasksDonePercent >= 100">
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
@@ -24,7 +24,7 @@
                           src="../../glassdoor/new_job_search/pusheen/4.gif"
                           style="width: 5rem;"
                         />
-                        <span class="ml-4" style="font-size: 0.8em"
+                        <span class="ml-4" style="font-size: 2em"
                           >Well done! 🎉🎉
                         </span>
                       </div>
@@ -81,12 +81,13 @@
             </b-row>
             <b-col>
               <div class="box height45">
-                <b-col class="modCards">
+                <b-col class="modCards d-xl-flex justify-content-xl-between">
                   <!-- Start todo -->
                   <div id="app">
                     <section class="todo-wrapper">
                       <h1 class="todo-title">
-                        {{ today.day }}<br />{{ today.date }}
+                        <!-- {{ today.day }}<br />{{ today.date }} -->
+                        To-do List
                       </h1>
                       <form @keydown.enter.prevent="">
                         <input
@@ -189,6 +190,8 @@
                     </section>
                   </div>
                   <!-- End todo -->
+                  <Important />
+                  <Meeting />
                 </b-col>
               </div>
             </b-col>
@@ -208,6 +211,8 @@
 import Navbar from "@/components/Navbar";
 import QuoteBar from "@/components/QuoteBar";
 import ModuleCard from "@/components/ModuleCard";
+import Important from "@/components/Important";
+import Meeting from "@/components/Meeting";
 
 import $ from "jquery";
 
@@ -219,7 +224,9 @@ export default {
   components: {
     Navbar,
     QuoteBar,
-    ModuleCard
+    ModuleCard,
+    Important,
+    Meeting
   },
   data() {
     return {
@@ -227,7 +234,7 @@ export default {
       todoList: [],
       new_todo: "",
       showComplete: false,
-      tasksDone: 10
+      tasksDone: 0
     };
   },
   watch: {
@@ -326,12 +333,12 @@ export default {
   mounted() {
     this.getTodos();
 
-    if (localStorage.getItem("reloaded")) {
-      localStorage.removeItem("reloaded");
-    } else {
-      localStorage.setItem("reloaded", "1");
-      location.reload();
-    }
+    // if (localStorage.getItem("reloaded")) {
+    //   localStorage.removeItem("reloaded");
+    // } else {
+    //   localStorage.setItem("reloaded", "1");
+    //   location.reload();
+    // }
 
     if (localStorage.todos) {
       this.todos = JSON.parse(localStorage.todos);

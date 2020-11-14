@@ -21,6 +21,10 @@ Vue.use(Button);
 Vue.use(Field);
 Vue.use(Navbar);
 
+import VuePageTransition from "vue-page-transition";
+
+Vue.use(VuePageTransition);
+
 Vue.config.productionTip = false;
 
 Vue.filter("formatDate", function(value) {
