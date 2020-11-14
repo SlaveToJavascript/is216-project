@@ -1,6 +1,27 @@
 <template>
-  <div id="signup">
+
+  <div id="signup" style="width: 100%;">
     <!-- header -->
+    <div class="area" style="height:100%; width: 100%">
+      <ul class="circles" le="height:100%; width: 100%">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+   </div>
+
     <div class="row" id="header">
       <div class="col ">
         <img
@@ -108,7 +129,7 @@
                 <ul
                   style="list-style-type: none; white-space: nowrap; max-width:auto;"
                 >
-                  <li v-for="(item, index) in items" :key="index">
+                  <li v-for="(item, index) in items" :key="index" id="modStyle">
                     {{ item }}
                     <button
                       type="button"
@@ -138,10 +159,15 @@
         </div>
       </div>
     </div>
+
+
+
   </div>
 </template>
 
 <script>
+// import("@/assets/styles/login.css");
+
 export default {
   name: "Signup",
   data() {
@@ -475,10 +501,14 @@ export default {
     }
   }
 };
-// require("@/assets/styles/login.css");
+// import("@/assets/styles/login.css");  
+require("@/assets/styles/login.css");
+// @import "assets/styles/login.css"
+
 </script>
 
-<style scoped>
+<style>
+
 #header {
   /* margin-top: 20px; */
   /* padding: 0; */
@@ -552,7 +582,7 @@ export default {
   /* animation: bgcolor infinite 14s; */
 }
 
-@keyframes bgcolor {
+/* @keyframes bgcolor {
   0% {
     background: #ffdcce;
   }
@@ -568,7 +598,7 @@ export default {
   100% {
     background: #dcf1c8;
   }
-}
+} */
 
 .btn-primary,
 .btn-secondary {
@@ -584,4 +614,12 @@ export default {
   width: 54vw;
   margin-bottom: 20px;
 }
+
+#modStyle{
+  margin-left: auto;  
+  /* margin-right: auto; */
+
+}
+
+
 </style>
