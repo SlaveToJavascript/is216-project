@@ -108,7 +108,7 @@ export default {
         cx +
         "&q=" +
         q;
-      console.log(url);
+      // console.log(url);
       var cardWrap = document.getElementById("cardWrap");
       cardWrap.innerHTML = "";
       Vue.axios.get(url).then(resp => {

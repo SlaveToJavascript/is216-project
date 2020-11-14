@@ -32,14 +32,15 @@ export default {
 
 <style scoped>
 .quotes-bar {
-  height: auto;
+  height: 15vh;
   width: auto;
+  overflow-y: auto;
 }
 
 .quote {
-  padding: 20px 30px 0px;
+  padding: 20px 0px 0px;
   text-align: left;
-  font-size: 1.2vw;
+  font-size: 1.2em;
 }
 
 h3,
@@ -52,6 +53,6 @@ h4 {
   padding: 10px 20px 15px 10px;
   margin-top: -5px;
   text-align: right;
-  font-size: 1vw;
+  font-size: 1em;
 }
 </style>

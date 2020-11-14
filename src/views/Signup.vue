@@ -13,7 +13,7 @@
       <!-- to redirect to sign in page -->
       <div class="col" id="sign-in">
         <button type="button" class="btn btn-outline-primary">
-          <b-link :to="{ path: 'Login' }">Sign in</b-link>
+          <b-link :to="{ name: 'Login' }">Sign in</b-link>
         </button>
       </div>
     </div>
@@ -49,9 +49,9 @@
               <input
                 type="text"
                 class="form-control reg-form"
-                placeholder="Email"
-                aria-label="Email"
-                v-model="email"
+                placeholder="Name"
+                aria-label="Name"
+                v-model="name"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -129,8 +129,8 @@
                 type="button"
                 class="btn btn-outline-primary text-center"
                 href="#"
-                @click="savedata()"
-              > 
+                @click="submit()"
+              >
                 Register!
               </button>
             </div>
@@ -142,7 +142,6 @@
 </template>
 
 <script>
-const fs = require("fs");
 export default {
   name: "Signup",
   data() {
@@ -415,14 +414,13 @@ export default {
         "COR2603 Singapore: Imagining The Next Fifty Years",
         "FTW100 Finishing Touch Workshops (Year One)",
         "HUMN017 A Cultural Introduction to India: From Indus Valley to Infosys"
-],
+      ],
       newItem: "",
       selected: null,
       details: [],
       username: "",
-      email: "",
+      name: "",
       password: ""
-    
     };
   },
   methods: {
@@ -433,16 +431,35 @@ export default {
       this.items.push(this.newItem);
       this.newItem = "";
     },
-    save() {
-      this.details = [{
-        "Username": this.username,
-        "Email": this.email,
-        "Password": this.password,
-        "Modules": this.items
-      }]
-      let data = JSON.stringify(details);
-      fs.writeFileSync("../../json_files/login_details.json", data); 
-
+    submit() {
+      if (
+        this.username.length > 0 &&
+        this.password.length > 0 &&
+        this.name.length > 0
+      ) {
+        this.details = {
+          Username: this.username,
+          Name: this.name,
+          Password: this.password,
+          Modules: this.items
+        };
+        let data = JSON.stringify(this.details);
+        window.localStorage.setItem(this.username, data);
+        window.location.href = "/#/login";
+      } else {
+        if (this.username.length < 1) {
+          alert("Please provide a username.");
+        }
+        if (this.password.length < 1) {
+          alert("Please provide a password.");
+        }
+        if (this.name.length < 1) {
+          alert("Please provide your name.");
+        }
+        if (this.items.length < 1) {
+          alert("Please provide at least 1 module.");
+        }
+      }
     }
   },
   computed: {
@@ -458,6 +475,7 @@ export default {
     }
   }
 };
+// require("@/assets/styles/login.css");
 </script>
 
 <style scoped>
@@ -531,7 +549,7 @@ export default {
 }
 
 #signup {
-  animation: bgcolor infinite 14s;
+  /* animation: bgcolor infinite 14s; */
 }
 
 @keyframes bgcolor {

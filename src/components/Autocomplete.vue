@@ -1,56 +1,64 @@
 <template>
-  <section>
-    <p class="content"><b>Selected:</b> {{ selected }}</p>
-    <b-field label="Find a JS framework">
-      <b-autocomplete
-        rounded
-        v-model="name"
-        :data="filteredDataArray"
-        placeholder="e.g. jQuery"
-        icon="magnify"
-        clearable
-        @select="option => (selected = option)"
-      >
-        <template slot="empty">No results found</template>
-      </b-autocomplete>
-    </b-field>
-  </section>
-</template>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="@/assets/images/smoolife.png" alt="SMOOLIFE"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<script>
-export default {
-  name: "Autocomplete",
-  data() {
-    return {
-      data: [
-        "Angular",
-        "Angular 2",
-        "Aurelia",
-        "Backbone",
-        "Ember",
-        "jQuery",
-        "Meteor",
-        "Node.js",
-        "Polymer",
-        "React",
-        "RxJS",
-        "Vue.js"
-      ],
-      name: "",
-      selected: null
-    };
-  },
-  computed: {
-    filteredDataArray() {
-      return this.data.filter(option => {
-        return (
-          option
-            .toString()
-            .toLowerCase()
-            .indexOf(this.name.toLowerCase()) >= 0
-        );
-      });
-    }
-  }
-};
-</script>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </nav>
+</template>
