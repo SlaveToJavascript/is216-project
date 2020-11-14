@@ -40,7 +40,7 @@ export default {
 .quote {
   padding: 20px 30px 0px;
   text-align: left;
-  font-size: 1.2vw;
+  font-size: 1.2em;
 }
 
 h3,

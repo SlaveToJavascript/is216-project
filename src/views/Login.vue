@@ -32,52 +32,52 @@
 
         <h2>Sign In</h2>
         <!-- <form name="signin"> -->
-          <div class="email">
-            <div class="input-group-prepend">
-              <label class="sr-only" for="inlineFormInputGroupUsername"
-                >Username</label
-              >
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="material-icons">perm_identity</i>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inlineFormInputGroupUsername"
-                    placeholder="Username"
-                    autocomplete="username"
-                    v-model="username"
-                  />
+        <div class="email">
+          <div class="input-group-prepend">
+            <label class="sr-only" for="inlineFormInputGroupUsername"
+              >Username</label
+            >
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="material-icons">perm_identity</i>
                 </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inlineFormInputGroupUsername"
+                  placeholder="Username"
+                  autocomplete="username"
+                  v-model="username"
+                />
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="password">
-            <div class="input-group-prepend">
-              <label class="sr-only" for="inlineFormInputGroupPassword"
-                >Password</label
-              >
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="material-icons">lock</i>
-                  </div>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="inlineFormInputGroupPassword"
-                    placeholder="Password"
-                    autocomplete="current-password"
-                    v-model="password"
-                  />
+        <div class="password">
+          <div class="input-group-prepend">
+            <label class="sr-only" for="inlineFormInputGroupPassword"
+              >Password</label
+            >
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="material-icons">lock</i>
                 </div>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inlineFormInputGroupPassword"
+                  placeholder="Password"
+                  autocomplete="current-password"
+                  v-model="password"
+                />
               </div>
             </div>
           </div>
-          <button type="ssw" class="button" @click="login()">Login</button><br />
+        </div>
+        <button type="ssw" class="button" @click="login()">Login</button><br />
         <!-- </form> -->
       </div>
     </ul>
@@ -92,22 +92,25 @@ export default {
   data() {
     return {
       username: "",
-      password: "",
-    }
+      password: ""
+    };
   },
   methods: {
     login() {
-      let creds = JSON.parse(window.localStorage.getItem(this.username))
-      if (creds == null) { // invalid username
-        console.log("invalid username")
-        alert("Invalid username or password. Please try again.")
-      } else { // valid username
-        if(this.password != creds["Password"]) { // wrong password
-          alert("Invalid username or password. Please try again.")
+      let creds = JSON.parse(window.localStorage.getItem(this.username));
+      if (creds == null) {
+        // invalid username
+        console.log("invalid username");
+        alert("Invalid username or password. Please try again.");
+      } else {
+        // valid username
+        if (this.password != creds["Password"]) {
+          // wrong password
+          alert("Invalid username or password. Please try again.");
         } else {
           // login
-          window.localStorage.setItem("username", this.username)
-          window.location.href = "/#/home"
+          window.localStorage.setItem("username", this.username);
+          window.location.href = "/#/home";
         }
       }
     }

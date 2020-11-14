@@ -8,13 +8,15 @@
             <b-row class="mt-3">
               <b-col cols="6">
                 <div class="box height24">
-                  <h5 class="particletext hearts" style="font-size: 1.5em">Welcome {{ name }} 🙂</h5>
-                  <QuoteBar /></div>
+                  <h5 class="particletext hearts" style="font-size: 1.5em">
+                    Welcome {{ name }} 🙂
+                  </h5>
+                  <QuoteBar />
+                </div>
               </b-col>
               <b-col cols="6">
                 <div class="box height24">
-                  <div
-                    class="d-flex justify-content-xl-between">
+                  <div class="scroll d-xl-flex justify-content-xl-between">
                     <div v-if="tasksDonePercent >= 100">
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
                       <div class="particletext confetti">
@@ -22,7 +24,9 @@
                           src="../../glassdoor/new_job_search/pusheen/4.gif"
                           style="width: 5rem;"
                         />
-                        Well done! 🎉🎉 <br />
+                        <span class="ml-4" style="font-size: 0.8em"
+                          >Well done! 🎉🎉
+                        </span>
                       </div>
                     </div>
                     <div
@@ -58,7 +62,7 @@
                       :progress="tasksDonePercent"
                       color="#7579ff"
                       empty-color="#324c7e"
-                      :size="170"
+                      :size="150"
                       :thickness="5"
                       :empty-thickness="3"
                       lineMode="in 4"
@@ -299,9 +303,9 @@ export default {
     initparticles();
   },
   created() {
-    let username = window.localStorage.getItem("username")
-    let credentials = JSON.parse(window.localStorage.getItem(username))
-    this.name = credentials["Name"]
+    let username = window.localStorage.getItem("username");
+    let credentials = JSON.parse(window.localStorage.getItem(username));
+    this.name = credentials["Name"];
   }
 };
 </script>
@@ -432,5 +436,10 @@ p {
 }
 .column textarea:focus {
   outline: none;
+}
+
+.scroll {
+  overflow: auto;
+  height: 18vh;
 }
 </style>

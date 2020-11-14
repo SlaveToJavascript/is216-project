@@ -432,28 +432,32 @@ export default {
       this.newItem = "";
     },
     submit() {
-      if (this.username.length > 0 && this.password.length > 0 && this.name.length > 0) {
+      if (
+        this.username.length > 0 &&
+        this.password.length > 0 &&
+        this.name.length > 0
+      ) {
         this.details = {
           Username: this.username,
           Name: this.name,
           Password: this.password,
           Modules: this.items
-        }
+        };
         let data = JSON.stringify(this.details);
-        window.localStorage.setItem(this.username, data)
-        window.location.href = "/#/login"
+        window.localStorage.setItem(this.username, data);
+        window.location.href = "/#/login";
       } else {
-        if(this.username.length < 1) {
-          alert("Please provide a username.")
+        if (this.username.length < 1) {
+          alert("Please provide a username.");
         }
         if (this.password.length < 1) {
-          alert("Please provide a password.")
+          alert("Please provide a password.");
         }
         if (this.name.length < 1) {
-          alert("Please provide your name.")
+          alert("Please provide your name.");
         }
-        if(this.items.length < 1) {
-          alert("Please provide at least 1 module.")
+        if (this.items.length < 1) {
+          alert("Please provide at least 1 module.");
         }
       }
     }
