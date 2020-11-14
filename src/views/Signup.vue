@@ -13,7 +13,7 @@
       <!-- to redirect to sign in page -->
       <div class="col" id="sign-in">
         <button type="button" class="btn btn-outline-primary">
-          <b-link :to="{ path: 'Login' }">Sign in</b-link>
+          <b-link :to="{ name: 'Login' }">Sign in</b-link>
         </button>
       </div>
     </div>
@@ -479,7 +479,6 @@ export default {
 </script>
 
 <style scoped>
-
 #header {
   /* margin-top: 20px; */
   /* padding: 0; */

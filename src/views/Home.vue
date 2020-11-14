@@ -9,7 +9,7 @@
               <b-col cols="6">
                 <div class="box height24">
                   <h5 class="particletext hearts" style="font-size: 1.5em">
-                    Welcome {{ name }} 🙂
+                    <span id="username">Welcome {{ name }} 🙂</span>
                   </h5>
                   <QuoteBar />
                 </div>
@@ -170,7 +170,7 @@ export default {
   },
   data() {
     return {
-      name: "Sean",
+      name: "Guest",
       newTodo: "",
       todos: [],
       tasksDone: 10
@@ -209,6 +209,8 @@ export default {
     if (localStorage.todos) {
       this.todos = JSON.parse(localStorage.todos);
     }
+
+    $("#username").css("textTransform", "capitalize");
 
     $(".add-card").click(function() {
       var textarea = $(this).prev();

@@ -110,7 +110,7 @@ export default {
         } else {
           // login
           window.localStorage.setItem("username", this.username);
-          window.location.href = "/#/home";
+          this.$router.push({ name: "Home" });
         }
       }
     }
