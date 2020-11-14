@@ -2,7 +2,7 @@
 
   body .particletext {
     text-align: left;
-    font-size: 2.3vw;
+    font-size: 2.1vw;
   }
   body .particletext.bubbles > .particle {
     opacity: 0;

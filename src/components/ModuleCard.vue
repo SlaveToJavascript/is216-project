@@ -20,18 +20,18 @@
           </div>
         </div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show()">
+        <button type="button" class="btn btn-outline-primary" @click="show(1)">
           Search for Videos
         </button>
         <modal
-          name="videos"
+          name="videos1"
           :width="1400"
-          :height="800"
+          :height="600"
           :draggable="true"
           :resizable="true"
         >
           <div class="mt-2">
-            <YoutubeSearch @load="initVideos(1)" v-on:search="search" />
+            <YoutubeSearch @click="initVideos(1)" v-on:search="search" />
 
             <!-- Videos -->
             <YoutubeResults
@@ -62,18 +62,18 @@
           </div>
         </div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show()">
+        <button type="button" class="btn btn-outline-primary" @click="show(2)">
           Search for Videos
         </button>
         <modal
-          name="videos"
+          name="videos2"
           :width="1400"
-          :height="800"
+          :height="600"
           :draggable="true"
           :resizable="true"
         >
           <div class="mt-2">
-            <YoutubeSearch @load="initVideos(1)" v-on:search="search" />
+            <YoutubeSearch @click="initVideos(2)" v-on:search="search" />
 
             <!-- Videos -->
             <YoutubeResults
@@ -104,18 +104,18 @@
           </div>
         </div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show()">
+        <button type="button" class="btn btn-outline-primary" @click="show(3)">
           Search for Videos
         </button>
         <modal
-          name="videos"
+          name="videos3"
           :width="1400"
-          :height="800"
+          :height="600"
           :draggable="true"
           :resizable="true"
         >
           <div class="mt-2">
-            <YoutubeSearch @load="initVideos(1)" v-on:search="search" />
+            <YoutubeSearch @click="initVideos(3)" v-on:search="search" />
 
             <!-- Videos -->
             <YoutubeResults
@@ -146,18 +146,18 @@
           </div>
         </div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show()">
+        <button type="button" class="btn btn-outline-primary" @click="show(4)">
           Search for Videos
         </button>
         <modal
-          name="videos"
+          name="videos4"
           :width="1400"
-          :height="800"
+          :height="600"
           :draggable="true"
           :resizable="true"
         >
           <div class="mt-2">
-            <YoutubeSearch @load="initVideos(1)" v-on:search="search" />
+            <YoutubeSearch @click="initVideos(4)" v-on:search="search" />
 
             <!-- Videos -->
             <YoutubeResults
@@ -188,18 +188,18 @@
           </div>
         </div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show()">
+        <button type="button" class="btn btn-outline-primary" @click="show(5)">
           Search for Videos
         </button>
         <modal
-          name="videos"
+          name="videos5"
           :width="1400"
-          :height="800"
+          :height="600"
           :draggable="true"
           :resizable="true"
         >
           <div class="mt-2">
-            <YoutubeSearch @load="initVideos(1)" v-on:search="search" />
+            <YoutubeSearch @click="initVideos(5)" v-on:search="search" />
 
             <!-- Videos -->
             <YoutubeResults
@@ -221,6 +221,7 @@ import VueAxios from "vue-axios";
 import YoutubeSearch from "@/components/YoutubeSearch";
 import YoutubeResults from "@/components/YoutubeResults";
 Vue.use(VueAxios, axios);
+
 export default {
   name: "ModuleCard",
   props: {
@@ -253,8 +254,8 @@ export default {
     this.initVideos(1);
   },
   methods: {
-    show() {
-      this.$modal.show("videos");
+    show(id) {
+      this.$modal.show(`videos${id}`);
     },
     hide() {
       this.$modal.hide("videos");

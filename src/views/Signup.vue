@@ -130,7 +130,7 @@
                 class="btn btn-outline-primary text-center"
                 href="#"
                 @click="savedata()"
-              > 
+              >
                 Register!
               </button>
             </div>
@@ -415,14 +415,13 @@ export default {
         "COR2603 Singapore: Imagining The Next Fifty Years",
         "FTW100 Finishing Touch Workshops (Year One)",
         "HUMN017 A Cultural Introduction to India: From Indus Valley to Infosys"
-],
+      ],
       newItem: "",
       selected: null,
       details: [],
       username: "",
       email: "",
       password: ""
-    
     };
   },
   methods: {
@@ -434,15 +433,16 @@ export default {
       this.newItem = "";
     },
     save() {
-      this.details = [{
-        "Username": this.username,
-        "Email": this.email,
-        "Password": this.password,
-        "Modules": this.items
-      }]
+      this.details = [
+        {
+          Username: this.username,
+          Email: this.email,
+          Password: this.password,
+          Modules: this.items
+        }
+      ];
       let data = JSON.stringify(this.details);
-      fs.writeFileSync("../../json_files/login_details.json", data); 
-
+      fs.writeFileSync("../../json_files/login_details.json", data);
     }
   },
   computed: {

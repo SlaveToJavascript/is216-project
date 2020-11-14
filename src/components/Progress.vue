@@ -1,24 +1,29 @@
 <template>
   <div class="d-flex justify-content-between align-items-center">
     <div v-if="tasksDonePercent == 100">
+      <h4>Your productivity at a glance</h4>
       <div class="particletext confetti">
-        Well done! 🎉🎉 <br />
         <img
           src="../../glassdoor/new_job_search/pusheen/4.gif"
-          style="width: 6rem;"
+          style="width: 5rem;"
         />
+        Well done! 🎉🎉 <br />
       </div>
     </div>
     <div v-else-if="tasksDonePercent >= 80 && tasksDonePercent <= 99">
+      <h4>Your productivity at a glance</h4>
       <div class="message">Almost there! 🌟</div>
     </div>
     <div v-else-if="tasksDonePercent >= 50 && tasksDonePercent <= 79">
+      <h4>Your productivity at a glance</h4>
       <div class="message">Keep it going! 🤩</div>
     </div>
     <div v-else-if="tasksDonePercent >= 1 && tasksDonePercent <= 49">
+      <h4>Your productivity at a glance</h4>
       <div class="message">Getting Started! 💪🏻 💪🏻</div>
     </div>
     <div v-else-if="tasksDonePercent == 0">
+      <h4>Your productivity at a glance</h4>
       <div class="message">You okay? 🤡 🤡</div>
     </div>
     <vue-ellipse-progress
@@ -46,7 +51,7 @@
 export default {
   name: "Progress",
   data: () => ({
-    tasksDone: 8
+    tasksDone: 10
   }),
   computed: {
     tasksDonePercent() {
