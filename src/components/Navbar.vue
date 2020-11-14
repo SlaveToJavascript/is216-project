@@ -32,7 +32,7 @@
             class="mb-1"
             type="is-primary is-light"
             tag="router-link"
-            to="/settings"
+            to="/login"
           >
             Log Out
           </b-button>

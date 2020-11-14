@@ -49,9 +49,9 @@
               <input
                 type="text"
                 class="form-control reg-form"
-                placeholder="Email"
-                aria-label="Email"
-                v-model="email"
+                placeholder="Name"
+                aria-label="Name"
+                v-model="name"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -129,7 +129,7 @@
                 type="button"
                 class="btn btn-outline-primary text-center"
                 href="#"
-                @click="savedata()"
+                @click="submit()"
               >
                 Register!
               </button>
@@ -142,7 +142,6 @@
 </template>
 
 <script>
-const fs = require("fs");
 export default {
   name: "Signup",
   data() {
@@ -420,7 +419,7 @@ export default {
       selected: null,
       details: [],
       username: "",
-      email: "",
+      name: "",
       password: ""
     };
   },
@@ -432,17 +431,31 @@ export default {
       this.items.push(this.newItem);
       this.newItem = "";
     },
-    save() {
-      this.details = [
-        {
+    submit() {
+      if (this.username.length > 0 && this.password.length > 0 && this.name.length > 0) {
+        this.details = {
           Username: this.username,
-          Email: this.email,
+          Name: this.name,
           Password: this.password,
           Modules: this.items
         }
-      ];
-      let data = JSON.stringify(this.details);
-      fs.writeFileSync("../../json_files/login_details.json", data);
+        let data = JSON.stringify(this.details);
+        window.localStorage.setItem(this.username, data)
+        window.location.href = "/#/login"
+      } else {
+        if(this.username.length < 1) {
+          alert("Please provide a username.")
+        }
+        if (this.password.length < 1) {
+          alert("Please provide a password.")
+        }
+        if (this.name.length < 1) {
+          alert("Please provide your name.")
+        }
+        if(this.items.length < 1) {
+          alert("Please provide at least 1 module.")
+        }
+      }
     }
   },
   computed: {

@@ -277,6 +277,11 @@ export default {
     };
 
     initparticles();
+  },
+  created() {
+    let username = window.localStorage.getItem("username")
+    let credentials = JSON.parse(window.localStorage.getItem(username))
+    this.name = credentials["Name"]
   }
 };
 </script>
