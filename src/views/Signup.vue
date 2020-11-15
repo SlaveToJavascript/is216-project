@@ -454,14 +454,20 @@ export default {
       this.items.splice(index, 1);
     },
     addNewItem() {
-      this.items.push(this.newItem);
-      this.newItem = "";
+      if (this.newItem != "") {
+        this.items.push(this.newItem);
+        this.newItem = "";
+      } else {
+        alert("Please provide at least 1 module.");
+      }
+      
     },
     submit() {
       if (
         this.username.length > 0 &&
         this.password.length > 0 &&
-        this.name.length > 0
+        this.name.length > 0 &&
+        this.items.length > 0
       ) {
         this.details = {
           Username: this.username,
@@ -482,8 +488,14 @@ export default {
         if (this.name.length < 1) {
           alert("Please provide your name.");
         }
-        if (this.items.length < 1) {
+        if (this.items.length < 1 ) {
           alert("Please provide at least 1 module.");
+        }
+        for (var i in this.items) {
+          if (this.items[i] === "") {
+            alert("Please provide at least 1 module.");
+
+          }
         }
       }
     }
