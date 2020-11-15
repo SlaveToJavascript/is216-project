@@ -173,7 +173,7 @@
                             <label v-bind:for="'item_' + item.id"></label>
                             <span class="todo-text">{{ item.title }}</span>
                             <span
-                              class="delete"
+                              class="deleteT"
                               @click="deleteItem(item)"
                             ></span>
                           </li>

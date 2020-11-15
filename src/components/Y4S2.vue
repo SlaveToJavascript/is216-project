@@ -2,7 +2,7 @@
   <div id="app">
     <section class="todo-wrapper mr-3">
       <h1 class="todo-title">
-        <b>Year 1 Semester 1</b>
+        <b>Year 4 Semester 2</b>
       </h1>
       <b-field>
         <b-autocomplete
@@ -41,7 +41,7 @@
         </p>
         <transition-group name="todo-item" tag="ul" class="todo-list">
           <li v-for="item1 in pending1" v-bind:key="item1.title">
-            <label v-bind:for="'item_3' + item1.id"></label>
+            <label v-bind:for="'item_0' + item1.id"></label>
             <span class="todo-text">{{ item1.title }}</span>
             <span class="deleteT" @click="deleteItem(item1)"></span>
           </li>
@@ -61,11 +61,11 @@
           <li v-for="item1 in completed1" v-bind:key="item1.title">
             <input
               class="todo-checkbox"
-              v-bind:id="'item_3' + item1.id"
+              v-bind:id="'item_0' + item1.id"
               v-model="item1.done"
               type="checkbox"
             />
-            <label v-bind:for="'item_3' + item1.id"></label>
+            <label v-bind:for="'item_0' + item1.id"></label>
             <span class="todo-text">{{ item1.title }}</span>
             <span class="delete" @click="deleteItem(item1)"></span>
           </li>
@@ -82,7 +82,7 @@ export default {
   name: "Important",
   data() {
     return {
-      y1s1List: [],
+      imptList: [],
       new_impt: "",
       showComplete: false,
       newItem: "",
@@ -361,9 +361,9 @@ export default {
     this.getImpt();
   },
   watch: {
-    y1s1List: {
+    imptList: {
       handler: function(updatedList1) {
-        localStorage.setItem("y1s1_list", JSON.stringify(updatedList1));
+        localStorage.setItem("y4s2_list", JSON.stringify(updatedList1));
       },
       deep: true
     }
@@ -381,18 +381,18 @@ export default {
     },
 
     pending1: function() {
-      return this.y1s1List.filter(function(item1) {
+      return this.imptList.filter(function(item1) {
         return !item1.done;
       });
     },
     completed1: function() {
-      return this.y1s1List.filter(function(item1) {
+      return this.imptList.filter(function(item1) {
         return item1.done;
       });
     },
     completedPercentage: function() {
       return (
-        Math.floor((this.completed1.length / this.y1s1List.length) * 100) + "%"
+        Math.floor((this.completed1.length / this.imptList.length) * 100) + "%"
       );
     },
     today: function() {
@@ -429,16 +429,16 @@ export default {
   methods: {
     // get all todos when loading the page
     getImpt() {
-      if (localStorage.getItem("y1s1_list")) {
-        this.y1s1List = JSON.parse(localStorage.getItem("y1s1_list"));
+      if (localStorage.getItem("y4s2_list")) {
+        this.imptList = JSON.parse(localStorage.getItem("y4s2_list"));
       }
     },
     // add a new item
     addItem() {
       // validation check
       if (this.new_impt) {
-        this.y1s1List.unshift({
-          id: this.y1s1List.length,
+        this.imptList.unshift({
+          id: this.imptList.length,
           title: this.new_impt,
           done: false
         });
@@ -449,13 +449,13 @@ export default {
       return true;
     },
     deleteItem(item1) {
-      this.y1s1List.splice(this.y1s1List.indexOf(item1), 1);
+      this.imptList.splice(this.imptList.indexOf(item1), 1);
     },
     toggleShowComplete() {
       this.showComplete = !this.showComplete;
     },
     clearAll() {
-      this.y1s1List = [];
+      this.imptList = [];
     }
   }
 };

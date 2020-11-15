@@ -39,7 +39,7 @@
             />
             <label v-bind:for="'item_1' + item1.id"></label>
             <span class="todo-text">{{ item1.title }}</span>
-            <span class="delete" @click="deleteItem(item1)"></span>
+            <span class="deleteT" @click="deleteItem(item1)"></span>
           </li>
         </transition-group>
       </div>

@@ -3,42 +3,30 @@
     <Navbar />
 
     <div class="container">
-      <div class="column">
-        <p class="column-title">To-do</p>
-        <div class="cards">
-          <div class="card">
-            <p>Read chapters for next class</p>
-          </div>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <Y1S1 />
         </div>
-        <div class="add-container">
-          <textarea type="text" placeholder="Type task here ..."></textarea>
-          <button class="add-card ui-button ui-corner-all">Add Card</button>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <Y1S2 />
         </div>
-      </div>
-
-      <div class="column">
-        <p class="column-title">Project Meetings</p>
-        <div class="cards">
-          <div class="card">
-            <p>WAD2 Meeting 11/11 1500 hrs</p>
-          </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <Y2S1 />
         </div>
-        <div class="add-container">
-          <textarea type="text" placeholder="Type task here ..."></textarea>
-          <button class="add-card ui-button ui-corner-all">Add Card</button>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <Y2S2 />
         </div>
-      </div>
-
-      <div class="column">
-        <p class="column-title">Important Dates</p>
-        <div class="cards">
-          <div class="card">
-            <p>WAD2 Finals 29th November</p>
-          </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <Y3S1 />
         </div>
-        <div class="add-container">
-          <textarea type="text" placeholder="Type task here ..."></textarea>
-          <button class="add-card ui-button ui-corner-all">Add Card</button>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <Y3S2 />
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <Y4S1 />
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <Y4S2 />
         </div>
       </div>
     </div>
@@ -47,107 +35,35 @@
 
 <script>
 import Navbar from "@/components/Navbar";
-
-import $ from "jquery";
+import Y1S1 from "@/components/Y1S1";
+import Y1S2 from "@/components/Y1S2";
+import Y2S1 from "@/components/Y2S1";
+import Y2S2 from "@/components/Y2S2";
+import Y3S1 from "@/components/Y3S1";
+import Y3S2 from "@/components/Y3S2";
+import Y4S1 from "@/components/Y4S1";
+import Y4S2 from "@/components/Y4S2";
 
 export default {
-  name: "ModulePlanner",
+  name: "Important",
   components: {
-    Navbar
+    Navbar,
+    Y1S1,
+    Y1S2,
+    Y2S1,
+    Y2S2,
+    Y3S1,
+    Y3S2,
+    Y4S1,
+    Y4S2
   },
   mounted() {
-    $(function() {
-      addListeners();
-    });
-
-    $(".add-card").click(function() {
-      var textarea = $(this).prev();
-      var column = $(this)
-        .closest(".column")
-        .find(".cards");
-
-      column.append("<div class='card'><p>" + textarea.val() + "</p></div>");
-
-      textarea.val("");
-      addListeners();
-    });
-
-    function addListeners() {
-      $(".card").draggable({
-        revert: "invalid",
-        start: function() {
-          $(this).addClass("selected");
-        },
-        stop: function() {
-          $(this).removeClass("selected");
-        }
-      });
-
-      $(".column").droppable({
-        accept: ".card",
-        drop: function(event, ui) {
-          ui.draggable
-            .css("left", "0")
-            .css("top", "0")
-            .appendTo($(this).find(".cards"));
-        }
-      });
+    if (localStorage.getItem("reloaded1")) {
+      localStorage.removeItem("reloaded1");
+    } else {
+      localStorage.setItem("reloaded1", "1");
+      location.reload();
     }
   }
 };
 </script>
-
-<style scoped>
-.container {
-  padding: 1%;
-}
-
-p {
-  padding-left: 10px;
-  padding-top: 10px;
-}
-
-.column {
-  background: #f5f5f5;
-  margin-right: 2%;
-  padding: 1%;
-  border-radius: 3px;
-  width: 32%;
-  float: left;
-  height: auto;
-}
-.column:last-of-type {
-  margin-right: 0;
-}
-.column .column-title {
-  font-weight: bold;
-  margin: 5px 0 20px;
-}
-.column .card {
-  background: #fff;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  border-radius: 3px;
-  cursor: pointer;
-  -webkit-transition: -webkit-transform 250ms;
-  transition: -webkit-transform 250ms;
-  transition: transform 250ms;
-  transition: transform 250ms, -webkit-transform 250ms;
-}
-.column .card.selected {
-  -webkit-transform: scale(1.15);
-  transform: scale(1.15);
-  z-index: 1;
-}
-.column textarea {
-  border: none;
-  resize: vertical;
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 20px;
-}
-.column textarea:focus {
-  outline: none;
-}
-</style>

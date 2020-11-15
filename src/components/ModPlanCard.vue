@@ -1,18 +1,16 @@
 <template>
-    <div class="cards">
-        <div class="card">
-        <p>{{moduleName}}</p>
-        </div>
+  <div class="cards">
+    <div class="card">
+      <p>{{ moduleName }}</p>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "ModPlanCard",
-    props: [
-        "moduleName"
-    ]
-}
+  name: "ModPlanCard",
+  props: ["moduleName"]
+};
 </script>
 
 <style scoped>
