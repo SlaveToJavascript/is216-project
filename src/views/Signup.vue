@@ -1,7 +1,7 @@
 <template>
   <div
     id="signup"
-    style=" height: 100%; overflow-y: scroll, overflow-x: hidden; width: 100%;"
+    style=" height: 100%; overflow-y: scroll; overflow-x: hidden; width: 100%;"
   >
     <!-- header -->
     <div class="area" style="height:100%; width: 100%;overflow: visible">
