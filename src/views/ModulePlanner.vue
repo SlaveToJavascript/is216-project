@@ -51,7 +51,7 @@ import Navbar from "@/components/Navbar";
 import $ from "jquery";
 
 export default {
-  name: "Habit",
+  name: "ModulePlanner",
   components: {
     Navbar
   },

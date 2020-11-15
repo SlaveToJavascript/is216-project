@@ -23,17 +23,14 @@
         <li class="nav-item">
           <span class="nav-link"><b-link :to="'Jobs'">Jobs</b-link></span>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <span class="nav-link"
-            ><b-link :to="'Achievements'">To-do</b-link></span
+            ><b-link :to="'Todo'">To-do</b-link></span
           >
-        </li>
+        </li> -->
       </ul>
 
       <div class="justify-content-end mt-2">
-        <button type="button" class="btn btn-light">
-          <b-link :to="'Settings'">Settings</b-link>
-        </button>
         <button type="button" class="btn btn-light ml-2">
           <b-link :to="'Login'">Sign Out</b-link>
         </button>
