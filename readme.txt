@@ -27,7 +27,7 @@ Step 2: Install Yarn
 For MacBook users: brew install yarn in terminal
 For Windows: Install yarn via the following link https://classic.yarnpkg.com/en/docs/install/#windows-stable or install via chocolatey. Once chocolatey has been installed, install yarn by running the code “choco install yarn” in your console. This method will also ensure that you have Node.js installed.
 
-Step 3: Navigate to our application folder and perform a yarn install && yarn serve. If the yarn is saved in C:/ folder, run the command cd C:\is216-project followed by yarn install && yarn serve. 
+Step 3: In the command line, navigate to he application folder and perform a yarn install && yarn serve command.
 --------------------
 
 ----Features-----
