@@ -460,7 +460,6 @@ export default {
       } else {
         alert("Please provide at least 1 module.");
       }
-      
     },
     submit() {
       if (
@@ -488,13 +487,12 @@ export default {
         if (this.name.length < 1) {
           alert("Please provide your name.");
         }
-        if (this.items.length < 1 ) {
+        if (this.items.length < 1) {
           alert("Please provide at least 1 module.");
         }
         for (var i in this.items) {
           if (this.items[i] === "") {
             alert("Please provide at least 1 module.");
-
           }
         }
       }

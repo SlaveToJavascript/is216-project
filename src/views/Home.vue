@@ -17,7 +17,7 @@
               <b-col cols="6">
                 <div class="box height24 mr-3">
                   <div class="scroll d-xl-flex justify-content-xl-between">
-                    <div v-if="tasksDonePercent >= 100">
+                    <div v-if="completedPercentage >= 100">
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
                       <div class="particletext confetti">
                         <img
@@ -31,7 +31,7 @@
                     </div>
                     <div
                       v-else-if="
-                        tasksDonePercent >= 80 && tasksDonePercent <= 99
+                        completedPercentage >= 80 && completedPercentage <= 99
                       "
                     >
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
@@ -46,7 +46,7 @@
                     </div>
                     <div
                       v-else-if="
-                        tasksDonePercent >= 50 && tasksDonePercent <= 79
+                        completedPercentage >= 50 && completedPercentage <= 79
                       "
                     >
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
@@ -60,7 +60,7 @@
                     </div>
                     <div
                       v-else-if="
-                        tasksDonePercent >= 1 && tasksDonePercent <= 49
+                        completedPercentage >= 1 && completedPercentage <= 49
                       "
                     >
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
@@ -72,7 +72,7 @@
                         />Getting Started! 💪🏻
                       </div>
                     </div>
-                    <div v-else-if="tasksDonePercent == 0">
+                    <div v-else-if="completedPercentage == 0">
                       <h4>Your productivity at a glance ⭐️</h4>
                       <div class="message">
                         <img
@@ -83,20 +83,20 @@
                     </div>
                     <vue-ellipse-progress
                       :is="component"
-                      :progress="tasksDonePercent"
+                      :progress="completedPercentage"
                       color="#7579ff"
                       empty-color="#324c7e"
                       :size="150"
                       :thickness="5"
                       :empty-thickness="3"
                       lineMode="in 4"
-                      :legend-value="tasksDone"
+                      :legend-value="completed.length"
                       animation="bounce 700 1000"
                       fontSize="1.5rem"
                       font-color="black"
                       dot="7 black"
                     >
-                      <span slot="legend-value"> / {{ tasksTodo }}</span>
+                      <span slot="legend-value"> / {{ newList.length }}</span>
                       <span slot="legend-caption">TASKS DONE</span>
                     </vue-ellipse-progress>
                   </div>
@@ -171,7 +171,7 @@
 
                       <div v-if="completed.length > 0 && showComplete">
                         <p class="status">
-                          Completed tasks: {{ completedPercentage }}
+                          Completed tasks:
                         </p>
                         <transition-group
                           name="todo-item"
@@ -290,7 +290,6 @@ export default {
           title: this.new_item,
           done: false
         });
-        this.tasksTodo++;
       }
       // reset new_todo
       this.new_item = "";
@@ -299,7 +298,6 @@ export default {
     },
     deleteItem(item) {
       this.newList.splice(this.newList.indexOf(item), 1);
-      this.tasksTodo--;
     },
     toggleShowComplete() {
       this.showComplete = !this.showComplete;
@@ -329,9 +327,10 @@ export default {
       });
     },
     completedPercentage: function() {
-      return (
-        Math.floor((this.completed.length / this.newList.length) * 100) + "%"
-      );
+      if (this.newList.length == 0) {
+        return 0;
+      }
+      return Math.floor((this.completed.length / this.newList.length) * 100);
     },
     today: function() {
       var weekday = [
