@@ -2,11 +2,11 @@
   <div>
     <Navbar />
     <div class="container-fluid">
-      <b-row>
+      <b-row class="d-sm-flex justify-content-sm-center">
         <b-col sm="9" cols="12">
           <b-row>
             <b-row class="mt-3">
-              <b-col sm="6" cols="12">
+              <b-col sm="12" lg="12" md="12" xl="6" cols="12">
                 <div class="box height24 mx-auto">
                   <h5 class="particletext hearts" style="font-size: 1.5em">
                     <span id="username">Hello {{ name }}! 🙂</span>
@@ -14,7 +14,7 @@
                   <QuoteBar />
                 </div>
               </b-col>
-              <b-col sm="6" cols="12">
+              <b-col sm="12" lg="12" md="12" xl="6" cols="12">
                 <div class="box height24 mx-auto">
                   <div class="scroll d-lg-flex justify-content-lg-between">
                     <div v-if="completedPercentage >= 100">
@@ -241,7 +241,7 @@
             </b-col>
           </b-row>
         </b-col>
-        <b-col sm="3" cols="12">
+        <b-col sm="12" md="12" lg="12" xl="3" cols="12">
           <div class="box mt-3" id="schedule">
             <div class="d-flex align-items-center flex-column">
               <h4 class="particletext mb-4 text-center">Module Info ✏️</h4>
