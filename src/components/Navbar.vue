@@ -23,11 +23,11 @@
         <li class="nav-item">
           <span class="nav-link"><b-link :to="'Jobs'">Jobs</b-link></span>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <span class="nav-link"
-            ><b-link :to="'Todo'">To-do</b-link></span
+            ><b-link :to="'ModulePlanner'">Mod Planner</b-link></span
           >
-        </li> -->
+        </li>
       </ul>
 
       <div class="justify-content-end mt-2">

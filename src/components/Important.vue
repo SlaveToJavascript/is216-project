@@ -22,30 +22,30 @@
         </div>
       </form>
 
-      <div v-if="pending.length > 0">
+      <div v-if="pending1.length > 0">
         <p class="status busy">
-          You have {{ pending.length }} important date<span
-            v-if="pending.length > 1"
+          You have {{ pending1.length }} important date<span
+            v-if="pending1.length > 1"
             >s</span
           >
         </p>
         <transition-group name="todo-item" tag="ul" class="todo-list">
-          <li v-for="item in pending" v-bind:key="item.title">
+          <li v-for="item1 in pending1" v-bind:key="item1.title">
             <input
               class="todo-checkbox"
-              v-bind:id="'item_' + item.id"
-              v-model="item.done"
+              v-bind:id="'item_1' + item1.id"
+              v-model="item1.done"
               type="checkbox"
             />
-            <label v-bind:for="'item_' + item.id"></label>
-            <span class="todo-text">{{ item.title }}</span>
-            <span class="delete" @click="deleteItem(item)"></span>
+            <label v-bind:for="'item_1' + item1.id"></label>
+            <span class="todo-text">{{ item1.title }}</span>
+            <span class="delete" @click="deleteItem(item1)"></span>
           </li>
         </transition-group>
       </div>
 
       <transition name="slide-fade">
-        <p class="status free" v-if="!pending.length">
+        <p class="status free" v-if="!pending1.length">
           <img
             src="https://nourabusoud.github.io/vue-todo-list/images/beer_celebration.svg"
             alt="celebration"
@@ -53,26 +53,26 @@
         </p>
       </transition>
 
-      <div v-if="completed.length > 0 && showComplete">
+      <div v-if="completed1.length > 0 && showComplete">
         <p class="status">Past Important Dates</p>
         <transition-group name="todo-item" tag="ul" class="todo-list archived">
-          <li v-for="item in completed" v-bind:key="item.title">
+          <li v-for="item1 in completed1" v-bind:key="item1.title">
             <input
               class="todo-checkbox"
-              v-bind:id="'item_' + item.id"
-              v-model="item.done"
+              v-bind:id="'item_1' + item1.id"
+              v-model="item1.done"
               type="checkbox"
             />
-            <label v-bind:for="'item_' + item.id"></label>
-            <span class="todo-text">{{ item.title }}</span>
-            <span class="delete" @click="deleteItem(item)"></span>
+            <label v-bind:for="'item_1' + item1.id"></label>
+            <span class="todo-text">{{ item1.title }}</span>
+            <span class="delete" @click="deleteItem(item1)"></span>
           </li>
         </transition-group>
       </div>
       <div class="control-buttons">
         <div
           class="btnn btnn-secondary"
-          v-if="completed.length > 0"
+          v-if="completed1.length > 0"
           @click="toggleShowComplete"
         >
           <span v-if="!showComplete">Show</span
@@ -105,26 +105,26 @@ export default {
   },
   watch: {
     imptList: {
-      handler: function(updatedList) {
-        localStorage.setItem("impt_list", JSON.stringify(updatedList));
+      handler: function(updatedList1) {
+        localStorage.setItem("impt_list", JSON.stringify(updatedList1));
       },
       deep: true
     }
   },
   computed: {
-    pending: function() {
-      return this.imptList.filter(function(item) {
-        return !item.done;
+    pending1: function() {
+      return this.imptList.filter(function(item1) {
+        return !item1.done;
       });
     },
-    completed: function() {
-      return this.imptList.filter(function(item) {
-        return item.done;
+    completed1: function() {
+      return this.imptList.filter(function(item1) {
+        return item1.done;
       });
     },
     completedPercentage: function() {
       return (
-        Math.floor((this.completed.length / this.imptList.length) * 100) + "%"
+        Math.floor((this.completed1.length / this.imptList.length) * 100) + "%"
       );
     },
     today: function() {
@@ -180,8 +180,8 @@ export default {
       // save the new item in localstorage
       return true;
     },
-    deleteItem(item) {
-      this.imptList.splice(this.imptList.indexOf(item), 1);
+    deleteItem(item1) {
+      this.imptList.splice(this.imptList.indexOf(item1), 1);
     },
     toggleShowComplete() {
       this.showComplete = !this.showComplete;
