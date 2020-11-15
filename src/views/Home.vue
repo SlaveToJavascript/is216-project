@@ -9,7 +9,7 @@
               <b-col cols="6">
                 <div class="box height24 ml-3">
                   <h5 class="particletext hearts" style="font-size: 1.5em">
-                    <span id="username">Hello {{ name }}!! 🙂</span>
+                    <span id="username">Hello {{ name }}! 🙂</span>
                   </h5>
                   <QuoteBar />
                 </div>

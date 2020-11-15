@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body text-center">
       <img
-        src="../../cards/image/3.gif"
+        :src="require('../../cards/image/' + randomNum + '.gif')"
         width="40%"
         style="margin-top: 10px;"
       />
@@ -18,27 +18,9 @@
         </div>
       </div>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-outline-primary" @click="show(1)">
-        Search for Videos
+      <button type="button" class="btn btn-outline-primary" @click="redirect(modCode)">
+        View Module Info
       </button>
-      <modal
-        name="videos1"
-        :width="1400"
-        :height="600"
-        :draggable="true"
-        :resizable="true"
-      >
-        <div class="mt-2">
-          <YoutubeSearch @click="initVideos(1)" v-on:search="search" />
-
-          <!-- Videos -->
-          <YoutubeResults
-            v-if="videos.length > 0"
-            v-bind:videos="videos"
-            v-bind:reformattedSearchString="reformattedSearchString"
-          />
-        </div>
-      </modal>
     </div>
   </div>
 </template>
@@ -47,8 +29,6 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import YoutubeSearch from "@/components/YoutubeSearch";
-import YoutubeResults from "@/components/YoutubeResults";
 Vue.use(VueAxios, axios);
 
 export default {
@@ -57,22 +37,10 @@ export default {
     moduleFullName: String
   },
   components: {
-    YoutubeResults,
-    YoutubeSearch
   },
   data() {
     return {
-      text: "",
-      videos: [],
-      reformattedSearchString: "",
-      api: {
-        baseUrl:
-          "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=3&q=",
-        q: "",
-        key: "AIzaSyCTTMCziOgGOq4V44X4tK2ntQ51HsbZiV4"
-      },
-      searchString: "",
-      accordionRef: ""
+      randomNum: 1,
     };
   },
   computed: {
@@ -87,66 +55,15 @@ export default {
     }
   },
   created() {
-    this.initVideos(1);
+    this.randomNum = Math.floor(Math.random() * 9) + 1
   },
   methods: {
-    show(id) {
-      this.$modal.show(`videos${id}`);
+    redirect(modCode) {
+      window.open(
+        "https://smumods.com/module/" + modCode,
+        '_blank'
+      );
     },
-    hide() {
-      this.$modal.hide("videos");
-    },
-    initVideos: function(id) {
-      let q;
-      if (id == 1) {
-        q = this.$props.mod1;
-      } else if (id == 2) {
-        q = this.$props.mod2;
-      } else if (id == 3) {
-        q = this.$props.mod3;
-      } else if (id == 4) {
-        q = this.$props.mod4;
-      } else {
-        q = this.$props.mod5;
-      }
-      console.log(q);
-      let key = "AIzaSyCTTMCziOgGOq4V44X4tK2ntQ51HsbZiV4";
-      let url =
-        "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&order=viewCount&maxResults=3&q=" +
-        q +
-        "&key=" +
-        key;
-      Vue.axios.get(url).then(resp => {
-        this.videos = resp.data.items;
-      });
-    },
-    search(searchParams) {
-      this.reformattedSearchString = searchParams.join(" ");
-      this.api.q = searchParams.join("+");
-      const { baseUrl, q, key } = this.api;
-      const apiUrl = `${baseUrl}q=${q}&key=${key}`;
-      this.getData(apiUrl);
-    },
-    getData(apiUrl) {
-      axios
-        .get(apiUrl)
-        .then(res => {
-          this.videos = res.data.items;
-        })
-        .catch(error => console.log(error));
-    },
-    parseSearchString() {
-      // Trim search string
-      const trimmedSearchString = this.searchString.trim();
-      if (trimmedSearchString !== "") {
-        // Split search string
-        const searchParams = trimmedSearchString.split(/\s+/);
-        // Emit event
-        this.$emit("search", searchParams);
-        // Reset input field
-        this.searchString = "";
-      }
-    }
   }
 };
 </script>
@@ -172,14 +89,5 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 0;
-}
-
-.modal-header {
-  margin-top: 10px;
-}
-
-.search {
-  width: 65%;
-  display: inline;
 }
 </style>
