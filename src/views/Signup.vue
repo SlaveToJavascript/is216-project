@@ -32,8 +32,12 @@
 
       <!-- to redirect to sign in page -->
       <div class="col" id="sign-in">
-        <button type="button" class="btn btn-outline-primary">
-          <b-link :to="{ name: 'Login' }">Sign in</b-link>
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="$router.push('/login')"
+        >
+          Sign in
         </button>
       </div>
     </div>

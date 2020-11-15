@@ -9,7 +9,7 @@
               <b-col cols="6">
                 <div class="box height24 ml-3">
                   <h5 class="particletext hearts" style="font-size: 1.5em">
-                    <span id="username">Welcome {{ name }} 🙂</span>
+                    <span id="username">Hello {{ name }}!! 🙂</span>
                   </h5>
                   <QuoteBar />
                 </div>
@@ -35,7 +35,14 @@
                       "
                     >
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
-                      <div class="message">Almost there! 🌟</div>
+                      <div class="message">
+                        <img
+                          src="../../cards/image/7.gif"
+                          style="width: 4rem;"
+                          class="mr-2"
+                        />
+                        Almost there! 🌟
+                      </div>
                     </div>
                     <div
                       v-else-if="
@@ -43,7 +50,13 @@
                       "
                     >
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
-                      <div class="message">Keep it going! 🤩</div>
+                      <div class="message">
+                        <img
+                          src="../../cards/image/8.gif"
+                          style="width: 4rem;"
+                          class="mr-2"
+                        />Keep it going! 🤩
+                      </div>
                     </div>
                     <div
                       v-else-if="
@@ -51,11 +64,22 @@
                       "
                     >
                       <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
-                      <div class="message">Getting Started! 💪🏻 💪🏻</div>
+                      <div class="message">
+                        <img
+                          src="../../cards/image/6.gif"
+                          style="width: 4rem;"
+                          class="mr-2"
+                        />Getting Started! 💪🏻
+                      </div>
                     </div>
                     <div v-else-if="tasksDonePercent == 0">
                       <h4>Your productivity at a glance ⭐️</h4>
-                      <div class="message">You okay? 🤡 🤡</div>
+                      <div class="message">
+                        <img
+                          src="../../cards/image/1.gif"
+                          style="width: 5rem;"
+                        />You okay? 🤡 🤡
+                      </div>
                     </div>
                     <vue-ellipse-progress
                       :is="component"
@@ -72,7 +96,7 @@
                       font-color="black"
                       dot="7 black"
                     >
-                      <span slot="legend-value"> / 10</span>
+                      <span slot="legend-value"> / {{ tasksTodo }}</span>
                       <span slot="legend-caption">TASKS DONE</span>
                     </vue-ellipse-progress>
                   </div>
@@ -86,21 +110,20 @@
                   <div id="app">
                     <section class="todo-wrapper">
                       <h1 class="todo-title">
-                        <!-- {{ today.day }}<br />{{ today.date }} -->
                         To-do List
                       </h1>
                       <form @keydown.enter.prevent="">
                         <input
                           type="text"
                           class="input-todo"
-                          v-bind:class="{ active: new_todo }"
+                          v-bind:class="{ active: new_item }"
                           placeholder="Book consultation with Prof"
-                          v-model="new_todo"
+                          v-model="new_item"
                           v-on:keyup.enter="addItem"
                         />
                         <div
                           class="btnn btnn-add"
-                          v-bind:class="{ active: new_todo }"
+                          v-bind:class="{ active: new_item }"
                           @click="addItem"
                         >
                           +
@@ -125,6 +148,7 @@
                               v-bind:id="'item_' + item.id"
                               v-model="item.done"
                               type="checkbox"
+                              @click="addTaskDone"
                             />
                             <label v-bind:for="'item_' + item.id"></label>
                             <span class="todo-text">{{ item.title }}</span>
@@ -172,7 +196,7 @@
                       </div>
                       <div class="control-buttons">
                         <div
-                          class="btn-secondary"
+                          class="btnn btnn-secondary"
                           v-if="completed.length > 0"
                           @click="toggleShowComplete"
                         >
@@ -181,7 +205,7 @@
                         </div>
                         <div
                           class="btnn btnn-secondary"
-                          v-if="todoList.length > 0"
+                          v-if="newList.length > 0"
                           @click="clearAll"
                         >
                           Clear All
@@ -189,7 +213,7 @@
                       </div>
                     </section>
                   </div>
-                  <!-- End todo -->
+                  <!-- End todo-->
                   <Important />
                   <Meeting />
                 </b-col>
@@ -201,7 +225,11 @@
           <div class="box mt-3" id="schedule">
             <div class="d-flex align-items-center flex-column">
               <h4 class="mb-4">Module Videos 🎥</h4>
-              <ModuleCard v-for="mod in modules" :key="mod" v-bind:moduleFullName="mod" />
+              <ModuleCard
+                v-for="mod in modules"
+                :key="mod"
+                v-bind:moduleFullName="mod"
+              />
             </div>
           </div>
         </b-col>
@@ -234,73 +262,75 @@ export default {
   data() {
     return {
       name: "Guest",
-      todoList: [],
-      new_todo: "",
-      showComplete: false,
       tasksDone: 0,
-      modules: []
+      tasksTodo: 0,
+      modules: [],
+      newList: [],
+      new_item: "",
+      showComplete: false
     };
   },
-  watch: {
-    todoList: {
-      handler: function(updatedList) {
-        localStorage.setItem("todo_list", JSON.stringify(updatedList));
-      },
-      deep: true
-    }
-  },
   methods: {
-    // get all todos when loading the page
-    getTodos() {
-      if (localStorage.getItem("todo_list")) {
-        this.todoList = JSON.parse(localStorage.getItem("todo_list"));
+    getNew() {
+      if (localStorage.getItem("new_list")) {
+        this.newList = JSON.parse(localStorage.getItem("new_list"));
       }
     },
+
+    addTaskDone() {
+      this.tasksDone++;
+    },
+
     // add a new item
     addItem() {
       // validation check
-      if (this.new_todo) {
-        this.todoList.unshift({
-          id: this.todoList.length,
-          title: this.new_todo,
+      if (this.new_item) {
+        this.newList.unshift({
+          id: this.newList.length,
+          title: this.new_item,
           done: false
         });
+        this.tasksTodo++;
       }
       // reset new_todo
-      this.new_todo = "";
+      this.new_item = "";
       // save the new item in localstorage
       return true;
     },
     deleteItem(item) {
-      this.todoList.splice(this.todoList.indexOf(item), 1);
+      this.newList.splice(this.newList.indexOf(item), 1);
+      this.tasksTodo--;
     },
     toggleShowComplete() {
       this.showComplete = !this.showComplete;
     },
     clearAll() {
-      this.todoList = [];
+      this.newList = [];
     }
   },
   computed: {
     tasksDonePercent() {
-      return (this.tasksDone * 100) / 10;
+      if (this.tasksTodo == 0) {
+        return 0;
+      }
+      return (this.tasksDone * 100) / this.tasksTodo;
     },
     component() {
       return "vue-ellipse-progress";
     },
     pending: function() {
-      return this.todoList.filter(function(item) {
+      return this.newList.filter(function(item) {
         return !item.done;
       });
     },
     completed: function() {
-      return this.todoList.filter(function(item) {
+      return this.newList.filter(function(item) {
         return item.done;
       });
     },
     completedPercentage: function() {
       return (
-        Math.floor((this.completed.length / this.todoList.length) * 100) + "%"
+        Math.floor((this.completed.length / this.newList.length) * 100) + "%"
       );
     },
     today: function() {
@@ -335,18 +365,7 @@ export default {
     }
   },
   mounted() {
-    this.getTodos();
-
-    // if (localStorage.getItem("reloaded")) {
-    //   localStorage.removeItem("reloaded");
-    // } else {
-    //   localStorage.setItem("reloaded", "1");
-    //   location.reload();
-    // }
-
-    if (localStorage.todos) {
-      this.todos = JSON.parse(localStorage.todos);
-    }
+    this.getNew();
 
     $("#username").css("textTransform", "capitalize");
 
@@ -450,8 +469,15 @@ export default {
 
     // get no. of mods
     // console.log(JSON.parse(window.localStorage.getItem(username)))
-    this.modules = JSON.parse(window.localStorage.getItem(username))["Modules"]
-    console.log(this.modules)
+    this.modules = JSON.parse(window.localStorage.getItem(username))["Modules"];
+  },
+  watch: {
+    newList: {
+      handler: function(updatedList) {
+        localStorage.setItem("new_list", JSON.stringify(updatedList));
+      },
+      deep: true
+    }
   }
 };
 </script>

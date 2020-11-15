@@ -2,20 +2,20 @@
   <div id="app">
     <section class="todo-wrapper">
       <h1 class="todo-title">
-        Project Meetings
+        To-do List
       </h1>
       <form @keydown.enter.prevent="">
         <input
           type="text"
           class="input-todo"
-          v-bind:class="{ active: new_meet }"
-          placeholder="Meeting Dates"
-          v-model="new_meet"
+          v-bind:class="{ active: new_item }"
+          placeholder="Book consultation with Prof"
+          v-model="new_item"
           v-on:keyup.enter="addItem"
         />
         <div
           class="btnn btnn-add"
-          v-bind:class="{ active: new_meet }"
+          v-bind:class="{ active: new_item }"
           @click="addItem"
         >
           +
@@ -24,7 +24,7 @@
 
       <div v-if="pending.length > 0">
         <p class="status busy">
-          You have {{ pending.length }} upcoming meeting<span
+          You have {{ pending.length }} pending item<span
             v-if="pending.length > 1"
             >s</span
           >
@@ -49,12 +49,12 @@
           <img
             src="https://nourabusoud.github.io/vue-todo-list/images/beer_celebration.svg"
             alt="celebration"
-          />Nobody wants to meet you? 😔
+          />Time to chill! You have no todos.
         </p>
       </transition>
 
       <div v-if="completed.length > 0 && showComplete">
-        <p class="status">Completed meetings: {{ completedPercentage }}</p>
+        <p class="status">Completed tasks: {{ completedPercentage }}</p>
         <transition-group name="todo-item" tag="ul" class="todo-list archived">
           <li v-for="item in completed" v-bind:key="item.title">
             <input
@@ -80,7 +80,7 @@
         </div>
         <div
           class="btnn btnn-secondary"
-          v-if="meetList.length > 0"
+          v-if="newList.length > 0"
           @click="clearAll"
         >
           Clear All
@@ -92,39 +92,39 @@
 
 <script>
 export default {
-  name: "Meeting",
+  name: "New",
   data() {
     return {
-      meetList: [],
-      new_meet: "",
+      newList: [],
+      new_item: "",
       showComplete: false
     };
   },
   mounted() {
-    this.getMeet();
+    this.getNew();
   },
   watch: {
-    meetList: {
+    newList: {
       handler: function(updatedList) {
-        localStorage.setItem("meet_list", JSON.stringify(updatedList));
+        localStorage.setItem("new_list", JSON.stringify(updatedList));
       },
       deep: true
     }
   },
   computed: {
     pending: function() {
-      return this.meetList.filter(function(item) {
+      return this.newList.filter(function(item) {
         return !item.done;
       });
     },
     completed: function() {
-      return this.meetList.filter(function(item) {
+      return this.newList.filter(function(item) {
         return item.done;
       });
     },
     completedPercentage: function() {
       return (
-        Math.floor((this.completed.length / this.meetList.length) * 100) + "%"
+        Math.floor((this.completed.length / this.newList.length) * 100) + "%"
       );
     },
     today: function() {
@@ -160,34 +160,34 @@ export default {
   },
   methods: {
     // get all todos when loading the page
-    getMeet() {
-      if (localStorage.getItem("meet_list")) {
-        this.meetList = JSON.parse(localStorage.getItem("meet_list"));
+    getNew() {
+      if (localStorage.getItem("new_list")) {
+        this.newList = JSON.parse(localStorage.getItem("new_list"));
       }
     },
     // add a new item
     addItem() {
       // validation check
-      if (this.new_meet) {
-        this.meetList.unshift({
-          id: this.meetList.length,
-          title: this.new_meet,
+      if (this.new_item) {
+        this.newList.unshift({
+          id: this.newList.length,
+          title: this.new_item,
           done: false
         });
       }
       // reset new_todo
-      this.new_meet = "";
+      this.new_item = "";
       // save the new item in localstorage
       return true;
     },
     deleteItem(item) {
-      this.meetList.splice(this.meetList.indexOf(item), 1);
+      this.newList.splice(this.newList.indexOf(item), 1);
     },
     toggleShowComplete() {
       this.showComplete = !this.showComplete;
     },
     clearAll() {
-      this.meetList = [];
+      this.newList = [];
     }
   }
 };

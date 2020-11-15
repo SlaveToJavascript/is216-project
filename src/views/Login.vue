@@ -19,8 +19,12 @@
 
       <!-- to redirect to sign in page -->
       <div class="col" id="sign-up">
-        <button type="button" class="btn btn-outline-primary">
-          <b-link :to="{ name: 'Signup' }">Sign up</b-link>
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="$router.push('/')"
+        >
+          Sign Up
         </button>
       </div>
 
@@ -120,6 +124,14 @@ export default {
           this.$router.push({ name: "Home" });
         }
       }
+    }
+  },
+  mounted() {
+    if (localStorage.getItem("reloaded")) {
+      localStorage.removeItem("reloaded");
+    } else {
+      localStorage.setItem("reloaded", "1");
+      location.reload();
     }
   }
 };

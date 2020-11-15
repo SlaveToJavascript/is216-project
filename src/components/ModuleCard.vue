@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body text-center">
       <img
-        src="../../cards/image/1.gif"
+        src="../../cards/image/3.gif"
         width="40%"
         style="margin-top: 10px;"
       />
@@ -11,10 +11,10 @@
           class="card-title text-center"
           style="font-size:medium; font-weight: bold;"
         >
-          {{modCode}}
+          {{ modCode }}
         </div>
         <div class="card-text mb-3" style="font-size: small;">
-          {{modName}}
+          {{ modName }}
         </div>
       </div>
       <!-- Button trigger modal -->
@@ -54,7 +54,7 @@ Vue.use(VueAxios, axios);
 export default {
   name: "ModuleCard",
   props: {
-    moduleFullName: String,
+    moduleFullName: String
   },
   components: {
     YoutubeResults,
@@ -77,10 +77,13 @@ export default {
   },
   computed: {
     modCode() {
-      return this.moduleFullName.split(" ")[0]
+      return this.moduleFullName.split(" ")[0];
     },
     modName() {
-      return this.moduleFullName.split(" ").slice(1,).join(" ")
+      return this.moduleFullName
+        .split(" ")
+        .slice(1)
+        .join(" ");
     }
   },
   created() {
