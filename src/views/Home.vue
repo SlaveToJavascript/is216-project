@@ -1,21 +1,21 @@
 <template>
   <div>
     <Navbar />
-    <b-container fluid>
+    <div class="container-fluid">
       <b-row>
-        <b-col cols="9">
+        <b-col sm="9" cols="12">
           <b-row>
             <b-row class="mt-3">
-              <b-col cols="6">
-                <div class="box height24 ml-3">
+              <b-col sm="6" cols="12">
+                <div class="box height24 mx-auto">
                   <h5 class="particletext hearts" style="font-size: 1.5em">
                     <span id="username">Hello {{ name }}! 🙂</span>
                   </h5>
                   <QuoteBar />
                 </div>
               </b-col>
-              <b-col cols="6">
-                <div class="box height24 mr-3">
+              <b-col sm="6" cols="12">
+                <div class="box height24 mx-auto">
                   <div class="scroll d-lg-flex justify-content-lg-between">
                     <div v-if="completedPercentage >= 100">
                       <h5 class="particle-text mb-2">
@@ -97,24 +97,26 @@
                         >
                       </div>
                     </div>
-                    <vue-ellipse-progress
-                      :is="component"
-                      :progress="completedPercentage"
-                      color="#7579ff"
-                      empty-color="#324c7e"
-                      :size="150"
-                      :thickness="5"
-                      :empty-thickness="3"
-                      lineMode="in 4"
-                      :legend-value="completed.length"
-                      animation="bounce 700 1000"
-                      fontSize="1.5rem"
-                      font-color="black"
-                      dot="7 black"
-                    >
-                      <span slot="legend-value"> / {{ newList.length }}</span>
-                      <span slot="legend-caption">TASKS DONE</span>
-                    </vue-ellipse-progress>
+                    <div class="d-flex justify-content-center">
+                      <vue-ellipse-progress
+                        :is="component"
+                        :progress="completedPercentage"
+                        color="#7579ff"
+                        empty-color="#324c7e"
+                        :size="150"
+                        :thickness="5"
+                        :empty-thickness="3"
+                        lineMode="in 4"
+                        :legend-value="completed.length"
+                        animation="bounce 700 1000"
+                        fontSize="1.5rem"
+                        font-color="black"
+                        dot="7 black"
+                      >
+                        <span slot="legend-value"> / {{ newList.length }}</span>
+                        <span slot="legend-caption">TASKS DONE</span>
+                      </vue-ellipse-progress>
+                    </div>
                   </div>
                 </div>
               </b-col>
@@ -239,10 +241,10 @@
             </b-col>
           </b-row>
         </b-col>
-        <b-col cols="3">
+        <b-col sm="3" cols="12">
           <div class="box mt-3" id="schedule">
             <div class="d-flex align-items-center flex-column">
-              <h3 class="particletext mb-4">Module Notes ✏️</h3>
+              <h4 class="particletext mb-4 text-center">Module Info ✏️</h4>
               <ModuleCard
                 v-for="mod in modules"
                 :key="mod"
@@ -252,7 +254,7 @@
           </div>
         </b-col>
       </b-row>
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -532,7 +534,7 @@ body {
   border-radius: 15px;
   margin-bottom: 20px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  overflow: scroll;
+  overflow: auto;
 }
 
 .modCards {

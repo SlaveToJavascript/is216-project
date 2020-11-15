@@ -18,8 +18,13 @@
         </div>
       </div>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-outline-primary" @click="redirect(modCode)">
-        View Module Info
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        style="width:10rem;"
+        @click="redirect(modCode)"
+      >
+        <span class="text-center" style="font-size:80%">View Module Info</span>
       </button>
     </div>
   </div>
@@ -36,11 +41,10 @@ export default {
   props: {
     moduleFullName: String
   },
-  components: {
-  },
+  components: {},
   data() {
     return {
-      randomNum: 1,
+      randomNum: 1
     };
   },
   computed: {
@@ -55,15 +59,12 @@ export default {
     }
   },
   created() {
-    this.randomNum = Math.floor(Math.random() * 9) + 1
+    this.randomNum = Math.floor(Math.random() * 9) + 1;
   },
   methods: {
     redirect(modCode) {
-      window.open(
-        "https://smumods.com/module/" + modCode,
-        '_blank'
-      );
-    },
+      window.open("https://smumods.com/module/" + modCode, "_blank");
+    }
   }
 };
 </script>
@@ -76,7 +77,7 @@ export default {
   position: relative;
   margin-bottom: 1em;
   height: 18rem;
-  width: 300px;
+  width: 18rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
