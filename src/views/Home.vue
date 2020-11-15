@@ -288,7 +288,7 @@ export default {
       newList: [],
       new_item: "",
       showComplete: false,
-      username: "",
+      username: ""
     };
   },
   methods: {
@@ -491,16 +491,16 @@ export default {
 
     // get no. of mods
     // console.log(JSON.parse(window.localStorage.getItem(username)))
-    this.modules = window.localStorage.getItem("modules")
+    this.modules = window.localStorage.getItem("modules");
     this.modules = this.modules.split(",");
-    console.log(this.modules)
+    console.log(this.modules);
 
-    if( window.localStorage ){
-      if(!localStorage.getItem('firstReLoad')){
-      localStorage['firstReLoad'] = true;
-      window.location.reload();
+    if (window.localStorage) {
+      if (!localStorage.getItem("firstReLoad")) {
+        localStorage["firstReLoad"] = true;
+        window.location.reload();
       } else {
-      localStorage.removeItem('firstReLoad');
+        localStorage.removeItem("firstReLoad");
       }
     }
   },

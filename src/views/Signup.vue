@@ -498,9 +498,9 @@ export default {
         };
         let data = JSON.stringify(this.details);
         window.localStorage.setItem(this.username, data);
-        this.modulesSelected.push(this.items)
+        this.modulesSelected.push(this.items);
         window.localStorage.setItem("modules", this.modulesSelected);
-        console.log(window.localStorage.getItem("modules"))
+        console.log(window.localStorage.getItem("modules"));
         window.location.href = "/#/login";
       } else {
         if (this.username.length < 1) {
@@ -557,6 +557,8 @@ require("@/assets/styles/login.css");
   margin-top: 20px;
   margin-right: 20px;
   text-align: right;
+  position: relative;
+  z-index: 999;
 }
 
 #blank-space {

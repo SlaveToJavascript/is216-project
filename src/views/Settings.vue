@@ -6,13 +6,13 @@
       <section v-for="n in modules.length" :value="n" :key="n">
         <b-field :key="n">
           <b-autocomplete
-            v-model="modules[n-1]"
+            v-model="modules[n - 1]"
             :key="n"
             rounded
             :data="filteredDataArray"
             icon="magnify"
             clearable
-            :value="modules[n-1]"
+            :value="modules[n - 1]"
             ref="input"
             @select="option => (selected = option)"
           >
@@ -24,13 +24,13 @@
       <section v-for="x in addNewCount" :value="x" :key="x">
         <b-field :key="x">
           <b-autocomplete
-            v-model="modules[x+modules.length]"
+            v-model="modules[x + modules.length]"
             :key="x"
             rounded
             :data="filteredDataArray"
             icon="magnify"
             clearable
-            :value="modules[x+modules.length]"
+            :value="modules[x + modules.length]"
             ref="input"
             @select="option => (selected = option)"
           >
@@ -38,9 +38,10 @@
           </b-autocomplete>
         </b-field>
       </section>
-
     </div>
-    <b-button class="button" variant="success" @click="confirm()">Confirm</b-button>
+    <b-button class="button" variant="success" @click="confirm()"
+      >Confirm</b-button
+    >
     <div id="success" v-show="clicked">Saved successfully!</div>
   </div>
 </template>
@@ -328,7 +329,7 @@ export default {
         "COR2603 Singapore: Imagining The Next Fifty Years",
         "FTW100 Finishing Touch Workshops (Year One)",
         "HUMN017 A Cultural Introduction to India: From Indus Valley to Infosys"
-      ],
+      ]
     };
   },
   computed: {
@@ -343,31 +344,34 @@ export default {
       });
     },
     addNewCount() {
-      return Array.from({length: 6-this.modules.length}, (_, i) => i + this.modules.length+1)
+      return Array.from(
+        { length: 6 - this.modules.length },
+        (_, i) => i + this.modules.length + 1
+      );
     }
   },
   created() {
     this.username = window.localStorage.getItem("username");
-    this.modules = window.localStorage.getItem("modules")
-    this.modules = this.modules.split(",")
+    this.modules = window.localStorage.getItem("modules");
+    this.modules = this.modules.split(",");
 
-    if( window.localStorage ){
-      if(!localStorage.getItem('firstReLoad')){
-      localStorage['firstReLoad'] = true;
-      window.location.reload();
+    if (window.localStorage) {
+      if (!localStorage.getItem("firstReLoad")) {
+        localStorage["firstReLoad"] = true;
+        window.location.reload();
       } else {
-      localStorage.removeItem('firstReLoad');
+        localStorage.removeItem("firstReLoad");
       }
     }
   },
   methods: {
     confirm() {
       this.modules = this.modules.filter(function(el) {
-        return el != ""
-      })
-      console.log(this.modules)
-      window.localStorage.setItem("modules", this.modules)
-      this.clicked = true
+        return el != "";
+      });
+      console.log(this.modules);
+      window.localStorage.setItem("modules", this.modules);
+      this.clicked = true;
       // console.log(window.localStorage.getItem(this.username))
     }
   }
