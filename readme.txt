@@ -31,38 +31,41 @@ Step 3: Navigate to our application folder and perform a yarn install && yarn se
 --------------------
 
 ----Features-----
-Our website consists of 4 main features
+Our website consists of the 4 main features as described below:
+
 1)	Module Planning
-It is a feature where you are able to input the modules that you are planning to take and drag and drop them to the respective semester. Should you fail your bid and need to rearrange the modules, the drag and drop of the module function would allow the seamless change. 
+Planning for the next 4 whole years laid out in front of you is intimidating as it is frustrating. But fret not as ModPlanner is here to save the day! Conveniently add new modules to each respective term on your academic journey, and feel free to delete them if you change your mind. Module planning has never been easier!
 
 2)	Job Portal
-
-Our job portal uses Google API where if you search for any type of role, it will render all the google searches. By simply pressing on the view more button, it will bring you to the job application website.
+What are SMU students known for? Their awesome careers and internships! But job search can be a pain in the a** when the ocean of information in the vast World Wide Web makes you look for needles in a haystack. Our Job Portal is here to save the day with role-specific search that only gives you the most relevant results. Easily apply by clicking on "Apply here" to visit the actual job listing pages.
 
 3)	Interactive To-Do List
+As SMU students, we all have millions of tasks scribbled across a mental to-do list and...OOPS! What was the assignment I was supposed to submit today again? I forgot...again! *rolls eyes* Our to-do list lets you consolidate all tasks and keeps track of your progress using a fun-loving progress tracker that counts all your done and undone tasks, motivating you along the way. This encourages you to stay on top of your tasks and manage your time better. Don't say bojio!
 
-As an SMU student, we all have numerous tasks to be completed which can be difficult to manage. Our to do list feature can be used to consolidate all the tasks to be completed, and it even tells you how many tasks you have to complete and how many have been completed. This will allow you to keep track of your progress and manage your time better.
+4)	Daily Quote of the Day
+As busy and sleep-deprived students, we sometimes run dry on inspirations and lose the motivation to keep moving forward. Our daily quotes serve to remind you of the things in life worth living for and striving towards. Quotes are dynamically retrieved and refreshes daily, making sure you are well-prepared to take on every day as a brand new challenge. After all, a quote a day keeps the sluggishness away!
 
-4)	Module notes planner
+5)	Module information at your fingertips
+Keeping track of your modules is a breeze when you simply have to look on the right to view all modules you are taking in the current semester. In case you wish to read up on module information (yes, students sometimes forget what is expected of them in a course!), browse textbooks for sale (for THAT module) and read up on course or professor reviews, all your heart's desires will be in front of you with the click of a button that leads you to the SMUMods page for that module!
 
-There will be times you have too many files in your computer  and you need a consolidated place to store them. Our note taking section is divided into your different modules to allow you to take the notes you need for each module. 
 ----------------------
 
 -----Usage----
-To enter the main portal and you do not have an account, first you will need to register.
-Details required includes: 
-Username:
-Name:
-Password:
-Modules: 
 
-It will then redirect you to the login where you enter the following username and password-
+First-time users of the application will be required to register for an account.
+Details required
+Username
+Name
+Password
+Modules (that you are taking this semester)
+
+It will then redirect you to the login where you enter the credentials you signed up with.
 Username:
 Password:
 
 You will be redirected to the homepage where you can key in your to do lists, important dates and project meetings. These information can also be deleted once you have completed them by ticking the checkbox.  Upon clearing your to-dos your productivity tracker changes reflecting on your day’s progress. 
 
-At the right hand side you can input your notes for each module. 
+At the right hand side you can view all modules you are taking this semester
 
 There is also a quote at the top left hand side to motivate you throughout your day.
 
@@ -70,7 +73,9 @@ Upon pressing “Jobs” in the navigation bar you can search for jobs according
 
 Upon pressing “module planner” in the navigation bar you will be directed to a page where you can add your modules and drag them to the respective semester that you plan on taking them. As bidding sucks and you may not be able to obtain the bids that you want, you may have to rearrange the modules you have picked and can be easily done so by dragging the module name
 
-Clicking sign out would allow you to leave the application once you have completed your intended tasks
+Clicking sign out would allow you to leave the application once you have completed your intended tasks.
+
+Enjoy!
  
 ----------------------
 
