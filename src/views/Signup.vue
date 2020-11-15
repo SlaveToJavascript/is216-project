@@ -1,8 +1,8 @@
 <template>
   <div id="signup" style=" height: 100%; overflow: auto; width: 100%;">
     <!-- header -->
-    <div class="area" style="height:100%; width: 100%">
-      <ul class="circles" le="height:100%; width: 100%">
+    <div class="area" style="height:100%; width: 100%;overflow: visible">
+      <ul class="circles" style="height:100%; width: 100%; overflow: visible">
         <li></li>
         <li></li>
         <li></li>
