@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <section class="todo-wrapper">
+    <section class="todo-wrapper mr-3">
       <h1 class="todo-title">
         Important Dates
       </h1>

@@ -2,7 +2,7 @@ Welcome particle
 
   body .particletext {
     text-align: left;
-    font-size: 2.5em;
+    font-size: 2.5rem;
   }
   body .particletext.bubbles > .particle {
     opacity: 0;

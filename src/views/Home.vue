@@ -16,15 +16,17 @@
               </b-col>
               <b-col cols="6">
                 <div class="box height24 mr-3">
-                  <div class="scroll d-xl-flex justify-content-xl-between">
+                  <div class="scroll d-lg-flex justify-content-lg-between">
                     <div v-if="completedPercentage >= 100">
-                      <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
+                      <h5 class="particle-text mb-2">
+                        Your productivity at a glance ⭐️
+                      </h5>
                       <div class="particletext confetti">
                         <img
                           src="../../glassdoor/new_job_search/pusheen/4.gif"
                           style="width: 5rem;"
                         />
-                        <span class="ml-4" style="font-size: 2em"
+                        <span class="ml-2" style="font-size: 1.5rem;"
                           >Well done! 🎉🎉
                         </span>
                       </div>
@@ -34,14 +36,16 @@
                         completedPercentage >= 80 && completedPercentage <= 99
                       "
                     >
-                      <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
+                      <h5 class="mb-2 particletext">
+                        Your productivity at a glance ⭐️
+                      </h5>
                       <div class="message">
                         <img
                           src="../../cards/image/7.gif"
                           style="width: 4rem;"
                           class="mr-2"
                         />
-                        Almost there! 🌟
+                        <span style="font-size: 1.5rem;">Almost there! 🌟</span>
                       </div>
                     </div>
                     <div
@@ -49,13 +53,17 @@
                         completedPercentage >= 50 && completedPercentage <= 79
                       "
                     >
-                      <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
+                      <h5 class="mb-2 particletext">
+                        Your productivity at a glance ⭐️
+                      </h5>
                       <div class="message">
                         <img
                           src="../../cards/image/8.gif"
                           style="width: 4rem;"
                           class="mr-2"
-                        />Keep it going! 🤩
+                        /><span style="font-size: 1.5rem;"
+                          >Keep it going! 🤩</span
+                        >
                       </div>
                     </div>
                     <div
@@ -63,22 +71,30 @@
                         completedPercentage >= 1 && completedPercentage <= 49
                       "
                     >
-                      <h4 class="mb-4">Your productivity at a glance ⭐️</h4>
+                      <h5 class="mb-2 particletext">
+                        Your productivity at a glance ⭐️
+                      </h5>
                       <div class="message">
                         <img
                           src="../../cards/image/6.gif"
                           style="width: 4rem;"
                           class="mr-2"
-                        />Getting Started! 💪🏻
+                        /><span style="font-size: 1.5rem;"
+                          >Getting Started! 💪🏻</span
+                        >
                       </div>
                     </div>
                     <div v-else-if="completedPercentage == 0">
-                      <h4>Your productivity at a glance ⭐️</h4>
+                      <h5 class="mb-2 particletext">
+                        Your productivity at a glance ⭐️
+                      </h5>
                       <div class="message">
                         <img
                           src="../../cards/image/1.gif"
                           style="width: 5rem;"
-                        />You okay? 🤡 🤡
+                        /><span style="font-size: 1.5rem;"
+                          >You okay? 🤡 🤡</span
+                        >
                       </div>
                     </div>
                     <vue-ellipse-progress
@@ -105,10 +121,12 @@
             </b-row>
             <b-col>
               <div class="box height45">
-                <b-col class="modCards d-xl-flex justify-content-xl-between">
+                <b-col
+                  class="modCards d-flex justify-content-lg-left justify-content-lg-between  "
+                >
                   <!-- Start todo -->
                   <div id="app">
-                    <section class="todo-wrapper">
+                    <section class="todo-wrapper mr-3">
                       <h1 class="todo-title">
                         To-do List
                       </h1>
@@ -224,7 +242,7 @@
         <b-col cols="3">
           <div class="box mt-3" id="schedule">
             <div class="d-flex align-items-center flex-column">
-              <h4 class="mb-4">Module Videos 🎥</h4>
+              <h3 class="particletext mb-4">Module Notes ✏️</h3>
               <ModuleCard
                 v-for="mod in modules"
                 :key="mod"
@@ -514,7 +532,7 @@ body {
   border-radius: 15px;
   margin-bottom: 20px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  overflow: visible;
+  overflow: scroll;
 }
 
 .modCards {
@@ -612,5 +630,9 @@ p {
 .scroll {
   overflow: auto;
   height: 18vh;
+}
+
+.trans {
+  background: transparent;
 }
 </style>
