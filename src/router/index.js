@@ -30,14 +30,9 @@ const routes = [
     component: () => import("@/views/Jobs.vue")
   },
   {
-    path: "/achievements",
-    name: "Achievements",
-    component: () => import("@/views/Achievements.vue")
-  },
-  {
-    path: "/settings",
-    name: "Settings",
-    component: () => import("@/views/Settings.vue")
+    path: "/ModulePlanner",
+    name: "ModulePlanner",
+    component: () => import("@/views/ModulePlanner.vue")
   }
 ];
 
