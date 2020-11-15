@@ -61,12 +61,19 @@
                     </div>
                 </div>
                 <!-- original -->
-                <form @keydown.enter.prevent="" id="add-task-form">
+
+                <div id="add-task-form">
+                    <input id="task-value" placeholder="Add Module">
+                    <button id="add-task" @click="addItem">+</button>
+                </div>
+
+                <!-- trying1 -->
+                <!-- <form @keydown.enter.prevent="" id="add-task-form">
                     <input id="task-value" v-model="( active: new_todo )" v-model: "new_todo" v-on:keyup.enter="addItem" placeholder="Add Module">
                     <button id="add-task" v-bind:class="{ active: new_todo}" @click="addItem">+</button>
-                </form>
+                </form> -->
 
-                <!-- trying -->
+                <!-- trying2 -->
                 <!-- <div id="add-task-form">
                     <input id="task-value" v-model="newM" placeholder="Add Module">
                     <button id="add-task" @click.prevent=“submitM”>+</button>
@@ -161,7 +168,7 @@ export default {
   }
 };
 </script> -->
-<script>
+<!-- <script>
     
     // localStorage.clear()
 
@@ -285,4 +292,4 @@ export default {
         }
     }
 })
-</script>
+</script> -->
