@@ -267,7 +267,8 @@ export default {
       modules: [],
       newList: [],
       new_item: "",
-      showComplete: false
+      showComplete: false,
+      username: "",
     };
   },
   methods: {
@@ -364,6 +365,8 @@ export default {
     }
   },
   mounted() {
+    // let test = JSON.parse(window.localStorage.getItem(this.username))["Modules"];
+    // console.log(test)
     this.getNew();
 
     $("#username").css("textTransform", "capitalize");
@@ -462,13 +465,24 @@ export default {
   },
   created() {
     // display name on dashboard
-    let username = window.localStorage.getItem("username");
-    let credentials = JSON.parse(window.localStorage.getItem(username));
+    this.username = window.localStorage.getItem("username");
+    let credentials = JSON.parse(window.localStorage.getItem(this.username));
     this.name = credentials["Name"];
 
     // get no. of mods
     // console.log(JSON.parse(window.localStorage.getItem(username)))
-    this.modules = JSON.parse(window.localStorage.getItem(username))["Modules"];
+    this.modules = window.localStorage.getItem("modules")
+    this.modules = this.modules.split(",");
+    console.log(this.modules)
+
+    if( window.localStorage ){
+      if(!localStorage.getItem('firstReLoad')){
+      localStorage['firstReLoad'] = true;
+      window.location.reload();
+      } else {
+      localStorage.removeItem('firstReLoad');
+      }
+    }
   },
   watch: {
     newList: {

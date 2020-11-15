@@ -1,5 +1,5 @@
 <template>
-  <div class="jobs">
+  <div id="jobs">
     <Navbar />
 
     <!-- searchbar -->
@@ -158,6 +158,9 @@ export default {
 </script>
 
 <style scoped>
+#jobs {
+  font-family: Poppins;
+}
 body {
   background: white;
   text-align: center;

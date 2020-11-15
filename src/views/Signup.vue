@@ -446,7 +446,8 @@ export default {
       details: [],
       username: "",
       name: "",
-      password: ""
+      password: "",
+      modulesSelected: []
     };
   },
   methods: {
@@ -476,6 +477,9 @@ export default {
         };
         let data = JSON.stringify(this.details);
         window.localStorage.setItem(this.username, data);
+        this.modulesSelected.push(this.items)
+        window.localStorage.setItem("modules", this.modulesSelected);
+        console.log(window.localStorage.getItem("modules"))
         window.location.href = "/#/login";
       } else {
         if (this.username.length < 1) {

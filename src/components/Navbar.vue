@@ -32,6 +32,9 @@
 
       <div class="justify-content-end mt-2">
         <button type="button" class="btn btn-light ml-2">
+          <b-link :to="'Settings'">Settings</b-link>
+        </button>
+        <button type="button" class="btn btn-light ml-2">
           <b-link :to="'Login'">Sign Out</b-link>
         </button>
       </div>
