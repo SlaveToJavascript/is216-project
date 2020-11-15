@@ -18,14 +18,16 @@
       <li></li>
 
       <!-- to redirect to sign in page -->
-      <div class="col" id="sign-up">
-        <button
-          type="button"
-          class="btn btn-primary"
-          @click="$router.push('/')"
-        >
-          Sign Up
-        </button>
+      <div class="d-flex justify-content-end">
+        <div id="sign-up">
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="$router.push('/')"
+          >
+            Sign Up
+          </button>
+        </div>
       </div>
 
       <div class="human">

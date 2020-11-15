@@ -1,5 +1,8 @@
 <template>
-  <div id="signup" style=" height: 100%; overflow: auto; width: 100%;">
+  <div
+    id="signup"
+    style=" height: 100%; overflow-y: scroll, overflow-x: hidden; width: 100%;"
+  >
     <!-- header -->
     <div class="area" style="height:100%; width: 100%;overflow: visible">
       <ul class="circles" style="height:100%; width: 100%; overflow: visible">
@@ -21,17 +24,13 @@
       </ul>
     </div>
 
-    <div class="row" id="header">
-      <div class="col ">
-        <img
-          src="../assets/images/smoolife.png"
-          id="logo"
-          style="margin-bottom: 0px;"
-        />
-      </div>
-
-      <!-- to redirect to sign in page -->
-      <div class="col" id="sign-in">
+    <div class="d-flex justify-content-between">
+      <img
+        src="../assets/images/smoolife.png"
+        id="logo"
+        style="margin-bottom: 0px; width: 10rem"
+      />
+      <div id="sign-in">
         <button
           type="button"
           class="btn btn-primary"
@@ -41,6 +40,26 @@
         </button>
       </div>
     </div>
+
+    <!-- <div class="row" id="header">
+      <div class="col ">
+        <img
+          src="../assets/images/smoolife.png"
+          id="logo"
+          style="margin-bottom: 0px;"
+        />
+      </div>
+
+      <div class="col" id="sign-in">
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="$router.push('/login')"
+        >
+          Sign in
+        </button>
+      </div>
+    </div> -->
 
     <div class="row d-flex justify-content-center">
       <img
@@ -65,6 +84,7 @@
                 placeholder="Username"
                 aria-label="Username"
                 v-model="username"
+                style="width: 56vw"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -76,6 +96,7 @@
                 placeholder="Name"
                 aria-label="Name"
                 v-model="name"
+                style="width: 56vw"
                 aria-describedby="addon-wrapping"
               />
             </div>
@@ -87,13 +108,13 @@
                 placeholder="Password"
                 aria-label="Password"
                 v-model="password"
+                style="width: 56vw"
                 aria-describedby="addon-wrapping"
               />
             </div>
 
             <div
-              class="row d-flex justify-content-left"
-              style="margin-left:10em; margin-bottom: 0.5em"
+              class="row d-flex justify-content-md-left justify-content-center"
               id="selectModHeader"
             >
               <h4>Select your modules:</h4>
