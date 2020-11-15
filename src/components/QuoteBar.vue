@@ -50,7 +50,7 @@ h4 {
 }
 
 .author {
-  padding: 10px 20px 15px 10px;
+  padding: 10px 20px 5px 10px;
   margin-top: -5px;
   text-align: right;
   font-size: 1em;

@@ -1,199 +1,92 @@
 <template>
-  <div
-    id="signup"
-    style=" height: 100%; overflow-y: scroll, overflow-x: hidden; width: 100%;"
-  >
-    <!-- header -->
-    <div class="area" style="height:100%; width: 100%;overflow: visible">
-      <ul class="circles" style="height:100%; width: 100%; overflow: visible">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-
-    <div class="d-flex justify-content-between">
-      <img
-        src="../assets/images/smoolife.png"
-        id="logo"
-        style="margin-bottom: 0px; width: 10rem"
-      />
-      <div id="sign-in">
-        <button
-          type="button"
-          class="btn btn-primary"
-          @click="$router.push('/login')"
+  <div id="app">
+    <section class="todo-wrapper mr-3">
+      <h1 class="todo-title">
+        <b>Year 1 Semester 2</b>
+      </h1>
+      <b-field>
+        <b-autocomplete
+          rounded
+          v-model="new_impt"
+          :data="filteredDataArray"
+          placeholder="e.g. IS216 Web Application Development II"
+          clearable
+          @select="option => (selected = option)"
+          v-on:keyup.enter="addItem"
         >
-          Sign in
-        </button>
-      </div>
-    </div>
-
-    <!-- <div class="row" id="header">
-      <div class="col ">
-        <img
-          src="../assets/images/smoolife.png"
-          id="logo"
-          style="margin-bottom: 0px;"
-        />
-      </div>
-
-      <div class="col" id="sign-in">
-        <button
-          type="button"
-          class="btn btn-primary"
-          @click="$router.push('/login')"
+          <template slot="empty">No results found</template>
+        </b-autocomplete>
+      </b-field>
+      <!-- <input type="text" class="input-todo" v-bind:class="{ active: new_impt }"
+          placeholder="Exam Dates"
+          v-model="new_impt"
+          v-on:keyup.enter="addItem"
+        /> -->
+      <div class="d-flex justify-content-left">
+        <div
+          class="btnn btnn-add"
+          v-bind:class="{ active: new_impt }"
+          @click="addItem"
         >
-          Sign in
-        </button>
-      </div>
-    </div> -->
-
-    <div class="row d-flex justify-content-center">
-      <img
-        src="../assets/images/corgi_study.gif"
-        style="width: 10%; height: 10%;"
-      />
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <!-- registration details -->
-        <div class="row">
-          <div class="container" id="registration">
-            <div class="row  d-flex justify-content-center">
-              <h1>Create an account</h1>
-            </div>
-
-            <div class="row  d-flex justify-content-center">
-              <input
-                type="text"
-                class="form-control reg-form"
-                placeholder="Username"
-                aria-label="Username"
-                v-model="username"
-                style="width: 56vw"
-                aria-describedby="addon-wrapping"
-              />
-            </div>
-
-            <div class="row  d-flex justify-content-center">
-              <input
-                type="text"
-                class="form-control reg-form"
-                placeholder="Name"
-                aria-label="Name"
-                v-model="name"
-                style="width: 56vw"
-                aria-describedby="addon-wrapping"
-              />
-            </div>
-
-            <div class="row  d-flex justify-content-center">
-              <input
-                type="password"
-                class="form-control reg-form"
-                placeholder="Password"
-                aria-label="Password"
-                v-model="password"
-                style="width: 56vw"
-                aria-describedby="addon-wrapping"
-              />
-            </div>
-
-            <div
-              class="row d-flex justify-content-md-left justify-content-center"
-              id="selectModHeader"
-            >
-              <h4>Select your modules:</h4>
-            </div>
-
-            <!-- add modules -->
-            <div id="vueMagic">
-              <div class="row d-flex justify-content-center">
-                <section>
-                  <b-field>
-                    <b-autocomplete
-                      rounded
-                      v-model="newItem"
-                      :data="filteredDataArray"
-                      placeholder="e.g. IS216 Web Application Development II"
-                      icon="magnify"
-                      clearable
-                      @select="option => (selected = option)"
-                    >
-                      <template slot="empty">No results found</template>
-                    </b-autocomplete>
-                  </b-field>
-                </section>
-
-                <button
-                  type="button"
-                  class="btn btn-outline-primary btn-circle btn-sm text-center"
-                  v-on:click="addNewItem"
-                >
-                  +
-                </button>
-              </div>
-
-              <!-- need to fix width of the area of the list -->
-              <div class="row" style="width: 100%; margin-left: 10em">
-                <ul
-                  style="list-style-type: none; white-space: nowrap; max-width:auto;"
-                >
-                  <li v-for="(item, index) in items" :key="index" id="modStyle">
-                    {{ item }}
-                    <button
-                      type="button"
-                      class="btn btn-outline-dark  btn-circle btn-sm"
-                      @click="deleteFromList(index)"
-                      style="display: inline-block;"
-                    >
-                      -
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- register button -->
-            <div class="row d-flex justify-content-center" id="reg-button">
-              <button
-                type="button"
-                class="btn btn-outline-primary text-center"
-                href="#"
-                @click="submit()"
-              >
-                Register!
-              </button>
-            </div>
-          </div>
+          <h5 class="btn-text">Add module</h5>
         </div>
       </div>
-    </div>
+
+      <div v-if="pending1.length > 0">
+        <p class="status busy">
+          You have {{ pending1.length }} module<span v-if="pending1.length > 1"
+            >s</span
+          >
+          this semester
+        </p>
+        <transition-group name="todo-item" tag="ul" class="todo-list">
+          <li v-for="item1 in pending1" v-bind:key="item1.title">
+            <label v-bind:for="'item_4' + item1.id"></label>
+            <span class="todo-text">{{ item1.title }}</span>
+            <span class="deleteT" @click="deleteItem(item1)"></span>
+          </li>
+        </transition-group>
+      </div>
+
+      <transition name="slide-fade">
+        <p class="status free" v-if="!pending1.length">
+          <img src="../../glassdoor/pusheen.gif" alt="celebration" />You got no
+          modules this semester?
+        </p>
+      </transition>
+
+      <div v-if="completed1.length > 0 && showComplete">
+        <p class="status">Past Important Dates</p>
+        <transition-group name="todo-item" tag="ul" class="todo-list archived">
+          <li v-for="item1 in completed1" v-bind:key="item1.title">
+            <input
+              class="todo-checkbox"
+              v-bind:id="'item_4' + item1.id"
+              v-model="item1.done"
+              type="checkbox"
+            />
+            <label v-bind:for="'item_4' + item1.id"></label>
+            <span class="todo-text">{{ item1.title }}</span>
+            <span class="delete" @click="deleteItem(item1)"></span>
+          </li>
+        </transition-group>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-// import("@/assets/styles/login.css");
+require("@//assets/styles/modplanner.css");
 
 export default {
-  name: "Signup",
+  name: "Important",
   data() {
     return {
-      items: [],
+      imptList: [],
+      new_impt: "",
+      showComplete: false,
+      newItem: "",
+      selected: null,
       mods: [
         "ACCT332 Accounting Thought and Governance",
         "COMM120 Intercultural Communication",
@@ -211,7 +104,7 @@ export default {
         "COR3001 Big Questions(Happiness and Suffering)",
         "COR3301 Ethics and Social Responsibility",
         "COR3304 Ethics and Corporate Responsibility",
-        "CS422 Reasoning Planning and Learning under Uncertainty",
+        "CS422 Reasoning, Planning and Learning under Uncertainty",
         "DSA212 Data Science with R",
         "ECON113 Economics of Globalisation",
         "ECON209 Labour Economics",
@@ -252,7 +145,7 @@ export default {
         "COMM102 Foundations in Strategic Communication",
         "COR-IS1702 Computational Thinking",
         "COR-JPAN2401 Japanese",
-        "COR-MGMT1302 Business Government and Society",
+        "COR-MGMT1302 Business, Government and Society",
         "COR-POSC2604 Politics of South East Asia",
         "COR1301 Leadership and Team Building(SMU-X)",
         "COR1305 Spreadsheet Modeling and Analytics",
@@ -269,7 +162,7 @@ export default {
         "FNCE217 Wealth Management and Advisory",
         "FNCE314 Sustainable Finance",
         "FNCE315 Analytics in Finance And Real Estate",
-        "GA002 Contemporary Asia: Power Diversity & Change",
+        "GA002 Contemporary Asia: Power, Diversity & Change",
         "IDIS001 Analytical Skills",
         "IS215 Digital Business - Technologies and Transformation",
         "IS434 Social Analytics and Applications(SMU-X)",
@@ -307,7 +200,7 @@ export default {
         "ACCT409 Auditing for the Public Sector",
         "ACCT410 Internal Audit(SMU-X)",
         "ACCT420 Forecasting and Forensic Analytics",
-        "ACM102 Art & History II: The Modern Postmodern and the Contemporary",
+        "ACM102 Art & History II: The Modern, Postmodern and the Contemporary",
         "ACM301 Cultural Policy and Practice",
         "ANLY104 Analytics Foundation",
         "COMM246 Crisis Management and Communication",
@@ -347,7 +240,7 @@ export default {
         "IS445 Corporate Banking Technology and Blockchain",
         "LAW4002 Legal Analytics and Artificial Intelligence in Law(SMU-X)",
         "LAW405 Information Technology and the Law",
-        "LAW469 Introduction to Chinese History Culture Economy Politics and Law",
+        "LAW469 Introduction to Chinese History, Culture, Economy, Politics and Law",
         "LAW486 Privacy and Data Protection Law",
         "LAW491 Law and Digital Commerce(SMU-X)",
         "LAW499 Legal Commentaries for Practice (Advanced Legal Writing)(SMU-X)",
@@ -402,7 +295,7 @@ export default {
         "QF305 Global Financial Risk Management",
         "STAT203 Financial Mathematics",
         "ACCT331 Audit and Assurance",
-        "COR1703 Managing in a Volatile Uncertain Complex and Ambiguous Context(SMU-X)",
+        "COR1703 Managing in a Volatile, Uncertain, Complex and Ambiguous Context(SMU-X)",
         "COR3303 Ethics and Social Responsibility for Law",
         "CS301 IT Solution Architecture",
         "ECON235 International Macroeconomics",
@@ -431,7 +324,7 @@ export default {
         "LAW101 Contract Law 1",
         "LAW106 Legal Research and Writing I",
         "LAW108 The Singapore Legal System",
-        "LAW466 Evidence Litigation and the Criminal Process",
+        "LAW466 Evidence, Litigation and the Criminal Process",
         "LAW476 Medical Law and Health Policy",
         "LAW489 Introduction to Law and Technology",
         "MGMT304 Entrepreneurial Leadership in Ethnic Chinese Business",
@@ -457,70 +350,22 @@ export default {
         "ACCT416 Advanced Audit & Assurance",
         "POSC322 Mass Media and Public Opinion Research",
         "ACCT423 Audit Analytics(SMU-X)",
-        "COR2202 Science Environment and Empire",
+        "COR2202 Science, Environment and Empire",
         "COR2603 Singapore: Imagining The Next Fifty Years",
         "FTW100 Finishing Touch Workshops (Year One)",
         "HUMN017 A Cultural Introduction to India: From Indus Valley to Infosys"
-      ],
-      newItem: "",
-      selected: null,
-      details: [],
-      username: "",
-      name: "",
-      password: "",
-      modulesSelected: []
+      ]
     };
   },
-  methods: {
-    deleteFromList(index) {
-      this.items.splice(index, 1);
-    },
-    addNewItem() {
-      if (this.newItem != "") {
-        this.items.push(this.newItem);
-        this.newItem = "";
-      } else {
-        alert("Please provide at least 1 module.");
-      }
-    },
-    submit() {
-      if (
-        this.username.length > 0 &&
-        this.password.length > 0 &&
-        this.name.length > 0 &&
-        this.items.length > 0
-      ) {
-        this.details = {
-          Username: this.username,
-          Name: this.name,
-          Password: this.password,
-          Modules: this.items
-        };
-        let data = JSON.stringify(this.details);
-        window.localStorage.setItem(this.username, data);
-        this.modulesSelected.push(this.items)
-        window.localStorage.setItem("modules", this.modulesSelected);
-        console.log(window.localStorage.getItem("modules"))
-        window.location.href = "/#/login";
-      } else {
-        if (this.username.length < 1) {
-          alert("Please provide a username.");
-        }
-        if (this.password.length < 1) {
-          alert("Please provide a password.");
-        }
-        if (this.name.length < 1) {
-          alert("Please provide your name.");
-        }
-        if (this.items.length < 1) {
-          alert("Please provide at least 1 module.");
-        }
-        for (var i in this.items) {
-          if (this.items[i] === "") {
-            alert("Please provide at least 1 module.");
-          }
-        }
-      }
+  mounted() {
+    this.getImpt();
+  },
+  watch: {
+    imptList: {
+      handler: function(updatedList1) {
+        localStorage.setItem("y1s2_list", JSON.stringify(updatedList1));
+      },
+      deep: true
     }
   },
   computed: {
@@ -530,126 +375,94 @@ export default {
           option
             .toString()
             .toLowerCase()
-            .indexOf(this.newItem.toLowerCase()) >= 0
+            .indexOf(this.new_impt.toLowerCase()) >= 0
         );
       });
+    },
+
+    pending1: function() {
+      return this.imptList.filter(function(item1) {
+        return !item1.done;
+      });
+    },
+    completed1: function() {
+      return this.imptList.filter(function(item1) {
+        return item1.done;
+      });
+    },
+    completedPercentage: function() {
+      return (
+        Math.floor((this.completed1.length / this.imptList.length) * 100) + "%"
+      );
+    },
+    today: function() {
+      var weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ];
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0!
+      var yyyy = today.getFullYear();
+
+      if (dd < 10) {
+        dd = "0" + dd;
+      }
+
+      if (mm < 10) {
+        mm = "0" + mm;
+      }
+
+      today = {
+        day: weekday[today.getDay()],
+        date: dd + "/" + mm + "/" + yyyy
+      };
+
+      return today;
+    }
+  },
+  methods: {
+    // get all todos when loading the page
+    getImpt() {
+      if (localStorage.getItem("y1s2_list")) {
+        this.imptList = JSON.parse(localStorage.getItem("y1s2_list"));
+      }
+    },
+    // add a new item
+    addItem() {
+      // validation check
+      if (this.new_impt) {
+        this.imptList.unshift({
+          id: this.imptList.length,
+          title: this.new_impt,
+          done: false
+        });
+      }
+      // reset new_todo
+      this.new_impt = "";
+      // save the new item in localstorage
+      return true;
+    },
+    deleteItem(item1) {
+      this.imptList.splice(this.imptList.indexOf(item1), 1);
+    },
+    toggleShowComplete() {
+      this.showComplete = !this.showComplete;
+    },
+    clearAll() {
+      this.imptList = [];
     }
   }
 };
-// import("@/assets/styles/login.css");
-require("@/assets/styles/login.css");
-// @import "assets/styles/login.css"
 </script>
 
-<style>
-#header {
-  /* margin-top: 20px; */
-  /* padding: 0; */
-}
-#logo {
-  max-width: 50%;
-  max-height: 50%;
-  margin-left: 20px;
-  margin-top: 20px !important;
-}
-
-#sign-in {
-  margin-top: 20px;
-  margin-right: 20px;
-  text-align: right;
-}
-
-#blank-space {
-  height: 40px;
-}
-
-#dropdown {
-  margin-top: 3%;
-}
-.reg-form {
-  width: 75%;
-  font-size: large;
-  margin-top: 3%;
-}
-
-.dropdown-toggle {
-  margin-top: 3%;
-}
-
-#dDSchool {
-  margin-left: 1%;
-}
-
-#selectModHeader {
-  margin-top: 3%;
-}
-
-.btn-circle.btn-sm {
-  width: 30px;
-  height: 30px;
-  padding: 0px 0px;
-  border-radius: 15px;
-  font-size: large;
-  text-align: center;
-  margin-left: 1%;
-  margin-top: 0.5%;
-}
-
-#addModule {
-  margin-top: 3%;
-}
-
-.input-bar-item {
-  display: table-cell;
-}
-
-#modAdd {
-  width: 70%;
-}
-
-#courseText {
-  width: 50%;
-}
-
-#signup {
-  /* animation: bgcolor infinite 14s; */
-}
-
-/* @keyframes bgcolor {
-  0% {
-    background: #ffdcce;
-  }
-  20% {
-    background: #dcee9d;
-  }
-  60% {
-    background: #ffe8ff;
-  }
-  80% {
-    background: #cdcdf8;
-  }
-  100% {
-    background: #dcf1c8;
-  }
-} */
-
-.btn-primary,
-.btn-secondary {
-  background-color: #6987c9;
-  border: #6987c9;
-}
-
-#registration {
-  margin-bottom: 100px;
-}
-
-.autocomplete {
-  width: 54vw;
-  margin-bottom: 20px;
-}
-
-#modStyle {
-  margin-left: auto;
-  /* margin-right: auto; */
+<style scoped>
+.control.has-icons-right .icon.is-right {
+  margin-top: 16px;
 }
 </style>
