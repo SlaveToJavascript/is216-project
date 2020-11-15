@@ -199,7 +199,10 @@
         </b-col>
         <b-col cols="3">
           <div class="box mt-3" id="schedule">
-            <ModuleCard />
+            <div class="d-flex align-items-center flex-column">
+              <h4 class="mb-4">Module Videos 🎥</h4>
+              <ModuleCard v-for="mod in modules" :key="mod" v-bind:moduleFullName="mod" />
+            </div>
           </div>
         </b-col>
       </b-row>
@@ -234,7 +237,8 @@ export default {
       todoList: [],
       new_todo: "",
       showComplete: false,
-      tasksDone: 0
+      tasksDone: 0,
+      modules: []
     };
   },
   watch: {
@@ -439,9 +443,15 @@ export default {
     initparticles();
   },
   created() {
+    // display name on dashboard
     let username = window.localStorage.getItem("username");
     let credentials = JSON.parse(window.localStorage.getItem(username));
     this.name = credentials["Name"];
+
+    // get no. of mods
+    // console.log(JSON.parse(window.localStorage.getItem(username)))
+    this.modules = JSON.parse(window.localStorage.getItem(username))["Modules"]
+    console.log(this.modules)
   }
 };
 </script>

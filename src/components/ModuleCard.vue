@@ -1,215 +1,44 @@
 <template>
-  <div class="d-flex align-items-center flex-column">
-    <h4 class="mb-4">Module Videos 🎥</h4>
-    <div class="card">
-      <div class="card-body text-center">
-        <img
-          src="../../cards/image/1.gif"
-          width="40%"
-          style="margin-top: 10px;"
-        />
-        <div class="card-content">
-          <div
-            class="card-title text-center"
-            style="font-size:medium; font-weight: bold;"
-          >
-            IS216
-          </div>
-          <div class="card-text mb-3" style="font-size: small;">
-            Web Application Development II
-          </div>
-        </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show(1)">
-          Search for Videos
-        </button>
-        <modal
-          name="videos1"
-          :width="1400"
-          :height="600"
-          :draggable="true"
-          :resizable="true"
+  <div class="card">
+    <div class="card-body text-center">
+      <img
+        src="../../cards/image/1.gif"
+        width="40%"
+        style="margin-top: 10px;"
+      />
+      <div class="card-content">
+        <div
+          class="card-title text-center"
+          style="font-size:medium; font-weight: bold;"
         >
-          <div class="mt-2">
-            <YoutubeSearch @click="initVideos(1)" v-on:search="search" />
-
-            <!-- Videos -->
-            <YoutubeResults
-              v-if="videos.length > 0"
-              v-bind:videos="videos"
-              v-bind:reformattedSearchString="reformattedSearchString"
-            />
-          </div>
-        </modal>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body text-center">
-        <img
-          src="../../cards/image/2.gif"
-          width="40%"
-          style="margin-top: 10px;"
-        />
-        <div class="card-content">
-          <div
-            class="card-title text-center"
-            style="font-size:medium; font-weight: bold;"
-          >
-            IS216
-          </div>
-          <div class="card-text mb-3" style="font-size: small;">
-            Web Application Development II
-          </div>
+          {{modCode}}
         </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show(2)">
-          Search for Videos
-        </button>
-        <modal
-          name="videos2"
-          :width="1400"
-          :height="600"
-          :draggable="true"
-          :resizable="true"
-        >
-          <div class="mt-2">
-            <YoutubeSearch @click="initVideos(2)" v-on:search="search" />
-
-            <!-- Videos -->
-            <YoutubeResults
-              v-if="videos.length > 0"
-              v-bind:videos="videos"
-              v-bind:reformattedSearchString="reformattedSearchString"
-            />
-          </div>
-        </modal>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body text-center">
-        <img
-          src="../../cards/image/3.gif"
-          width="40%"
-          style="margin-top: 10px;"
-        />
-        <div class="card-content">
-          <div
-            class="card-title text-center"
-            style="font-size:medium; font-weight: bold;"
-          >
-            IS216
-          </div>
-          <div class="card-text mb-3" style="font-size: small;">
-            Web Application Development II
-          </div>
+        <div class="card-text mb-3" style="font-size: small;">
+          {{modName}}
         </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show(3)">
-          Search for Videos
-        </button>
-        <modal
-          name="videos3"
-          :width="1400"
-          :height="600"
-          :draggable="true"
-          :resizable="true"
-        >
-          <div class="mt-2">
-            <YoutubeSearch @click="initVideos(3)" v-on:search="search" />
-
-            <!-- Videos -->
-            <YoutubeResults
-              v-if="videos.length > 0"
-              v-bind:videos="videos"
-              v-bind:reformattedSearchString="reformattedSearchString"
-            />
-          </div>
-        </modal>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-body text-center">
-        <img
-          src="../../cards/image/4.gif"
-          width="40%"
-          style="margin-top: 10px;"
-        />
-        <div class="card-content">
-          <div
-            class="card-title text-center"
-            style="font-size:medium; font-weight: bold;"
-          >
-            IS216
-          </div>
-          <div class="card-text mb-3" style="font-size: small;">
-            Web Application Development II
-          </div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-outline-primary" @click="show(1)">
+        Search for Videos
+      </button>
+      <modal
+        name="videos1"
+        :width="1400"
+        :height="600"
+        :draggable="true"
+        :resizable="true"
+      >
+        <div class="mt-2">
+          <YoutubeSearch @click="initVideos(1)" v-on:search="search" />
+
+          <!-- Videos -->
+          <YoutubeResults
+            v-if="videos.length > 0"
+            v-bind:videos="videos"
+            v-bind:reformattedSearchString="reformattedSearchString"
+          />
         </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show(4)">
-          Search for Videos
-        </button>
-        <modal
-          name="videos4"
-          :width="1400"
-          :height="600"
-          :draggable="true"
-          :resizable="true"
-        >
-          <div class="mt-2">
-            <YoutubeSearch @click="initVideos(4)" v-on:search="search" />
-
-            <!-- Videos -->
-            <YoutubeResults
-              v-if="videos.length > 0"
-              v-bind:videos="videos"
-              v-bind:reformattedSearchString="reformattedSearchString"
-            />
-          </div>
-        </modal>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body text-center">
-        <img
-          src="../../cards/image/5.gif"
-          width="40%"
-          style="margin-top: 10px;"
-        />
-        <div class="card-content">
-          <div
-            class="card-title text-center"
-            style="font-size:medium; font-weight: bold;"
-          >
-            IS216
-          </div>
-          <div class="card-text mb-3" style="font-size: small;">
-            Web Application Development II
-          </div>
-        </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" @click="show(5)">
-          Search for Videos
-        </button>
-        <modal
-          name="videos5"
-          :width="1400"
-          :height="600"
-          :draggable="true"
-          :resizable="true"
-        >
-          <div class="mt-2">
-            <YoutubeSearch @click="initVideos(5)" v-on:search="search" />
-
-            <!-- Videos -->
-            <YoutubeResults
-              v-if="videos.length > 0"
-              v-bind:videos="videos"
-              v-bind:reformattedSearchString="reformattedSearchString"
-            />
-          </div>
-        </modal>
-      </div>
+      </modal>
     </div>
   </div>
 </template>
@@ -225,11 +54,7 @@ Vue.use(VueAxios, axios);
 export default {
   name: "ModuleCard",
   props: {
-    mod1: String,
-    mod2: String,
-    mod3: String,
-    mod4: String,
-    mod5: String
+    moduleFullName: String,
   },
   components: {
     YoutubeResults,
@@ -249,6 +74,14 @@ export default {
       searchString: "",
       accordionRef: ""
     };
+  },
+  computed: {
+    modCode() {
+      return this.moduleFullName.split(" ")[0]
+    },
+    modName() {
+      return this.moduleFullName.split(" ").slice(1,).join(" ")
+    }
   },
   created() {
     this.initVideos(1);

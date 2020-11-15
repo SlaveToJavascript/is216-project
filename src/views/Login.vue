@@ -17,6 +17,13 @@
       <li></li>
       <li></li>
 
+      <!-- to redirect to sign in page -->
+      <div class="col" id="sign-up">
+        <button type="button" class="btn btn-outline-primary">
+          <b-link :to="{ name: 'Signup' }">Sign up</b-link>
+        </button>
+      </div>
+
       <div class="human">
         <img class="person" src="../assets/images/working_person.png" />
       </div>
@@ -118,4 +125,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#sign-up {
+  margin-top: 20px;
+  margin-right: 20px;
+  text-align: right;
+}
+</style>
