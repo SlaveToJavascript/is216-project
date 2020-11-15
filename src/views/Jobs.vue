@@ -87,6 +87,16 @@ export default {
     Navbar
   },
   mounted() {},
+  created() {
+    if (window.localStorage) {
+      if (!localStorage.getItem("firstReLoad")) {
+        localStorage["firstReLoad"] = true;
+        window.location.reload();
+      } else {
+        localStorage.removeItem("firstReLoad");
+      }
+    }
+  },
   data() {
     return {
       searchTerm: "",
